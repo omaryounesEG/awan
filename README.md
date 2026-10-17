@@ -14,6 +14,13 @@
 
 </div>
 
+<div align="center">
+<img src="screenshots/01-home.png" width="23%" alt="الرئيسية" />
+<img src="screenshots/02-recitation.png" width="23%" alt="تصحيح التلاوة" />
+<img src="screenshots/03-updates.png" width="23%" alt="التحديث المصغّر" />
+<img src="screenshots/04-about.png" width="23%" alt="عن التطبيق" />
+</div>
+
 ---
 
 ## 🌙 بالعربية

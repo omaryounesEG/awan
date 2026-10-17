@@ -74,3 +74,6 @@ key.properties
 # Local experiments
 *.orig
 *.rej
+
+# QA screenshot dump (390+ files, ~94 MB) — kept out of the repo.
+/docs/screens/
