@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Debug builds only.
+
+  While the catalogue is being filled, the library CDN is a folder served from the
+  developer's machine: 10.0.2.2 is the emulator's route to the host loopback. The
+  platform default (no cleartext) is kept for release builds, so nothing that ships
+  allows plain HTTP.
+-->
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">10.0.2.2</domain>
+        <domain includeSubdomains="false">localhost</domain>
+        <domain includeSubdomains="false">127.0.0.1</domain>
+    </domain-config>
+</network-security-config>

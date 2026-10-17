@@ -1,0 +1,74 @@
+{
+  "source": "api.quran.com v4",
+  "tafsirs": [
+    {
+      "id": 16,
+      "slug": "muyassar",
+      "name": "Tafsir Muyassar",
+      "author": "الميسر",
+      "language": "ar",
+      "bundled": true,
+      "size_kb": 2508
+    },
+    {
+      "id": 94,
+      "slug": "ar-tafsir-al-baghawi",
+      "name": "Tafseer Al-Baghawi",
+      "author": "Baghawy",
+      "language": "ar",
+      "bundled": false,
+      "size_kb": null,
+      "download_url": "https://api.quran.com/api/v4/quran/tafsirs/94?chapter_number={chapter}"
+    },
+    {
+      "id": 93,
+      "slug": "ar-tafsir-al-wasit",
+      "name": "Al-Tafsir al-Wasit (Tantawi)",
+      "author": "Waseet",
+      "language": "ar",
+      "bundled": false,
+      "size_kb": null,
+      "download_url": "https://api.quran.com/api/v4/quran/tafsirs/93?chapter_number={chapter}"
+    },
+    {
+      "id": 90,
+      "slug": "ar-tafseer-al-qurtubi",
+      "name": "Al-Qurtubi",
+      "author": "Qurtubi",
+      "language": "ar",
+      "bundled": false,
+      "size_kb": null,
+      "download_url": "https://api.quran.com/api/v4/quran/tafsirs/90?chapter_number={chapter}"
+    },
+    {
+      "id": 15,
+      "slug": "ar-tafsir-al-tabari",
+      "name": "Tafsir al-Tabari",
+      "author": "Tabari",
+      "language": "ar",
+      "bundled": false,
+      "size_kb": null,
+      "download_url": "https://api.quran.com/api/v4/quran/tafsirs/15?chapter_number={chapter}"
+    },
+    {
+      "id": 14,
+      "slug": "ar-tafsir-ibn-kathir",
+      "name": "Tafsir Ibn Kathir",
+      "author": "Hafiz Ibn Kathir",
+      "language": "ar",
+      "bundled": false,
+      "size_kb": null,
+      "download_url": "https://api.quran.com/api/v4/quran/tafsirs/14?chapter_number={chapter}"
+    },
+    {
+      "id": 91,
+      "slug": "ar-tafseer-al-saddi",
+      "name": "السعدي Al-Sa'di",
+      "author": "Saddi",
+      "language": "ar",
+      "bundled": false,
+      "size_kb": null,
+      "download_url": "https://api.quran.com/api/v4/quran/tafsirs/91?chapter_number={chapter}"
+    }
+  ]
+}

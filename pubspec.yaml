@@ -1,0 +1,157 @@
+name: awan
+description: "أَوَان | Awan — مواقيت الصلاة والقرآن: Islamic super app (offline-first, 60fps, battery friendly)."
+publish_to: 'none'
+
+version: 1.22.0+26
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # state management (Clean Architecture presentation layer)
+  flutter_riverpod: ^2.6.1
+
+  # data layer
+  isar: ^3.1.0+1
+  isar_flutter_libs: ^3.1.0+1
+  shared_preferences: 2.3.2
+  path_provider: ^2.1.5
+
+  # networking
+  dio: ^5.11.1
+  connectivity_plus: 6.0.5
+
+  # prayer engine
+  adhan_dart: ^2.0.1
+  timezone: 0.9.4
+  flutter_local_notifications: 17.2.4
+  workmanager: ^0.7.0
+  permission_handler: 11.3.1
+
+  # maps / places
+  google_maps_flutter: 2.7.0
+  flutter_map: ^7.0.2
+  latlong2: ^0.9.1
+
+  # content / parsing
+  archive: ^4.4.0
+  xml: ^6.5.0
+
+
+  # i18n / misc
+  intl: ^0.19.0
+  hijri: ^3.0.1
+  collection: ^1.18.0
+  equatable: ^3.0.0
+  dartz: ^0.10.1
+  flutter_screenutil: ^5.9.3
+  google_fonts: ^6.3.0
+  riverpod_annotation: ^2.6.1
+  url_launcher: ^6.3.1
+  graphview: ^1.5.1
+  sherpa_onnx: ^1.13.8
+  sqflite: ^2.4.1
+  path: ^1.9.0
+  crypto: ^3.0.7
+
+# graphview 1.5.1 calls `Color.withValues`, which needs Flutter 3.27+; this project
+# is on 3.24.3. third_party/graphview is the same package with that one call
+# switched to `withOpacity` — see third_party/graphview/README_AWAN_SHIM.md.
+dependency_overrides:
+  graphview:
+    path: third_party/graphview
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  build_runner: ^2.4.13
+  isar_generator: ^3.1.0+1
+  riverpod_generator: ^2.4.0
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.4.1
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+  assets:
+    - assets/data/
+    # The library archives travel with the app (see `BundledLibraryIndex`), so
+    # the books open with no network and nothing to configure.
+    - assets/library/books/
+    - assets/addons/
+    - assets/images/
+    # Offline semantic search: the int8 vector matrix (2.4 MB) and the
+    # tokenizer. The 118 MB encoder itself is downloaded once, not bundled.
+    - assets/semantic/
+    # One recorded ayah, 6 s, 16 kHz mono: the demo button and the on-device
+    # verification of the recitation pipeline.
+    - assets/recitation/
+
+  fonts:
+    - family: IBMPlexSansArabic
+      fonts:
+        - asset: assets/fonts/IBMPlexSansArabic-Light.ttf
+          weight: 300
+        - asset: assets/fonts/IBMPlexSansArabic-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/IBMPlexSansArabic-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/IBMPlexSansArabic-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/IBMPlexSansArabic-Bold.ttf
+          weight: 700
+    - family: UthmanicHafs1Ver18
+      fonts:
+        - asset: assets/fonts/UthmanicHafs1Ver18.ttf
+    - family: AmiriQuran
+      fonts:
+        - asset: assets/fonts/AmiriQuran-Regular.ttf
+    - family: ScheherazadeNew
+      fonts:
+        - asset: assets/fonts/ScheherazadeNew-Regular.ttf
+
+# ---------------------------------------------------------------------------
+# App icon — regenerate with:  dart run flutter_launcher_icons
+#
+# Two paths on purpose:
+#  * legacy square icon  = the full lockup on the app's sand, so launchers
+#    without adaptive-icon support still show the wordmark;
+#  * adaptive icon       = the mark alone (dome + crescent + book), centred
+#    inside the safe zone, so no launcher mask can clip the dome's point.
+# ---------------------------------------------------------------------------
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "img/icon_legacy.png"
+  adaptive_icon_background: "#F5F2EB"
+  adaptive_icon_foreground: "img/adaptive_foreground.png"
+  remove_alpha_ios: true
+  min_sdk_android: 23
+
+# ---------------------------------------------------------------------------
+# Splash — regenerate with:  dart run flutter_native_splash:create
+#
+# The mark on the same sand the app opens on, so the launch looks like one
+# continuous surface rather than a white flash; OLED black in dark mode.
+# ---------------------------------------------------------------------------
+flutter_native_splash:
+  color: "#F5F2EB"
+  color_dark: "#000000"
+  image: img/logo_mark.png
+  image_dark: img/logo_mark.png
+  android: true
+  ios: false
+  android_12:
+    image: img/adaptive_foreground.png
+    color: "#F5F2EB"
+    color_dark: "#000000"
+    icon_background_color: "#F5F2EB"

@@ -1,0 +1,73 @@
+Analyzing Awan_Pro...                                           
+
+warning - Unused import: 'package:awan/core/l10n/l10n.dart' - lib\app.dart:6:8 - unused_import
+  error - Undefined name 'appSettingsProvider' - lib\app.dart:27:40 - undefined_identifier
+  error - The getter 'appTitle' isn't defined for the type 'AppLocalizations' - lib\app.dart:35:42 - undefined_getter
+  error - Undefined name 'bootstrapProvider' - lib\app.dart:102:20 - undefined_identifier
+  error - The method 'registerPeriodic' isn't defined for the type 'BackgroundSyncService' - lib\app.dart:105:33 - undefined_method
+  error - The function 'AppLocalizationsAr' isn't defined - lib\core\l10n\l10n.dart:17:7 - undefined_function
+  error - The function 'AppLocalizationsEn' isn't defined - lib\core\l10n\l10n.dart:18:7 - undefined_function
+  error - Abstract classes can't be instantiated - lib\core\network\network_info.dart:61:31 - instantiate_abstract_class
+  error - Target of URI doesn't exist: 'models.dart' - lib\core\services\isar_service.dart:5:8 - uri_does_not_exist
+  error - Undefined name 'CachedPrayerDaySchema' - lib\core\services\isar_service.dart:18:9 - undefined_identifier
+  error - Undefined name 'MosqueCacheEntrySchema' - lib\core\services\isar_service.dart:19:9 - undefined_identifier
+  error - Undefined name 'QuranMarkSchema' - lib\core\services\isar_service.dart:20:9 - undefined_identifier
+  error - Undefined name 'ReadingPositionSchema' - lib\core\services\isar_service.dart:21:9 - undefined_identifier
+  error - Undefined name 'LibraryBookSchema' - lib\core\services\isar_service.dart:22:9 - undefined_identifier
+  error - Undefined name 'TafsirPackageEntrySchema' - lib\core\services\isar_service.dart:23:9 - undefined_identifier
+  error - The getter 'mosqueCacheEntrys' isn't defined for the type 'Isar' - lib\core\services\isar_service.dart:39:18 - undefined_getter
+  error - The getter 'cachedPrayerDays' isn't defined for the type 'Isar' - lib\core\services\isar_service.dart:50:18 - undefined_getter
+   info - Use 'const' with the constructor to improve performance - lib\core\services\notifications\notification_service.dart:85:11 - prefer_const_constructors
+   info - Use 'const' for final variables initialized to a constant value - lib\core\settings\app_settings.dart:253:5 - prefer_const_declarations
+  error - The method 'withValues' isn't defined for the type 'Color' - lib\core\theme\app_theme.dart:97:43 - undefined_method
+  error - The method 'withValues' isn't defined for the type 'Color' - lib\core\theme\app_theme.dart:200:31 - undefined_method
+   info - Dangling library doc comment - lib\core\utils\arabic_text.dart:1:1 - dangling_library_doc_comments
+   info - The declaration '_tashkeelRanges' isn't referenced - lib\core\utils\arabic_text.dart:7:14 - unused_element
+  error - Undefined name 'tashkeelRanges' - lib\core\utils\arabic_text.dart:10:36 - undefined_identifier
+  error - The type 'L' of the thrown expression must be assignable to 'Object' - lib\core\utils\extensions.dart:42:38 - throw_of_invalid_type
+  error - The type 'L' of the thrown expression must be assignable to 'Object' - lib\core\utils\extensions.dart:47:30 - throw_of_invalid_type
+  error - Undefined name 'appSettingsProvider' - lib\features\home\presentation\screens\home_screen.dart:30:40 - undefined_identifier
+  error - Undefined name 'appSettingsProvider' - lib\features\home\presentation\screens\home_screen.dart:43:26 - undefined_identifier
+  error - Undefined name 'appSettingsProvider' - lib\features\home\presentation\screens\home_screen.dart:49:26 - undefined_identifier
+  error - The named parameter 'date' isn't defined - lib\features\home\presentation\screens\home_screen.dart:62:25 - undefined_named_parameter
+  error - The named parameter 'elderly' isn't defined - lib\features\home\presentation\screens\home_screen.dart:64:28 - undefined_named_parameter
+  error - The named parameter 'day' is required, but there's no corresponding argument - lib\features\home\presentation\screens\home_screen.dart:105:21 - missing_required_argument
+  error - The named parameter 'prayer' is required, but there's no corresponding argument - lib\features\home\presentation\screens\home_screen.dart:105:21 - missing_required_argument
+  error - The named parameter 'name' isn't defined - lib\features\home\presentation\screens\home_screen.dart:106:23 - undefined_named_parameter
+  error - The named parameter 'at' isn't defined - lib\features\home\presentation\screens\home_screen.dart:107:23 - undefined_named_parameter
+  error - The named parameter 'localeCode' isn't defined - lib\features\home\presentation\screens\home_screen.dart:108:23 - undefined_named_parameter
+  error - The named parameter 'elderly' isn't defined - lib\features\home\presentation\screens\home_screen.dart:109:23 - undefined_named_parameter
+  error - Undefined class 'AppLocation' - lib\features\home\presentation\widgets\hijri_header.dart:12:11 - undefined_class
+  error - The argument type 'FutureProvider<DayPrayerTimes>' can't be assigned to the parameter type 'ProviderListenable<FutureOr<DayPrayerTimes>>'.  - lib\features\prayer_engine\presentation\providers\prayer_providers.dart:154:25 - argument_type_not_assignable
+  error - Undefined name 'appSettingsProvider' - lib\features\prayer_engine\presentation\screens\monthly_timetable_screen.dart:39:40 - undefined_identifier
+  error - Undefined name 'settingsProvider' - lib\features\prayer_engine\presentation\screens\monthly_timetable_screen.dart:72:29 - undefined_identifier
+  error - The method 'withValues' isn't defined for the type 'Color' - lib\features\prayer_engine\presentation\screens\monthly_timetable_screen.dart:128:55 - undefined_method
+  error - The method 'withValues' isn't defined for the type 'Color' - lib\features\prayer_engine\presentation\screens\monthly_timetable_screen.dart:148:49 - undefined_method
+  error - Undefined name 'appSettingsProvider' - lib\features\prayer_engine\presentation\screens\qibla_screen.dart:24:40 - undefined_identifier
+  error - Undefined name 'settingsProvider' - lib\features\prayer_engine\presentation\screens\qibla_screen.dart:27:21 - undefined_identifier
+  error - Undefined name 'settingsProvider' - lib\features\prayer_engine\presentation\screens\qibla_screen.dart:28:21 - undefined_identifier
+  error - The method 'prayerLabel' isn't defined for the type 'NextPrayerCard' - lib\features\prayer_engine\presentation\widgets\next_prayer_card.dart:41:31 - undefined_method
+  error - The method 'formatClock' isn't defined for the type 'NextPrayerCard' - lib\features\prayer_engine\presentation\widgets\next_prayer_card.dart:94:29 - undefined_method
+  error - The method 'prayerLabel' isn't defined for the type 'PrayerTile' - lib\features\prayer_engine\presentation\widgets\prayer_tile.dart:49:9 - undefined_method
+  error - The method 'formatClock' isn't defined for the type 'PrayerTile' - lib\features\prayer_engine\presentation\widgets\prayer_tile.dart:72:13 - undefined_method
+   info - Dangling library doc comment - lib\features\quran_tafseer\domain\entities\quran_entities.dart:1:1 - dangling_library_doc_comments
+warning - Unused import: 'package:awan/core/constants/app_constants.dart' - lib\features\settings\presentation\screens\about_screen.dart:4:8 - unused_import
+  error - Undefined name 'appSettingsProvider' - lib\features\settings\presentation\screens\settings_screen.dart:28:40 - undefined_identifier
+  error - Undefined name 'appSettingsProvider' - lib\features\settings\presentation\screens\settings_screen.dart:66:31 - undefined_identifier
+  error - Undefined name 'appSettingsProvider' - lib\features\settings\presentation\screens\settings_screen.dart:79:27 - undefined_identifier
+  error - Undefined name 'monthPrayerTimesProvider' - lib\features\settings\presentation\screens\settings_screen.dart:258:20 - undefined_identifier
+  error - Undefined name 'monthPrayerTimesProvider' - lib\features\settings\presentation\screens\settings_screen.dart:278:20 - undefined_identifier
+  error - The named parameter 'localeCode' is required, but there's no corresponding argument - lib\features\settings\presentation\screens\settings_screen.dart:393:45 - missing_required_argument
+  error - Too many positional arguments: 1 expected, but 3 found - lib\features\settings\presentation\screens\settings_screen.dart:393:61 - extra_positional_arguments_could_be_named
+  error - Undefined name 'appSettingsProvider' - lib\features\shell\presentation\app_shell.dart:76:40 - undefined_identifier
+   info - Use 'const' literals as arguments to constructors of '@immutable' classes - lib\features\shell\presentation\app_shell.dart:82:19 - prefer_const_literals_to_create_immutables
+  error - Undefined name 'appSettingsProvider' - lib\features\shell\presentation\app_shell.dart:114:28 - undefined_identifier
+  error - Undefined name 'appSettingsProvider' - lib\features\shell\presentation\app_shell.dart:132:40 - undefined_identifier
+  error - Undefined name 'appSettingsProvider' - lib\features\shell\presentation\app_shell.dart:191:28 - undefined_identifier
+  error - Undefined name 'appSettingsProvider' - lib\features\shell\presentation\app_shell.dart:201:37 - undefined_identifier
+  error - Undefined name 'appSettingsProvider' - lib\features\shell\presentation\app_shell.dart:207:37 - undefined_identifier
+  error - Undefined name 'appSettingsProvider' - lib\features\tasbih\presentation\screens\tasbih_screen.dart:69:40 - undefined_identifier
+warning - Unused import: 'package:awan/main.dart' - test\widget_test.dart:11:8 - unused_import
+  error - The name 'MyApp' isn't a class - test\widget_test.dart:16:35 - creation_with_non_type
+
+69 issues found. (ran in 3.5s)

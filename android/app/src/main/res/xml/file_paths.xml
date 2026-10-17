@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The only thing this app ever exposes to another process: the APK it just
+     downloaded, in its own cache dir, one file at a time. Nothing else on the
+     device is reachable through this provider. -->
+<paths>
+    <cache-path name="updates" path="updates/" />
+</paths>

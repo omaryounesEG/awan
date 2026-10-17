@@ -1,0 +1,76 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# ---------------------------------------------------------------- added
+# Build output and releases never belong in git: the .apk in dist/ is a
+# release asset, not source, and it is 93 MB.
+/dist/
+/android/.gradle/
+/android/app/build/
+/android/local.properties
+/ios/Pods/
+/ios/.symlinks/
+/ios/Flutter/Generated.xcconfig
+/ios/Flutter/flutter_export_environment.sh
+
+# Signing material must never be committed.
+*.jks
+*.keystore
+key.properties
+*.p12
+*.mobileprovision
+
+# Data pipelines download into these; they are caches, not sources.
+/tools/cdn/
+/tools/cdn_v2/
+/tools/newbooks/
+/tools/stage/
+/tools/openiti_sample/
+/tools/_fixture.py
+/build_rec.log
+/build_*.log
+
+# Local experiments
+*.orig
+*.rej

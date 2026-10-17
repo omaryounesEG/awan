@@ -1,0 +1,79 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.saip.awan"
+    // Pinned to 35 rather than `flutter.compileSdkVersion` (34): workmanager and
+    // flutter_plugin_android_lifecycle are built against 35, and their merged
+    // resources reference `android:attr/lStar`, which fails the release AAPT step
+    // with "resource android:attr/lStar not found" when compiling against 34.
+    compileSdk = 35
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+        // flutter_local_notifications uses java.time for scheduled alarms; on
+        // API < 26 that needs the desugared backport. (Groovy DSL: no `is`.)
+        coreLibraryDesugaringEnabled = true
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId = "com.saip.awan"
+        // You can update the following values to match your application needs.
+        // For more information, see: https://flutter.dev/to/review-gradle-config.
+        // 23 is the floor for the native ringer/location channels and avoids the
+        // permission-shim code paths of older releases.
+        minSdk = 23
+        targetSdk = flutter.targetSdkVersion
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    buildTypes {
+        release {
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig = signingConfigs.debug
+            // Shrinking is what made flutter_local_notifications' Gson cache fail
+            // with "Missing type parameter"; the keep rules below plus this flag
+            // keep the plugin's reflection intact (see proguard-rules.pro).
+            minifyEnabled = false
+            shrinkResources = false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
+android {
+    // sherpa-onnx ships its own ONNX Runtime shared object, and the semantic
+    // encoder's AAR ships another copy of the same file name. They are the same
+    // C library under two owners; keeping one keeps the APK legal for Gradle and
+    // gives both features a single runtime. Verified on device for both.
+    packagingOptions {
+        jniLibs {
+            pickFirsts += ["**/libonnxruntime.so"]
+        }
+    }
+}
+
+dependencies {
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
+    // On-device query encoder for the offline semantic search (architecture §1).
+    // The AAR carries libonnxruntime.so for every ABI, so the app ships no
+    // hand-copied native binary.
+    implementation("com.microsoft.onnxruntime:onnxruntime-android:1.20.0")
+}

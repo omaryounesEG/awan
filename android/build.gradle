@@ -1,0 +1,55 @@
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.buildDir = "../build"
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
+    project.evaluationDependsOn(":app")
+}
+
+// Some third-party plugins predate AGP 8's mandatory `namespace`: inherit one
+// from the plugin's own group instead of failing the whole build. Applied here
+// (not in a fork of the pub cache) so the build stays reproducible.
+//
+// `afterEvaluate` cannot be registered on a project that is already evaluated
+// (`evaluationDependsOn(":app")` above can force that), so the state is checked
+// first and the already-evaluated projects are patched inline.
+subprojects { project ->
+    def applyNamespace = {
+        def androidExtension = project.extensions.findByName("android")
+        if (androidExtension != null) {
+            // `isar_flutter_libs` (and friends) compile against an SDK older than
+            // 31, so their own release resource verification fails with
+            // "resource android:attr/lStar not found" once the app is built with
+            // a newer compileSdk. Raising the plugins' compileSdk is the supported
+            // workaround and is safe: compileSdk is an upper bound, not a target.
+            try {
+                androidExtension.compileSdkVersion 35
+            } catch (Exception ignored) {
+                // Not every plugin exposes compileSdkVersion; skip those.
+            }
+        }
+        if (androidExtension != null && androidExtension.namespace == null) {
+            def candidate = project.group?.toString()
+            if (candidate == null || !candidate.contains(".")) {
+                candidate = "com.awan.${project.name.replace('-', '_')}"
+            }
+            androidExtension.namespace = candidate
+        }
+    }
+    if (project.state.executed) {
+        applyNamespace()
+    } else {
+        project.afterEvaluate { applyNamespace() }
+    }
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}

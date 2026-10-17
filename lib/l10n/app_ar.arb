@@ -1,0 +1,1020 @@
+﻿{
+  "@@locale": "ar",
+  "appName": "أَوَان",
+  "appFullName": "أَوَان | مواقيت الصلاة والقرآن",
+  "tagline": "سكينة للروح",
+  "ok": "حسناً",
+  "cancel": "إلغاء",
+  "save": "حفظ",
+  "retry": "إعادة المحاولة",
+  "loading": "جارٍ التحميل…",
+  "error": "حدث خطأ ما",
+  "close": "إغلاق",
+  "search": "بحث",
+  "searchHint": "ابحث…",
+  "done": "تم",
+  "yes": "نعم",
+  "no": "لا",
+  "offline": "بدون إنترنت",
+  "online": "متصل",
+  "sync": "مزامنة",
+  "version": "الإصدار",
+  "about": "عن التطبيق",
+  "share": "مشاركة",
+  "copy": "نسخ",
+  "copied": "تم النسخ",
+  "open": "فتح",
+  "back": "رجوع",
+  "delete": "حذف",
+  "language": "اللغة",
+  "arabic": "العربية",
+  "english": "English",
+  "theme": "المظهر",
+  "themeLight": "نهاري",
+  "themeDark": "ليلي",
+  "themeSystem": "حسب النظام",
+  "minutesShort": "د",
+  "secondsShort": "ث",
+  "hoursShort": "س",
+  "km": "كم",
+  "meter": "م",
+  "greetingMorning": "صباح الخير",
+  "greetingNoon": "السلام عليكم",
+  "greetingEvening": "مساء الخير",
+  "nextPrayer": "الصلاة القادمة",
+  "remaining": "المتبقي",
+  "prayerIn": "بعد {time}",
+  "@prayerIn": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "prayerNow": "حان وقت الصلاة",
+  "todayPrayers": "صلوات اليوم",
+  "fajr": "الفجر",
+  "sunrise": "الشروق",
+  "dhuhr": "الظهر",
+  "asr": "العصر",
+  "maghrib": "المغرب",
+  "isha": "العشاء",
+  "adhan": "الأذان",
+  "prayerTimetable": "جدول المواقيت",
+  "monthlyTimetable": "جدول الشهر",
+  "qibla": "القبلة",
+  "qiblaDirection": "اتجاه القبلة",
+  "qiblaDegrees": "{degrees}° من الشمال",
+  "@qiblaDegrees": {
+    "placeholders": {
+      "degrees": {
+        "type": "String"
+      }
+    }
+  },
+  "hijriDate": "التاريخ الهجري",
+  "gregorianDate": "التاريخ الميلادي",
+  "hijriOffset": "تعديل التاريخ الهجري (أيام)",
+  "location": "الموقع",
+  "locationAuto": "تلقائي (موقع الجهاز)",
+  "locationManual": "يدوي (اختر مدينة)",
+  "detectLocation": "تحديد موقعي",
+  "latitude": "خط العرض",
+  "longitude": "خط الطول",
+  "cityName": "اسم المدينة",
+  "locationDenied": "تحتاج مواقيت الصلاة إلى إذن الموقع لحسابها لمدينتك.",
+  "locationUnavailable": "لم نتمكن من قراءة موقع الجهاز. اختر مدينتك يدوياً.",
+  "calculationMethod": "طريقة الحساب",
+  "madhab": "مذهب العصر",
+  "madhabShafi": "الشافعي / المالكي / الحنبلي",
+  "madhabHanafi": "الحنفي",
+  "highLatitudeRule": "قاعدة خطوط العرض العليا",
+  "highLatitudeMiddle": "منتصف الليل",
+  "highLatitudeSeventh": "سُبع الليل",
+  "highLatitudeTwilight": "بالزاوية",
+  "prayerAdjustments": "تعديلات يدوية (دقائق)",
+  "methodMWL": "رابطة العالم الإسلامي",
+  "methodEgyptian": "الهيئة المصرية العامة للمساحة",
+  "methodUmmAlQura": "أم القرى (مكة المكرمة)",
+  "methodKarachi": "جامعة العلوم الإسلامية بكراتشي",
+  "methodNorthAmerica": "الجمعية الإسلامية لأمريكا الشمالية",
+  "methodKuwait": "الكويت",
+  "methodQatar": "قطر",
+  "methodDubai": "دبي",
+  "methodTurkey": "تركيا (ديانت)",
+  "methodTehran": "طهران",
+  "methodSingapore": "سنغافورة",
+  "methodOther": "أخرى",
+  "verifyOnline": "التحقق من الزوايا عبر الإنترنت",
+  "verifyOk": "الحساب المحلي مطابق للمرجع",
+  "verifyDiff": "فرق {minutes} دقيقة عن المرجع — راجع طريقة الحساب",
+  "@verifyDiff": {
+    "placeholders": {
+      "minutes": {
+        "type": "String"
+      }
+    }
+  },
+  "lastVerified": "آخر تحقق {date}",
+  "@lastVerified": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "quran": "القرآن",
+  "surahs": "السور",
+  "meccan": "مكية",
+  "medinan": "مدنية",
+  "ayahCount": "{count} آية",
+  "@ayahCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "searchQuran": "البحث في القرآن",
+  "searchQuranHint": "اكتب كلمة أو جزءاً من آية",
+  "noResults": "لا توجد نتائج",
+  "resultsCount": "{count} نتيجة",
+  "@resultsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "bookmark": "علامة",
+  "bookmarks": "العلامات",
+  "addBookmark": "إضافة علامة",
+  "removeBookmark": "إزالة العلامة",
+  "bookmarkAdded": "تمت إضافة العلامة",
+  "bookmarkRemoved": "تمت إزالة العلامة",
+  "lastRead": "آخر قراءة",
+  "continueReading": "متابعة القراءة",
+  "fontSize": "حجم الخط",
+  "quranFont": "خط المصحف",
+  "scriptUthmani": "الرسم العثماني (أميري قرآن)",
+  "scriptScheherazade": "شهرزاد الجديد",
+  "nightReadingMode": "وضع القراءة الليلية",
+  "tafsir": "التفسير",
+  "showTafsir": "إظهار التفسير",
+  "tafsirUnavailable": "لا يوجد تفسير محمّل لهذه الآية",
+  "jumpToAyah": "الانتقال إلى آية",
+  "ayah": "آية",
+  "surah": "سورة",
+  "page": "صفحة",
+  "juz": "جزء",
+  "copyAyah": "نسخ الآية",
+  "shareAyah": "مشاركة الآية",
+  "tafsirPackages": "حزم التفسير",
+  "tafsirPackagesDesc": "تُحمّل مرة واحدة وتبقى على جهازك للعمل دون إنترنت.",
+  "bundledPackage": "مضمّنة",
+  "installPackage": "تثبيت",
+  "installing": "جارٍ التثبيت…",
+  "installed": "مثبّتة",
+  "uninstall": "إزالة",
+  "packageSize": "{size} ك.ب",
+  "@packageSize": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "mosqueRadar": "رادار المساجد",
+  "nearbyMosques": "المساجد القريبة",
+  "nearestMosques": "أقرب المساجد",
+  "walkingTime": "{time} سيراً على الأقدام",
+  "@walkingTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "refresh": "تحديث",
+  "mosque": "مسجد",
+  "noMosquesFound": "لم نعثر على مساجد قريبة",
+  "placesKeyMissing": "أضف مفتاح Google Places لاستخدام نتائج جوجل، وتُستخدم بيانات OpenStreetMap حالياً.",
+  "cacheHint": "تُحفظ النتائج 48 ساعة لتقليل استهلاك البيانات والبطارية",
+  "map": "الخريطة",
+  "list": "القائمة",
+  "library": "المكتبة",
+  "maktabaSubtitle": "المكتبة الشاملة",
+  "catalog": "الفهرس",
+  "myBooks": "كتبي",
+  "downloadBook": "تحميل",
+  "downloadStarted": "بدأ التحميل",
+  "bookImported": "تم استيراد الكتاب بنجاح",
+  "importFile": "استيراد من ملف",
+  "importUrl": "استيراد من رابط",
+  "bookSearch": "ابحث عن كتاب أو مؤلف",
+  "noBooks": "لا توجد كتب بعد. حمّل كتاباً من الفهرس أو استورد ملفاً.",
+  "parserIsolate": "تتم المعالجة في الخلفية لتبقى الواجهة سلسة",
+  "librarySource": "مصدر المكتبة",
+  "sourceShamela": "المكتبة الشاملة",
+  "sourceOpenIti": "متن OpenITI",
+  "sourceLocal": "ملفات الجهاز",
+  "readingProgress": "نسبة التقدم",
+  "settings": "الإعدادات",
+  "display": "العرض",
+  "elderlyMode": "وضع كبار السن",
+  "elderlyModeDesc": "تكبير النص 150%، وثلاث بطاقات كبيرة، وإلغاء الإيماءات المعقدة.",
+  "textScale": "مقياس النص",
+  "simpleMode": "الوضع المبسّط",
+  "moreFeatures": "مزيد من الميزات",
+  "notifications": "التنبيهات",
+  "adhanNotifications": "تنبيهات الأذان",
+  "notificationsEnabled": "التنبيهات مُفعّلة",
+  "notificationsDenied": "إذن التنبيهات مرفوض",
+  "vibrate": "اهتزاز",
+  "playSound": "صوت التنبيه",
+  "silentMode": "الصامت التلقائي",
+  "silentModeDesc": "إسكات الهاتف قبل الأذان وإعادته بعده (أندرويد).",
+  "silentModePermission": "منح صلاحية وضع عدم الإزعاج",
+  "muteBeforeMinutes": "الإسكات قبل {count} دقيقة",
+  "@muteBeforeMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "unmuteAfterMinutes": "الإعادة بعد {count} دقيقة",
+  "@unmuteAfterMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "fridaySchedule": "صلاة الجمعة",
+  "fridayScheduleDesc": "إسكات من 11:30 حتى 13:30 (قابل للتخصيص).",
+  "fridayStart": "البداية",
+  "fridayEnd": "النهاية",
+  "iosSilentNotice": "لا تسمح آبل للتطبيقات بإسكات الجهاز، ويُرسل تنبيه لتشغيل وضع التركيز بدلاً من ذلك.",
+  "backgroundTasks": "المزامنة في الخلفية",
+  "backgroundSyncDesc": "تُتحقق زوايا الحساب مرة أسبوعياً في الخلفية دون استهلاك ملحوظ للبطارية.",
+  "tasbih": "السبحة",
+  "tasbihCount": "العدّ",
+  "tasbihTarget": "الهدف",
+  "tasbihReset": "تصفير",
+  "tasbihSaved": "محفوظ",
+  "seasonGreeting": "تقبّل الله طاعتكم",
+  "addons": "الإضافات",
+  "dataSources": "مصادر البيانات",
+  "dataSourcesDesc": "كل ما هو مذكور أدناه مضمَّن في التطبيق، ومصدره معلن ورخصته مذكورة — لا شيء يُجلب سراً.",
+  "privacy": "الخصوصية",
+  "privacyDesc": "موقعك وعلاماتك وكتبك المحمّلة تبقى على جهازك. لا حساب ولا تتبّع.",
+  "licenses": "تراخيص المصادر المفتوحة",
+  "aboutDesc": "تطبيق إسلامي شامل يعمل دون إنترنت، يراعي السكينة والسرعة وعمر البطارية.",
+  "elderlyModeOn": "وضع كبار السن مُفعّل",
+  "turnOffElderly": "إيقافه",
+  "permissionNeeded": "يلزم منح الإذن",
+  "openSettings": "فتح الإعدادات",
+  "noNetwork": "لا يوجد اتصال بالإنترنت — يتم عرض البيانات المحفوظة",
+  "cachedResults": "نتائج محفوظة",
+  "updated": "آخر تحديث {time}",
+  "@updated": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "tomorrow": "غداً",
+  "yesterday": "أمس",
+  "today": "اليوم",
+  "weekdaysShort": "الإثنين,الثلاثاء,الأربعاء,الخميس,الجمعة,السبت,الأحد",
+  "zeroCount": "٠",
+  "adhanScheduled": "تمت جدولة {count} إشعار صلاة قادم",
+  "@adhanScheduled": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "adhanCancelled": "أُلغيت كل إشعارات الصلاة",
+  "silentNeedsPolicy": "الصمت التلقائي يحتاج صلاحية «لا تُزعج»",
+  "adhanAlertPerPrayer": "تنبيه كل أذان على حدة",
+  "adhanAlertHint": "اختر لكل أذان: إشعار فقط، أو مع اهتزاز، أو مع اهتزاز ونغمة",
+  "adhanAlertQuiet": "إشعار فقط",
+  "adhanAlertVibrate": "اهتزاز",
+  "adhanAlertTone": "اهتزاز ونغمة",
+  "silentStartsLabel": "الصمت",
+  "silentLastsLabel": "ويستمر",
+  "silentStartsAtAdhan": "مع الأذان",
+  "silentStartsAfter": "بعد {count} دقيقة",
+  "@silentStartsAfter": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "silentLastsFor": "لمدة {count} دقيقة",
+  "@silentLastsFor": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "silentSaved": "حُفظت أوقات الصمت",
+  "lockScreenCountdown": "مع تفعيل تنبيه ما قبل الصلاة يظهر عدّاد تنازلي على شاشة القفل، ويبقى يعمل بعد إغلاق الشاشة.",
+  "silentScheduled": "جُدِّدت أوقات الصمت لـ{count} يومًا",
+  "@silentScheduled": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "scheduledCount": "عدد الإشعارات المجدولة: {count}",
+  "@scheduledCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "compassUnavailable": "هذا الجهاز بلا بوصلة (مغناطيسية)، لذا يبقى القرص موجّهاً للشمال. والزاوية أدناه دقيقة.",
+  "qiblaAligned": "أنت متجه إلى القبلة",
+  "turnRight": "أدر {degrees}° يميناً",
+  "@turnRight": {
+    "placeholders": {
+      "degrees": {
+        "type": "int"
+      }
+    }
+  },
+  "turnLeft": "أدر {degrees}° يساراً",
+  "@turnLeft": {
+    "placeholders": {
+      "degrees": {
+        "type": "int"
+      }
+    }
+  },
+  "toMakkah": "{km} كم إلى مكة المكرمة",
+  "@toMakkah": {
+    "placeholders": {
+      "km": {
+        "type": "String"
+      }
+    }
+  },
+  "compassCalibration": "حرّك الهاتف على شكل رقم ٨ لمعايرة البوصلة",
+  "bearingFromTrueNorth": "الزاوية مقيسة من الشمال الحقيقي",
+  "liveCompass": "بوصلة حية",
+  "declinationCorrection": "تصحيح الانحراف المغناطيسي: {degrees}°",
+  "@declinationCorrection": {
+    "placeholders": {
+      "degrees": {
+        "type": "String"
+      }
+    }
+  },
+  "elderlyQibla": "اتجه إلى هذا الاتجاه",
+  "dataFromGoogle": "بيانات Google Places",
+  "dataFromOsm": "بيانات OpenStreetMap",
+  "dataFromCache": "من الذاكرة المحلية (أحدث من ٤٨ ساعة)",
+  "searchRadius": "نطاق البحث {km} كم",
+  "@searchRadius": {
+    "placeholders": {
+      "km": {
+        "type": "String"
+      }
+    }
+  },
+  "nearestMosque": "أقرب مسجد",
+  "navigateToNearest": "الانتقال إلى أقرب مسجد",
+  "openInMaps": "افتح في الخرائط",
+  "useMyLocation": "حدِّد موقعي",
+  "metersShort": "م",
+  "navigateShort": "الاتجاهات",
+  "timeSection": "الوقت",
+  "daylightSaving": "التوقيت الصيفي والشتوي",
+  "dstAuto": "تلقائي (حسب الجهاز)",
+  "dstAutoDesc": "نثق في توقيت الجهاز — وهو الصحيح لمعظم البلدان.",
+  "dstPlusOne": "ساعة صيفية (+1)",
+  "dstPlusOneDesc": "كل المواقيت والتنبيهات تُقدَّم ساعة واحدة.",
+  "dstMinusOne": "ساعة شتوية (−1)",
+  "dstMinusOneDesc": "كل المواقيت والتنبيهات تُؤخَّر ساعة واحدة.",
+  "dstDeviceFixed": "جهازك لا يغيّر توقيته خلال السنة",
+  "dstDeviceOnSummer": "جهازك الآن على التوقيت الصيفي",
+  "dstDeviceStandard": "جهازك الآن على التوقيت الشتوي",
+  "dstNote": "لبلدان فيها توقيت صيفي وشتوي: إن لم يطبّق جهازك توقيت بلدك (أو كانت قواعد التوقيت فيه قديمة) فاضبطها من هنا. التصحيح يشمل الوقت المعروض وموعد تنبيه الأذان معاً حتى لا يختلفا، ولا يمسّ حساب المواقيت فلكياً.",
+  "quranTitle": "القرآن الكريم",
+  "startReading": "ابدأ القراءة",
+  "continueButton": "متابعة",
+  "surahIndex": "فهرس السور",
+  "stopMarker": "علامة الوقوف",
+  "stopMarkerSet": "تم وضع علامة الوقوف",
+  "stopMarkerCleared": "تم مسح علامة الوقوف",
+  "noStopMarker": "لم تُحدَّد علامة وقوف بعد — اضغط أيقونة العلامة أثناء القراءة.",
+  "goToStopMarker": "اذهب إليها",
+  "setStopHere": "ضع علامة الوقوف هنا",
+  "searchNoResults": "لا نتائج",
+  "searchOffline": "البحث يعمل بدون إنترنت",
+  "bookmarksTitle": "المحفوظات",
+  "noBookmarks": "لا محفوظات بعد",
+  "readingSettings": "إعدادات القراءة",
+  "ayahFontSize": "حجم الآيات",
+  "tafsirFontSize": "حجم التفسير",
+  "screenColour": "لون الشاشة",
+  "palettePaper": "ورقي",
+  "paletteSepia": "بني فاتح",
+  "paletteDark": "ليلي",
+  "paletteOled": "أسود صافٍ",
+  "readerMode": "طريقة العرض",
+  "modePages": "صفحات المصحف",
+  "modeSurah": "سورة متصلة",
+  "makki": "مكية",
+  "madani": "مدنية",
+  "ayahWord": "آية",
+  "sajdaAyah": "آية سجدة",
+  "prePrayerReminder": "تنبيه قبل الصلاة",
+  "prePrayerHint": "ساعة رمل تظهر قبل الأذان وتختفي بلمسة ولو لم تلمسها تختفي مع الأذان",
+  "prePrayerLead": "قبل الموعد بـ",
+  "prePrayerSound": "صوت خفيف",
+  "prePrayerSoundHint": "رنة قصيرة مع التنبيه بدل الصمت",
+  "reminderSoonOne": "باقي دقيقة على {prayer}",
+  "@reminderSoonOne": {
+    "placeholders": {
+      "prayer": {
+        "type": "Object"
+      }
+    }
+  },
+  "reminderSoonTwo": "باقي دقيقتان على {prayer}",
+  "@reminderSoonTwo": {
+    "placeholders": {
+      "prayer": {
+        "type": "Object"
+      }
+    }
+  },
+  "reminderSoonFew": "باقي {minutes} دقائق على {prayer}",
+  "@reminderSoonFew": {
+    "placeholders": {
+      "minutes": {
+        "type": "Object"
+      },
+      "prayer": {
+        "type": "Object"
+      }
+    }
+  },
+  "reminderSoonMany": "باقي {minutes} دقيقة على {prayer}",
+  "@reminderSoonMany": {
+    "placeholders": {
+      "minutes": {
+        "type": "Object"
+      },
+      "prayer": {
+        "type": "Object"
+      }
+    }
+  },
+  "reminderPrepare": "تجهّز لصلاة {prayer}",
+  "@reminderPrepare": {
+    "placeholders": {
+      "prayer": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryTitle": "المكتبة",
+  "librarySubtitle": "كتب عربية للقراءة دون اتصال",
+  "libraryDiscover": "تصفّح",
+  "libraryShelf": "مكتبتي",
+  "librarySearchHint": "ابحث في العنوان أو المؤلف",
+  "libraryAllCategories": "كل التصنيفات",
+  "librarySync": "تحديث الفهرس",
+  "librarySyncing": "جارٍ تحديث الفهرس…",
+  "librarySynced": "الفهرس محدَّث",
+  "librarySyncedDetail": "أُضيف {added} كتاب · الإجمالي {total}",
+  "@librarySyncedDetail": {
+    "placeholders": {
+      "added": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "librarySyncFailed": "تعذّر تحديث الفهرس",
+  "libraryOfflineCached": "لا اتصال — تُعرض النسخة المحفوظة",
+  "libraryIndexEmpty": "الفهرس فارغ",
+  "libraryIndexEmptyHint": "حدّث الفهرس لجلب قائمة الكتب، ثم حمّل ما تريد قراءته.",
+  "libraryNoResults": "لا نتائج مطابقة",
+  "libraryShelfEmpty": "لم تحمّل أي كتاب بعد",
+  "libraryShelfEmptyHint": "الكتب المحمّلة تُقرأ كاملة دون اتصال.",
+  "libraryInstall": "تحميل",
+  "libraryInstalling": "جارٍ التحميل · {percent}٪",
+  "@libraryInstalling": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "libraryUnpacking": "جارٍ التجهيز · {percent}٪",
+  "@libraryUnpacking": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "libraryInstalled": "محمَّل",
+  "libraryRead": "قراءة",
+  "libraryContinue": "متابعة القراءة",
+  "libraryRemove": "حذف النسخة المحمّلة",
+  "libraryRemoveQuestion": "حذف «{title}» من الجهاز؟",
+  "@libraryRemoveQuestion": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryRemoveHint": "يبقى الكتاب في الفهرس، ويمكن تحميله مرة أخرى.",
+  "libraryCancel": "إلغاء",
+  "libraryRetry": "إعادة المحاولة",
+  "librarySourceHint": "عنوان خادم الفهرس (https://…)",
+  "librarySourceSaved": "تم حفظ المصدر",
+  "librarySourceInvalid": "العنوان غير صالح",
+  "libraryCancelInstall": "إيقاف التحميل",
+  "libraryLastSync": "آخر تحديث: {when}",
+  "@libraryLastSync": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
+  },
+  "libraryNever": "لم يُحدَّث بعد",
+  "libraryBooksCount": "{count} كتاب",
+  "@libraryBooksCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "libraryChaptersCount": "{count} مقطع",
+  "@libraryChaptersCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "librarySizeKb": "{kb} ك.ب",
+  "@librarySizeKb": {
+    "placeholders": {
+      "kb": {
+        "type": "int"
+      }
+    }
+  },
+  "libraryAuthorDied": "ت {year}هـ",
+  "@libraryAuthorDied": {
+    "placeholders": {
+      "year": {
+        "type": "int"
+      }
+    }
+  },
+  "libraryCategoryLabel": "التصنيف",
+  "readerTitle": "قارئ المكتبة",
+  "readerFontSize": "حجم الخط",
+  "readerNight": "وضع ليلي",
+  "readerChapterLabel": "فصل",
+  "readerPageLabel": "ص {page}",
+  "@readerPageLabel": {
+    "placeholders": {
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "readerBackToTop": "إلى أول الكتاب",
+  "libraryShortcutEmpty": "حمّل كتبك للقراءة دون اتصال",
+  "libraryShortcutShelf": "{count} كتاب على جهازك",
+  "@libraryShortcutShelf": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "libraryShortcutLastRead": "آخر قراءة: {title}",
+  "@libraryShortcutLastRead": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "graphTitle": "المتشابهات اللفظية",
+  "graphNodeLabel": "سورة {surah} · آية {ayah}",
+  "@graphNodeLabel": {
+    "placeholders": {
+      "surah": {
+        "type": "String"
+      },
+      "ayah": {
+        "type": "String"
+      }
+    }
+  },
+  "graphNodeNamedLabel": "{name} · آية {ayah}",
+  "@graphNodeNamedLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "ayah": {
+        "type": "String"
+      }
+    }
+  },
+  "graphRuleLabel": "الضابط",
+  "graphRuleHint": "وجه الشبه بين الآيتين",
+  "graphPreparing": "يُجهَّز الرسم لأول مرة…",
+  "graphEmptyNode": "لا متشابهات مسجَّلة لهذه الآية",
+  "graphSeedFailed": "تعذّر تجهيز بيانات المتشابهات",
+  "graphTapHint": "انقر عقدة لعرض الآية وضابط التشابه",
+  "graphPickAyah": "اختر آية",
+  "graphLevelAll": "الكل",
+  "graphLevelHint": "مرتّبة بقوة التطابق — اختر عدد الآيات المعروضة",
+  "graphShownOf": "{shown} من {total}",
+  "quranShowMutashabihat": "إظهار المتشابهات",
+  "quranShowMutashabihatOn": "أُظهرت الآيات المتشابهة — انقر أي آية ملوّنة لعرض علاقتها",
+  "@graphShownOf": {
+    "placeholders": {
+      "shown": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "graphSourceTag": "الآية المفتوحة",
+  "graphTargetTag": "آية مشابهة",
+  "graphTargetCount": "{count} آية مشابهة",
+  "@graphTargetCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "graphOpenTarget": "متشابهات هذه الآية",
+  "graphShortcutEmpty": "رسم تفاعلي للتشابه اللفظي بين الآيات",
+  "graphShortcutReady": "{nodes} آية · {edges} وصلة تشابه",
+  "@graphShortcutReady": {
+    "placeholders": {
+      "nodes": {
+        "type": "int"
+      },
+      "edges": {
+        "type": "int"
+      }
+    }
+  },
+  "commonClose": "إغلاق",
+  "kisaiLayerTitle": "مشتبهات الكسائي",
+  "kisaiLayerSubtitle": "{similar} آية لها شبيه، و{unique} حكم الكتاب عليها بأنها «ليس مثله» — من «مشتبهات القرآن» للكسائي (ت ١٨٩هـ)",
+  "@kisaiLayerSubtitle": {
+    "placeholders": {
+      "similar": {
+        "type": "String"
+      },
+      "unique": {
+        "type": "String"
+      }
+    }
+  },
+  "kisaiSimilarTab": "لها شبيه ({count})",
+  "@kisaiSimilarTab": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "kisaiUniqueTab": "ليس مثله ({count})",
+  "@kisaiUniqueTab": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "kisaiUniqueHint": "آيات حكم الكسائي بأنه لا شبيه لها في القرآن — والرسم يُسقط الروابط التي تمسّها.",
+  "kisaiFilterHint": "ابحث باسم السورة أو بنص الكتاب",
+  "kisaiNoMatch": "لا نتائج",
+  "ayahSearchTitle": "ابحث عن آية",
+  "ayahSearchHint": "كلمات من الآية أو رقمها (٢:٢٥٥)",
+  "ayahSearchExamples": "«لعلكم تتقون» · «2:255» · «البقرة 255»",
+  "ayahSearchExampleWords": "لعلكم تتقون",
+  "ayahSearchExampleReference": "2:255",
+  "ayahSearchExampleNamed": "البقرة ٢٥٥",
+  "ayahSearchGoTo": "اذهب إلى {surah} {ayah}",
+  "@ayahSearchGoTo": {
+    "placeholders": {
+      "surah": {
+        "type": "String"
+      },
+      "ayah": {
+        "type": "String"
+      }
+    }
+  },
+  "ayahSearchBySurah": "اختيار بالسورة والآية",
+  "lockScreenAllDayLabel": "بطاقة شاشة القفل طوال اليوم",
+  "lockScreenAllDayHint": "الصلاة القادمة والوقت المتبقي عليها أمامك على شاشة القفل من الفجر إلى العشاء، بلا صوت ولا إزعاج.",
+  "prayerClockTitle": "ساعة الصلاة",
+  "prayerClockHint": "شاشة كاملة: الساعة وتحتها المتبقي على أقرب صلاة، ثم اسم الصلاة وتاريخها الهجري.",
+  "clockFaceSegment": "مقاطع",
+  "clockFaceWhite": "أبيض مضيء",
+  "clockFaceRed": "أحمر مضيء",
+  "clockFaceGreen": "أخضر مضيء",
+  "clockNight": "نمط ليلي",
+  "openPrayerClock": "فتح ساعة الصلاة",
+  "clockOnLock": "إظهار ساعة الصلاة على شاشة القفل",
+  "clockOnLockHint": "تظهر بكامل الشاشة فوق شاشة القفل كلما أضأت الشاشة. تحتاج صلاحية «الظهور فوق التطبيقات»، ومفتاح إشعار التطبيق لا يُغلق.",
+  "clockOverlayNeeded": "لم تُمنح صلاحية الظهور فوق التطبيقات بعد — افتح الإعدادات واسمح بها ثم أعد المحاولة.",
+  "clockOverlayGrant": "منح الصلاحية",
+  "clockShowNow": "اعرضها الآن",
+  "readerContents": "الفهرس",
+  "readerContentsEmpty": "لا فهرس لهذا الكتاب — مقاطعه غير معنونة.",
+  "readerSearch": "بحث في الكتاب",
+  "readerSearchHint": "اكتب كلمة أو عبارة…",
+  "readerSearchEmpty": "لا نتائج في هذا الكتاب",
+  "readerSearchPrompt": "اكتب حرفين على الأقل",
+  "readerNightMode": "نمط القراءة الليلي",
+  "adhanSoundTitle": "صوت الأذان",
+  "adhanSoundHint": "المقطع الذي يرنّ وقت الأذان — جرّبه قبل أن تختاره.",
+  "preAdhanSoundTitle": "صوت التنبيه قبل الأذان",
+  "preAdhanSoundHint": "مقطع التنبيه الذي يسبق الأذان بعشرين دقيقة.",
+  "soundSystem": "صوت النظام — نغمة المنبّه",
+  "soundSilent": "بلا صوت",
+  "soundTakbir": "تكبير — الله أكبر",
+  "soundCall": "مقطع — aser_ela_khaleky",
+  "soundAdhan": "أذان الصلاة — azan_salah",
+  "soundPreview": "تجربة",
+  "soundStop": "إيقاف",
+  "readerPages": "صفحات الكتاب",
+  "adhanPassed": "مضى على الأذان",
+  "elapsedHint": "الوقت منذ الأذان — حتى انتهاء الجماعة",
+  "soundRing": "نغمة — nokia_notification",
+  "jumuahSilentTitle": "صامت تلقائي يوم الجمعة",
+  "jumuahSilentHint": "من أذان الجمعة ولمدة تحددها بالدقائق.",
+  "libraryInstallAll": "تثبيت الكتب المضمَّنة",
+  "libraryAllInstalled": "كل الكتب مثبَّتة على جهازك",
+  "libraryInstallingAll": "جارٍ التثبيت {index} من {total}: {title}",
+  "@libraryInstallingAll": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "smartTitle": "التكامل الذكي",
+  "smartCalendarTab": "التقويم",
+  "smartSilentTab": "الصمت الذكي",
+  "smartHeroTitle": "حظر الصلاة في تقويمك",
+  "smartHeroBody": "أوقات الصلاة تتحرك كل يوم، لذلك تُكتب نافذة متجددة لا موعداً متكرراً.",
+  "smartWindow": "أفق التخطيط",
+  "smartWindowDays": "{days} يوماً",
+  "@smartWindowDays": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "smartDuration": "مدة الحظر",
+  "smartDurationMinutes": "{minutes} دقيقة",
+  "@smartDurationMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "smartWorkHours": "ساعات العمل",
+  "smartFrom": "من",
+  "smartTo": "إلى",
+  "smartWrite": "اكتب في التقويم",
+  "smartWriting": "جارٍ الكتابة…",
+  "smartWrote": "أُضيف {created} · حُدّث {updated} · بلا تغيير {unchanged}",
+  "@smartWrote": {
+    "placeholders": {
+      "created": {
+        "type": "int"
+      },
+      "updated": {
+        "type": "int"
+      },
+      "unchanged": {
+        "type": "int"
+      }
+    }
+  },
+  "smartNeedPermission": "يحتاج التطبيق إذن قراءة تقويم الهاتف وكتابته، ولا يقرأ شيئاً قبل ذلك.",
+  "smartGrant": "السماح بالتقويم",
+  "smartNoCalendar": "لا يوجد تقويم قابل للكتابة على هذا الهاتف. أضف حساباً في تطبيق التقويم ثم عُد.",
+  "smartConflicts": "تعارضات تحتاج قراراً",
+  "smartNoConflicts": "لا تعارض بين صلواتك ومواعيدك.",
+  "smartPostponeTo": "تأجيل إلى {time}",
+  "@smartPostponeTo": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "smartSilentDuring": "صامت أثناء الاجتماع",
+  "smartBlocksPreview": "المناسبات القادمة",
+  "smartBlockCount": "{count} مناسبة داخل ساعات عملك",
+  "@smartBlockCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "smartDecisionNow": "قرار اللحظة",
+  "smartInMosque": "أنت في {mosque} — سيبقى الهاتف صامتاً وتنبض ساعتك.",
+  "@smartInMosque": {
+    "placeholders": {
+      "mosque": {
+        "type": "String"
+      }
+    }
+  },
+  "smartAtGate": "أنت عند {mosque} — صمت واهتزاز بدل الأذان.",
+  "@smartAtGate": {
+    "placeholders": {
+      "mosque": {
+        "type": "String"
+      }
+    }
+  },
+  "smartInMeeting": "لديك {event} الآن — صمت حتى نهايته.",
+  "@smartInMeeting": {
+    "placeholders": {
+      "event": {
+        "type": "String"
+      }
+    }
+  },
+  "smartNormal": "لا مسجد قريب ولا اجتماع — الأذان يعمل كالمعتاد.",
+  "smartMatrixTitle": "مصفوفة القرار",
+  "smartMatrixMosque": "داخل المسجد",
+  "smartMatrixMeeting": "في اجتماع",
+  "smartMatrixNormal": "الحالة العادية",
+  "smartMatrixMosqueAction": "صمت + نبضة",
+  "smartMatrixMeetingAction": "صمت مؤقت",
+  "smartMatrixNormalAction": "أذان كامل",
+  "smartRadius": "نطاق المسجد",
+  "smartRadiusMeters": "{meters} متراً",
+  "@smartRadiusMeters": {
+    "placeholders": {
+      "meters": {
+        "type": "int"
+      }
+    }
+  },
+  "smartMosques": "أقرب المساجد",
+  "smartNoMosques": "لم تُعثر مساجد قريبة في الخريطة المفتوحة.",
+  "smartDndOn": "اسمح بالصمت التلقائي",
+  "smartRefresh": "تحديث",
+  "smartPostponed": "تم تأجيل الاجتماع",
+  "smartSilenced": "سيُصمت الهاتف أثناء الاجتماع",
+  "smartDndDesc": "صمت تلقائي في المسجد أو أثناء الاجتماع، ويعود الصوت بعده.",
+  "smartMosqueError": "تعذّر تحميل أقرب المساجد. تحقّق من الاتصال وأعد المحاولة.",
+  "smartSilencedCount": "{count} اجتماعاً سيُصمت الهاتف خلاله",
+  "@smartSilencedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "semanticMeaningChip": "معنى",
+  "semanticModelHint": "بحث بالمعنى يعمل دون إنترنت — المحرك يُنزَّل مرة واحدة",
+  "semanticDownload": "تنزيل المحرك",
+  "semanticDownloading": "جارٍ التنزيل {percent}٪",
+  "@semanticDownloading": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "semanticFailed": "تعذّر تنزيل المحرك",
+  "semanticRetry": "إعادة المحاولة",
+  "sunAlignTitle": "محاذاة الشمس",
+  "sunAlignFar": "الشمس على بعد {degrees}° من القبلة",
+  "sunAlignNear": "الشمس قريبة من اتجاه القبلة — ظلّك يدلّ عليها",
+  "sunAlignNow": "الشمس في اتجاه القبلة الآن — ظلّك يدلّ عليها",
+  "sunAlignNight": "تعود محاذاة الشمس بعد الشروق",
+  "@sunAlignFar": {
+    "placeholders": {
+      "degrees": {
+        "type": "String"
+      }
+    }
+  },
+  "recitationTitle": "تصحيح التلاوة",
+  "recitationPickAyah": "اختر السورة والآية",
+  "recitationListening": "أستمع إليك…",
+  "recitationThinking": "أفهم ما سمعت…",
+  "recitationComplete": "أتممت الآية — أحسنت",
+  "recitationPreparing": "أجهّز المصحف…",
+  "recitationIdle": "اضغط الميكروفون وابدأ التلاوة",
+  "recitationModelMissing": "محرك التلاوة غير محمَّل",
+  "recitationModelHint": "محرك التعرف على التلاوة يُنزَّل مرة واحدة (١٦٠ ميجابايت) ثم يعمل دون إنترنت، ولا يُسجَّل صوتك ولا يُحفظ.",
+  "recitationDownload": "تنزيل المحرك",
+  "recitationDownloadFailed": "تعذّر التنزيل — تحقق من الشبكة",
+  "recitationError": "حدث خطأ غير متوقع",
+  "recitationMicDenied": "يلزم السماح بالميكروفون لتصحيح التلاوة",
+  "recitationHeard": "ما سمعه المحرك",
+  "recitationHeardInstead": "سمعنا «{spoken}» والصواب «{expected}»",
+  "@recitationHeardInstead": {
+    "placeholders": {
+      "spoken": {
+        "type": "String"
+      },
+      "expected": {
+        "type": "String"
+      }
+    }
+  },
+  "recitationTrySample": "جرّب بتلاوة نموذجية",
+  "srcQuranText": "نص المصحف العثماني من Quran.com v4 — مضمَّن، ولا شبكة وقت القراءة",
+  "srcTafsir": "التفسير الميسّر (Quran.com v4، الطبعة 16) — مضمَّن",
+  "srcLibrary": "٢١ كتاباً من المكتبة الشاملة عبر OpenITI — رخصة CC BY-NC-SA 4.0",
+  "srcMutashabih": "«متشابهات القرآن» للكسائي (ت 189هـ) — كل وصلة مؤصَّلة في موضعها",
+  "srcAdhan": "مواقيت الصلاة تُحسب على الجهاز بخوارزمية adhan-dart — MIT",
+  "srcAladhanVerify": "تحقّق اختياري من زوايا الحساب فقط، لا يُستخدم في المواقيت المعروضة",
+  "srcOsm": "إحداثيات المساجد من OpenStreetMap — ODbL، عبر Overpass و Nominatim",
+  "srcGooglePlaces": "نتائج مساجد إضافية عند توفر مفتاح — Google Places",
+  "srcWhisper": "تصحيح التلاوة: Whisper base-ar-quran من tarteel-ai، بصيغة ONNX من Synthesium — Apache-2.0، يعمل محلياً",
+  "srcSemantic": "البحث بالمعنى: multilingual-e5-small من intfloat — MIT، مكمَّم int8 على الجهاز",
+  "srcFonts": "الخطوط: KFGQPC Uthmanic Hafs، Amiri، Scheherazade New، IBM Plex Sans Arabic — SIL OFL",
+  "openSourceLicenses": "تراخيص البرمجيات مفتوحة المصدر",
+  "updateTitle": "التحديثات",
+  "updateCheck": "تحقّق",
+  "updateIntro": "التحديث يدوي بالكامل: لا شيء يُفحص في الخلفية. يقرأ التطبيق صفحة الإصدارات في مستودع المشروع على GitHub فقط عند ضغطك الزر.",
+  "updateUpToDate": "لديك أحدث إصدار",
+  "updateAvailable": "إصدار جديد:",
+  "updateDownload": "تنزيل",
+  "updateVerifying": "أتحقّق من بصمة الملف…",
+  "updateInstall": "تثبيت",
+  "updateAllowInstall": "يحتاج أندرويد إذنك بتثبيت تطبيقات من هذا المصدر. أفتح لك الإعداد الآن، ثم عد واضغط تثبيت.",
+  "updateOpenSettings": "فتح الإعداد",
+  "updateUnverified": "لم ينشر صاحب الإصدار بصمة SHA-256، لذا لم أستطع التحقق من سلامة الملف. ثبّته على مسؤوليتك.",
+  "updateNoChannel": "هذا البناء بلا قناة تحديث (لم يُضبط مسار المستودع وقت البناء).",
+  "updateFailed": "تعذّر الوصول إلى GitHub. تحقّق من الاتصال وحاول مرة أخرى.",
+  "updateRateLimited": "GitHub يحدّ عدد الطلبات من نفس الشبكة. انتظر قليلاً ثم أعد المحاولة.",
+  "updateNoRelease": "لا توجد إصدارات منشورة في المستودع بعد.",
+  "updateChecksumFailed": "بصمة الملف لا تطابق المنشور — حُذف الملف ولم يُثبَّت شيء.",
+  "recitationDownloadErrorOffline": "تعذّر الاتصال بالخادم. تحقّق من الإنترنت ثم أعد المحاولة.",
+  "recitationDownloadErrorTimeout": "انتهت المهلة قبل اكتمال التنزيل.",
+  "recitationDownloadErrorNotFound": "الملف غير موجود على الخادم (404).",
+  "recitationDownloadErrorBadPayload": "الخادم أعاد ملفاً غير صالح، ولم يُثبَّت شيء.",
+  "recitationDownloadErrorUnknown": "فشل التنزيل لسبب غير متوقع.",
+  "recitationDownloadRetry": "أعد المحاولة",
+  "recitationModelSizeHint": "الحجم ١٥٣ م.ب — يُفضّل شبكة Wi‑Fi، ويُنزَّل مرة واحدة فقط.",
+  "recitationDownloadedFrom": "المصدر: {source}",
+  "updateRepoNotFound": "لم أجد المستودع على GitHub. تحقّق من المسار (المالك/الاسم) أو أنه عام وليس خاصاً.",
+  "updatePatchHint": "تحديث مصغّر: {size} فقط — يُعاد بناؤه على الجهاز من النسخة المثبَّتة.",
+  "updatePatchedLocally": "جاهز للتثبيت — أُعيد بناؤه على الجهاز وتُحقّق من بصمته.",
+  "@updatePatchHint": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  }
+}

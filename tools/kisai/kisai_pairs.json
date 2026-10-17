@@ -1,0 +1,72 @@
+{
+ "schema": 1,
+ "count": 6,
+ "pairs": [
+  {
+   "surah": "آل عمران",
+   "bucket": null,
+   "source_text": "قد بينا لكم الآيات إن كنتم تعقلون (2) (118)",
+   "source_number": 2,
+   "target_text": "لعلكم تعقلون (3)",
+   "target_number": 3,
+   "raw": "وفيها: قد بينا لكم الآيات إن كنتم تعقلون (2) (118) وسائر القرآن: لعلكم تعقلون (3)",
+   "target_surah": 43,
+   "target_ayah": 3
+  },
+  {
+   "surah": "آل عمران",
+   "bucket": null,
+   "source_text": "والله أعلم بما يكتمون (167)",
+   "source_number": 167,
+   "target_text": "بما كانوا يكتمون (1)",
+   "target_number": 1,
+   "raw": "وفيها: والله أعلم بما يكتمون (167)\n\nوسائر القرآن: بما كانوا يكتمون (1)",
+   "target_surah": 5,
+   "target_ayah": 61
+  },
+  {
+   "surah": "الأنعام",
+   "bucket": null,
+   "source_text": "وأنا أول المسلمين (5) (163)",
+   "source_number": 5,
+   "target_text": "وأنا أول المؤمنين (1)",
+   "target_number": 1,
+   "raw": "وفيها: وأنا أول المسلمين (5) (163)\n\nوسائر القرآن: وأنا أول المؤمنين (1)",
+   "target_surah": 7,
+   "target_ayah": 143
+  },
+  {
+   "surah": "يونس",
+   "bucket": null,
+   "source_text": "فيما فيه يختلفون (19)",
+   "source_number": 19,
+   "target_text": "في ما هم (2)",
+   "target_number": 2,
+   "raw": "وفيها: فيما فيه يختلفون (19) وسائر القرآن: في ما هم (2)",
+   "target_surah": 39,
+   "target_ayah": 3
+  },
+  {
+   "surah": "الحج",
+   "bucket": null,
+   "source_text": "ألم تعلم أن الله يعلم ما في السماء والأرض (70)",
+   "source_number": 70,
+   "target_text": "ألم تر أن الله يعلم (3).",
+   "target_number": 3,
+   "raw": "وفيها: ألم تعلم أن الله يعلم ما في السماء والأرض (70) وسائر القرآن: ألم تر أن الله يعلم (3).",
+   "target_surah": 58,
+   "target_ayah": 7
+  },
+  {
+   "surah": "الجاثية",
+   "bucket": null,
+   "source_text": "وما يبث من دابة (4)",
+   "source_number": 4,
+   "target_text": "وبث منهما (1).",
+   "target_number": 1,
+   "raw": "وفيها: وما يبث من دابة (4) وسائر القرآن: وبث منهما (1).",
+   "target_surah": 4,
+   "target_ayah": 1
+  }
+ ]
+}

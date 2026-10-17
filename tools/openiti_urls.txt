@@ -1,0 +1,14 @@
+https://raw.githubusercontent.com/OpenITI/0025AH/master/data/0001AwsIbnHajar/0001AwsIbnHajar.Diwan/0001AwsIbnHajar.Diwan.ShamAY0037914-ara1
+https://raw.githubusercontent.com/OpenITI/0250AH/master/data/0227IbnMansurKhurasani/0227IbnMansurKhurasani.Sunan/0227IbnMansurKhurasani.Sunan.Shamela0013122-ara1
+https://raw.githubusercontent.com/OpenITI/0250AH/master/data/0238IbnHabibQurtubi/0238IbnHabibQurtubi.MukhtasarFiTibb/0238IbnHabibQurtubi.MukhtasarFiTibb.Shamela0010705-ara1
+https://raw.githubusercontent.com/OpenITI/0250AH/master/data/0240SahnunIbnSacid/0240SahnunIbnSacid.MudawwanaKubra/0240SahnunIbnSacid.MudawwanaKubra.Shamela0000587-ara1
+https://raw.githubusercontent.com/OpenITI/0250AH/master/data/0241IbnHanbal/0241IbnHanbal.CaqidaRiwayatKhallal/0241IbnHanbal.CaqidaRiwayatKhallal.Shamela0006498-ara1
+https://raw.githubusercontent.com/OpenITI/0400AH/master/data/0385Daraqutni/0385Daraqutni.Sunan/0385Daraqutni.Sunan.Shamela0009771-ara1
+https://raw.githubusercontent.com/OpenITI/0400AH/master/data/0388AbuSulaymanKhattabi/0388AbuSulaymanKhattabi.BayanIcjazQuran/0388AbuSulaymanKhattabi.BayanIcjazQuran.Sham19Y0013900-ara1
+https://raw.githubusercontent.com/OpenITI/0600AH/master/data/0577IbnHishamLakhmi/0577IbnHishamLakhmi.SharhFasih/0577IbnHishamLakhmi.SharhFasih.Sham19Y0020973-ara1
+https://raw.githubusercontent.com/OpenITI/0600AH/master/data/0593BurhanDinFarghaniMarghinani/0593BurhanDinFarghaniMarghinani.HidayaFiSharhBidaya/0593BurhanDinFarghaniMarghinani.HidayaFiSharhBidaya.Shamela0000427BK1-ara1
+https://raw.githubusercontent.com/OpenITI/0600AH/master/data/0597IbnJawzi/0597IbnJawzi.TarikhBaytMuqaddas/0597IbnJawzi.TarikhBaytMuqaddas.JK010412-ara1
+https://raw.githubusercontent.com/OpenITI/0800AH/master/data/0794BadrDinZarkashi/0794BadrDinZarkashi.BurhanFiCulumQuran/0794BadrDinZarkashi.BurhanFiCulumQuran.Shamela0011436-ara1
+https://raw.githubusercontent.com/OpenITI/0800AH/master/data/0795IbnRajabHanbali/0795IbnRajabHanbali.FathBariFiSharhSahihBukhari/0795IbnRajabHanbali.FathBariFiSharhSahihBukhari.Shamela0000137-ara1
+https://raw.githubusercontent.com/OpenITI/0800AH/master/data/0795IbnRajabHanbali/0795IbnRajabHanbali.RawaicTafsirFatiha/0795IbnRajabHanbali.RawaicTafsirFatiha.Sham19Y0029574-ara1
+https://raw.githubusercontent.com/OpenITI/0800AH/master/data/0795IbnRajabHanbali/0795IbnRajabHanbali.SharhCilalTirmidhi/0795IbnRajabHanbali.SharhCilalTirmidhi.Shamela0009552-ara1
