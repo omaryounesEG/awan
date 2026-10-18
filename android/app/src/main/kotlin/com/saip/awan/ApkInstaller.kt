@@ -49,6 +49,10 @@ class ApkInstaller(
             // against exactly these bytes, so the app must be able to name
             // them. Readable by the app itself without any permission.
             "installedApkPath" -> result.success(context.applicationInfo?.sourceDir)
+            // Which APK the updater must choose: a 32-bit phone must not be
+            // handed the arm64 asset, and a 64-bit one must not be handed the
+            // 32-bit build.
+            "primaryAbi" -> result.success(Build.SUPPORTED_ABIS.firstOrNull() ?: "")
             "openInstallSettings" -> {
                 try {
                     openUnknownSourcesSettings()

@@ -50,7 +50,10 @@ class UpdateRepository {
       final Map<String, dynamic> json = await _releases.latestRelease();
       final String? sumsUrl = _checksumAssetUrl(json);
       final String? sums = sumsUrl == null ? null : await _releases.fetchTextAsset(sumsUrl);
-      final AppRelease? release = parseRelease(json, checksumsText: sums);
+      // Which asset to hand this phone: 32-bit and 64-bit builds are both
+      // published, and installing the wrong one fails at the very end.
+      final String? abi = await _installer.primaryAbi();
+      final AppRelease? release = parseRelease(json, checksumsText: sums, abi: abi);
       if (release == null) {
         return UpdateCheck(
           status: UpdateStatus.failed,
@@ -83,17 +86,29 @@ class UpdateRepository {
   static AppRelease? parseRelease(
     Map<String, dynamic> json, {
     String? checksumsText,
+    String? abi,
   }) {
     final List<dynamic> assets = (json['assets'] as List<dynamic>?) ?? <dynamic>[];
+    // A release carries one APK per ABI. Picking by name alone hands a 32-bit
+    // phone a 64-bit build, which downloads fine and fails at install time.
+    final String device = (abi ?? '').toLowerCase();
+    final String? preferred = device.isEmpty
+        ? null
+        : (device.contains('64') ? 'arm64' : 'armeabi-v7a');
     Map<String, dynamic>? apk;
     for (final dynamic raw in assets) {
       if (raw is! Map<String, dynamic>) continue;
       final String name = (raw['name'] as String? ?? '').toLowerCase();
       if (!name.endsWith('.apk')) continue;
-      // The phone build is the arm64 one; an emulator APK must never be the
-      // default download for a real user.
+      // Remember the first APK as the last resort, then insist on the one this
+      // device can actually run.
       apk ??= raw;
-      if (name.contains('arm64')) {
+      if (preferred != null && name.contains(preferred)) {
+        apk = raw;
+        break;
+      }
+      // Unknown ABI (tests, desktop): keep the old arm64 default.
+      if (preferred == null && name.contains('arm64')) {
         apk = raw;
         break;
       }

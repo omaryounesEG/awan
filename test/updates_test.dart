@@ -40,6 +40,44 @@ void main() {
     });
   });
 
+  group('ABI selection', () {
+    Map<String, dynamic> bothAbis() => <String, dynamic>{
+          'tag_name': 'v1.23.0',
+          'body': '',
+          'published_at': '2026-10-18T00:00:00Z',
+          'assets': <Map<String, dynamic>>[
+            <String, dynamic>{
+              'name': 'Awan_v1.23.0-arm64-v8a.apk',
+              'size': 90,
+              'browser_download_url': 'https://example.test/arm64.apk',
+            },
+            <String, dynamic>{
+              'name': 'Awan_v1.23.0-armeabi-v7a.apk',
+              'size': 80,
+              'browser_download_url': 'https://example.test/v7a.apk',
+            },
+          ],
+        };
+
+    test('a 64-bit phone gets the arm64 build', () {
+      final AppRelease? r =
+          UpdateRepository.parseRelease(bothAbis(), abi: 'arm64-v8a');
+      expect(r!.apkUrl, endsWith('arm64.apk'));
+    });
+
+    test('a 32-bit phone gets the armeabi-v7a build', () {
+      final AppRelease? r =
+          UpdateRepository.parseRelease(bothAbis(), abi: 'armeabi-v7a');
+      expect(r!.apkUrl, endsWith('v7a.apk'),
+          reason: 'arm64 on a 32-bit device downloads fine and fails to install');
+    });
+
+    test('an unknown ABI keeps the arm64 default', () {
+      final AppRelease? r = UpdateRepository.parseRelease(bothAbis());
+      expect(r!.apkUrl, endsWith('arm64.apk'));
+    });
+  });
+
   group('release parsing', () {
     Map<String, dynamic> githubPayload({
       String tag = 'v1.20.0',

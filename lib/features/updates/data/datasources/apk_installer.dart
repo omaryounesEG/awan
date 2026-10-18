@@ -31,6 +31,19 @@ class ApkInstallerBridge {
     }
   }
 
+  /// The device's primary ABI (`arm64-v8a`, `armeabi-v7a`, ...).
+  ///
+  /// Null on any host without the channel — the picker then keeps its old
+  /// default rather than guessing wrong.
+  Future<String?> primaryAbi() async {
+    try {
+      final String? abi = await _channel.invokeMethod<String>('primaryAbi');
+      return (abi == null || abi.isEmpty) ? null : abi;
+    } catch (_) {
+      return null;
+    }
+  }
+
   Future<void> install(String path) =>
       _channel.invokeMethod<void>('install', <String, dynamic>{'path': path});
 

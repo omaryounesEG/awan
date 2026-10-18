@@ -74,11 +74,11 @@
 ### التنزيل والتركيب
 
 1. افتح [**أحدث إصدار**](https://github.com/omaryounesEG/awan-/releases/latest).
-2. نزّل `Awan_v<الإصدار>-arm64-v8a.apk`.
+2. نزّل الملف المناسب لجهازك: `Awan_v<الإصدار>-arm64-v8a.apk` لمعظم الأجهزة الحديثة، أو `Awan_v<الإصدار>-armeabi-v7a.apk` للأجهزة الأقدم (٣٢-بت).
 3. اسمح بالتثبيت من هذا المصدر، ثم ثبّت.
 4. عند ظهور **Play Protect** اختر «Scan app» ثم «Install» — هذا طبيعي لأي تطبيق من خارج المتجر.
 
-> الحجم ≈ ٩٣ م.ب (arm64). محرك التلاوة (١٦٠ م.ب) يُنزَّل مرة واحدة عند أول استخدام
+> الحجم ≈ ٩٣ م.ب (arm64) أو ٨٣ م.ب (٣٢-بت). محرك التلاوة (١٦٠ م.ب) يُنزَّل مرة واحدة عند أول استخدام
 > لتصحيح التلاوة، ثم يعمل دون إنترنت للأبد.
 
 ### التقنيات
@@ -158,7 +158,7 @@ versus 98 MB.
 ### Install
 
 1. Open the [**latest release**](https://github.com/omaryounesEG/awan-/releases/latest).
-2. Download `Awan_v<version>-arm64-v8a.apk`.
+2. Download the build for your phone: `Awan_v<version>-arm64-v8a.apk` for current devices, or `Awan_v<version>-armeabi-v7a.apk` for older 32-bit ones.
 3. Allow installs from this source, then install.
 4. If Play Protect appears, choose “Scan app” then “Install” — normal for any sideloaded app.
 
