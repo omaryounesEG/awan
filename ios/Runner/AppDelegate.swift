@@ -6,6 +6,7 @@ import UIKit
 @objc class AppDelegate: FlutterAppDelegate {
   /// Held so the channel handlers outlive `didFinishLaunching`.
   private var awanChannels: AwanPlatformChannels?
+  private var recitationAudio: AwanRecitationAudio?
 
   override func application(
     _ application: UIApplication,
@@ -15,6 +16,13 @@ import UIKit
 
     if let controller = window?.rootViewController as? FlutterViewController {
       awanChannels = AwanPlatformChannels(messenger: controller.binaryMessenger)
+
+      let audio = AwanRecitationAudio()
+      FlutterEventChannel(
+        name: "com.awan.app/recitation/audio",
+        binaryMessenger: controller.binaryMessenger
+      ).setStreamHandler(audio)
+      recitationAudio = audio
     }
 
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -168,5 +176,131 @@ final class AwanPlatformChannels: NSObject, CLLocationManagerDelegate {
       "longitude": location.coordinate.longitude,
       "accuracy": location.horizontalAccuracy,
     ]
+  }
+}
+
+/// The microphone for the recitation checker: 16 kHz mono 16-bit PCM, live.
+///
+/// Whisper was trained at that rate, and resampling inside Dart would throw
+/// away the high frequencies that separate ص from س — so the conversion happens
+/// once, here, with `AVAudioConverter`, and the bytes go straight to the stream.
+///
+/// Nothing is written to disk and nothing runs while the screen is closed: the
+/// engine starts on `onListen` and stops on `onCancel`, and that is the whole
+/// lifetime.
+final class AwanRecitationAudio: NSObject, FlutterStreamHandler {
+  private let engine = AVAudioEngine()
+  private var sink: FlutterEventSink?
+  private var converter: AVAudioConverter?
+  private var targetFormat: AVAudioFormat?
+  private var running = false
+
+  static let sampleRate: Double = 16000
+
+  func onListen(
+    withArguments arguments: Any?,
+    eventSink events: @escaping FlutterEventSink
+  ) -> FlutterError? {
+    sink = events
+    do {
+      try start()
+      return nil
+    } catch {
+      sink = nil
+      return FlutterError(
+        code: "audio_start_failed",
+        message: error.localizedDescription,
+        details: nil
+      )
+    }
+  }
+
+  func onCancel(withArguments arguments: Any?) -> FlutterError? {
+    stop()
+    return nil
+  }
+
+  private func start() throws {
+    guard !running else { return }
+
+    let session = AVAudioSession.sharedInstance()
+    try session.setCategory(.record, mode: .measurement, options: [.duckOthers])
+    try session.setPreferredSampleRate(AwanRecitationAudio.sampleRate)
+    try session.setActive(true)
+
+    let input = engine.inputNode
+    let hardwareFormat = input.inputFormat(forBus: 0)
+    guard hardwareFormat.sampleRate > 0, hardwareFormat.channelCount > 0 else {
+      throw NSError(
+        domain: "awan.recitation",
+        code: 1,
+        userInfo: [NSLocalizedDescriptionKey: "no microphone input available"]
+      )
+    }
+    guard let target = AVAudioFormat(
+      commonFormat: .pcmFormatInt16,
+      sampleRate: AwanRecitationAudio.sampleRate,
+      channels: 1,
+      interleaved: true
+    ), let audioConverter = AVAudioConverter(from: hardwareFormat, to: target) else {
+      throw NSError(
+        domain: "awan.recitation",
+        code: 2,
+        userInfo: [NSLocalizedDescriptionKey: "cannot convert the microphone format"]
+      )
+    }
+
+    converter = audioConverter
+    targetFormat = target
+
+    input.installTap(onBus: 0, bufferSize: 3200, format: hardwareFormat) { [weak self] buffer, _ in
+      self?.emit(buffer)
+    }
+
+    engine.prepare()
+    try engine.start()
+    running = true
+  }
+
+  private func emit(_ buffer: AVAudioPCMBuffer) {
+    guard let sink = sink,
+          let audioConverter = converter,
+          let target = targetFormat else { return }
+
+    let ratio = target.sampleRate / buffer.format.sampleRate
+    let capacity = AVAudioFrameCount(Double(buffer.frameLength) * ratio) + 1024
+    guard let output = AVAudioPCMBuffer(pcmFormat: target, frameCapacity: capacity) else { return }
+
+    var supplied = false
+    var conversionError: NSError?
+    audioConverter.convert(to: output, error: &conversionError) { _, status in
+      if supplied {
+        status.pointee = .noDataNow
+        return nil
+      }
+      supplied = true
+      status.pointee = .haveData
+      return buffer
+    }
+
+    if conversionError != nil { return }
+    guard output.frameLength > 0, let channels = output.int16ChannelData else { return }
+
+    let count = Int(output.frameLength) * MemoryLayout<Int16>.size
+    let data = Data(bytes: channels[0], count: count)
+    DispatchQueue.main.async {
+      sink(FlutterStandardTypedData(bytes: data))
+    }
+  }
+
+  private func stop() {
+    sink = nil
+    guard running else { return }
+    running = false
+    engine.inputNode.removeTap(onBus: 0)
+    engine.stop()
+    converter = nil
+    targetFormat = nil
+    try? AVAudioSession.sharedInstance().setActive(false, options: [.notifyOthersOnDeactivation])
   }
 }
