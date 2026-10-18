@@ -46,6 +46,17 @@ jobs:
           set -o pipefail
           flutter build ios --release --no-codesign -v 2>&1 | tee ci-ios.log
 
+      # A notification sound that is not in the bundle silently falls back to
+      # the system tone — the failure is invisible until someone misses a
+      # prayer, so fail the build instead.
+      - name: Verify the adhan clips are bundled
+        run: |
+          for f in azan_salah allah_akbar aser_ela_khaleky nokia_notification; do
+            test -f "build/ios/iphoneos/Runner.app/$f.wav" || {
+              echo "::error::missing $f.wav in Runner.app"; exit 1; }
+          done
+          echo "all adhan clips present"
+
       - name: Package unsigned .ipa
         run: |
           mkdir -p build/ipa/Payload

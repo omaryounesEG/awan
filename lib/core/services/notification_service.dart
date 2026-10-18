@@ -357,6 +357,12 @@ class NotificationService {
             iOS: DarwinNotificationDetails(
               presentAlert: true,
               presentSound: sounds,
+              // iOS cannot point at an Android `res/raw` file; it plays a file
+              // bundled with the app. Null keeps the system tone.
+              sound: sounds
+                  ? (item.isReminder ? preAdhanSound : adhanSound)
+                      .darwinSoundName
+                  : null,
               interruptionLevel: item.isReminder
                   ? InterruptionLevel.active
                   : InterruptionLevel.timeSensitive,

@@ -44,6 +44,12 @@ enum AdhanSound {
   /// Whether this choice makes a sound at all.
   bool get audible => this != AdhanSound.silent;
 
+  /// The clip as iOS names it: a file inside the app bundle, not a Flutter
+  /// asset. iOS truncates a notification sound at 30 seconds, so the copies in
+  /// `ios/Runner/Sounds` are trimmed to 28 s on purpose.
+  String? get darwinSoundName =>
+      rawResource == null ? null : '$rawResource.wav';
+
   /// The clips the reader can audition, in the order they are offered.
   static const List<AdhanSound> bundled = <AdhanSound>[
     takbir,

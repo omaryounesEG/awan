@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54BF5573C3C283181A2A11C8 /* azan_salah.wav in Resources */ = {isa = PBXBuildFile; fileRef = BFA4AE3AE3A27B455ABB6C99 /* azan_salah.wav */; };
+		2B448A278008E4A1D3E62C05 /* allah_akbar.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7F1BDEE53F393257D994E9AE /* allah_akbar.wav */; };
+		EA179E7ECAE4F7995F67B461 /* aser_ela_khaleky.wav in Resources */ = {isa = PBXBuildFile; fileRef = CB1048DDE220E35D4D6226FF /* aser_ela_khaleky.wav */; };
+		6F401D77A62E8FBC2BF167A6 /* nokia_notification.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7AFFC422C74E7E8B0E724CB1 /* nokia_notification.wav */; };
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
 		331C808B294A63AB00263BE5 /* RunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331C807B294A618700263BE5 /* RunnerTests.swift */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
@@ -40,6 +44,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BFA4AE3AE3A27B455ABB6C99 /* azan_salah.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = azan_salah.wav; sourceTree = "<group>"; };
+		7F1BDEE53F393257D994E9AE /* allah_akbar.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = allah_akbar.wav; sourceTree = "<group>"; };
+		CB1048DDE220E35D4D6226FF /* aser_ela_khaleky.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = aser_ela_khaleky.wav; sourceTree = "<group>"; };
+		7AFFC422C74E7E8B0E724CB1 /* nokia_notification.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = nokia_notification.wav; sourceTree = "<group>"; };
 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
 		331C807B294A618700263BE5 /* RunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerTests.swift; sourceTree = "<group>"; };
@@ -68,6 +76,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B4989B9A8E939621497FAD6C /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				BFA4AE3AE3A27B455ABB6C99 /* azan_salah.wav */,
+				7F1BDEE53F393257D994E9AE /* allah_akbar.wav */,
+				CB1048DDE220E35D4D6226FF /* aser_ela_khaleky.wav */,
+				7AFFC422C74E7E8B0E724CB1 /* nokia_notification.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		331C8082294A63A400263BE5 /* RunnerTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +136,7 @@
 				1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */,
 				74858FAE1ED2DC5600515810 /* AppDelegate.swift */,
 				74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */,
+				B4989B9A8E939621497FAD6C /* Sounds */,
 			);
 			path = Runner;
 			sourceTree = "<group>";
@@ -216,6 +236,10 @@
 				3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */,
 				97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */,
 				97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,
+				54BF5573C3C283181A2A11C8 /* azan_salah.wav in Resources */,
+				2B448A278008E4A1D3E62C05 /* allah_akbar.wav in Resources */,
+				EA179E7ECAE4F7995F67B461 /* aser_ela_khaleky.wav in Resources */,
+				6F401D77A62E8FBC2BF167A6 /* nokia_notification.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
