@@ -9,6 +9,10 @@ name: iOS build
 # no separate CocoaPods step to keep in sync. On failure the log is posted as an
 # issue, because Actions logs need authentication to download.
 
+permissions:
+  contents: read
+  issues: write
+
 on:
   workflow_dispatch:
   push:
@@ -40,7 +44,7 @@ jobs:
       - name: Build (no code signing)
         run: |
           set -o pipefail
-          flutter build ios --release --no-codesign 2>&1 | tee ci-ios.log
+          flutter build ios --release --no-codesign -v 2>&1 | tee ci-ios.log
 
       - name: Package unsigned .ipa
         run: |
@@ -63,7 +67,9 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           tail -c 60000 ci-ios.log > ci-tail.log 2>/dev/null || echo "no log captured" > ci-tail.log
-          gh issue create \
-            --repo "${{ github.repository }}" \
-            --title "CI: iOS build failed (${GITHUB_SHA:0:7})" \
-            --body-file ci-tail.log || true
+          if ! gh issue create --repo "${{ github.repository }}" \
+              --title "CI: iOS build failed (${GITHUB_SHA:0:7})" \
+              --body-file ci-tail.log; then
+            # Fall back to annotations, which stay readable without a token.
+            tail -n 8 ci-tail.log | sed 's/^/::error title=ios-build::/'
+          fi
