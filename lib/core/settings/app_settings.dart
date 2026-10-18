@@ -101,6 +101,17 @@ class AppSettings {
   final String cityAr;
   final String cityEn;
 
+  /// True when the coordinates are still the built-in default because no fix
+  /// has ever been taken — automatic mode that has not answered yet.
+  ///
+  /// Screens that *claim* to show what is around the reader must not treat
+  /// Cairo as if the reader were in Cairo: that is how a phone in Alexandria
+  /// shows Al-Azhar and calls it "nearby".
+  bool get locationIsDefault =>
+      locationMode == 'auto' &&
+      (latitude - AppConstants.defaultLatitude).abs() < 1e-6 &&
+      (longitude - AppConstants.defaultLongitude).abs() < 1e-6;
+
   // ------------------------------------------------------- prayer engine
   final String calcMethod;
   final String madhab; // 'shafi' | 'hanafi'

@@ -10,7 +10,9 @@ import 'package:awan/core/services/location/app_location.dart';
 import 'package:awan/core/theme/app_settings_provider.dart';
 import 'package:awan/core/utils/extensions.dart';
 import 'package:awan/core/utils/maps_launcher.dart';
+import 'package:awan/core/settings/app_settings.dart';
 import 'package:awan/features/mosque_radar/domain/entities/mosque_entity.dart';
+import 'package:awan/features/mosque_radar/domain/entities/user_mosque.dart';
 import 'package:awan/features/mosque_radar/presentation/providers/mosque_providers.dart';
 import 'package:awan/features/mosque_radar/presentation/widgets/mosque_card.dart';
 import 'package:awan/features/mosque_radar/presentation/widgets/radar_map.dart';
@@ -38,11 +40,22 @@ class RadarScreen extends ConsumerWidget {
     final AsyncValue<List<MosqueEntity>> mosques =
         ref.watch(nearbyMosquesProvider);
     final AppLocation location = ref.watch(radarLocationProvider);
+    final AppSettings settings = ref.watch(settingsProvider);
+    // Automatic mode that has never answered still reports Cairo's coordinates;
+    // listing Cairo's mosques as "nearby" is worse than saying we do not know.
+    final bool known = !settings.locationIsDefault;
 
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.mosqueRadar),
         actions: <Widget>[
+          IconButton(
+            tooltip: l10n.mosqueAddHere,
+            icon: const Icon(Icons.add_location_alt_outlined),
+            onPressed: known
+                ? () => _addMosqueHere(context, ref, location, l10n)
+                : null,
+          ),
           IconButton(
             tooltip: l10n.useMyLocation,
             icon: const Icon(Icons.my_location),
@@ -56,7 +69,13 @@ class RadarScreen extends ConsumerWidget {
         ],
       ),
       body: SafeArea(
-        child: ui.isElderlyMode
+        child: !known
+            ? _LocationUnknown(
+                library: l10n,
+                onDetect: () =>
+                    ref.read(locationActionProvider.notifier).detect(),
+              )
+            : ui.isElderlyMode
             ? _ElderlyRadar(mosques: mosques, location: location, library: l10n)
             : _StandardRadar(
                 mosques: mosques,
@@ -169,6 +188,10 @@ class _Body extends ConsumerWidget {
           for (final MosqueEntity mosque in list)
             MosqueCard(
               mosque: mosque,
+              badge: mosque.provider == 'user' ? library.mosqueUserTag : null,
+              onDelete: mosque.provider == 'user'
+                  ? () => _removeMosque(context, ref, mosque, library)
+                  : null,
               onTap: () => MapsLauncher.navigate(
                 latitude: mosque.latitude,
                 longitude: mosque.longitude,
@@ -395,3 +418,137 @@ class _Centered extends StatelessWidget {
         ),
       );
 }
+
+/// Saves the mosque the reader is standing in.
+///
+/// The name is optional on purpose: someone who just walked in knows the place
+/// but may not feel like typing, and an unnamed pin still does its job — it
+/// appears in the list by distance, tagged as theirs, and can be renamed later
+/// by deleting and adding again.
+Future<void> _addMosqueHere(
+  BuildContext context,
+  WidgetRef ref,
+  AppLocation location,
+  AppLocalizations l10n,
+) async {
+  final TextEditingController controller = TextEditingController();
+  final bool? save = await showDialog<bool>(
+    context: context,
+    builder: (BuildContext dialogContext) => AlertDialog(
+      title: Text(l10n.mosqueAddHere),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(l10n.mosqueAddHint),
+          SizedBox(height: 12.h),
+          TextField(
+            controller: controller,
+            textInputAction: TextInputAction.done,
+            decoration: InputDecoration(
+              labelText: l10n.mosqueNameOptional,
+              border: const OutlineInputBorder(),
+            ),
+            onSubmitted: (_) => Navigator.of(dialogContext).pop(true),
+          ),
+        ],
+      ),
+      actions: <Widget>[
+        TextButton(
+          onPressed: () => Navigator.of(dialogContext).pop(false),
+          child: Text(l10n.cancel),
+        ),
+        FilledButton(
+          onPressed: () => Navigator.of(dialogContext).pop(true),
+          child: Text(l10n.save),
+        ),
+      ],
+    ),
+  );
+
+  if (save != true) return;
+
+  final String name = controller.text.trim();
+  final UserMosque mosque = UserMosque(
+    id: 'user:${DateTime.now().microsecondsSinceEpoch}',
+    name: name.isEmpty ? null : name,
+    latitude: location.latitude,
+    longitude: location.longitude,
+    createdAt: DateTime.now(),
+  );
+
+  await ref.read(userMosqueActionsProvider).add(mosque);
+  if (!context.mounted) return;
+  ScaffoldMessenger.of(context)
+      .showSnackBar(SnackBar(content: Text(l10n.mosqueAdded)));
+}
+
+/// Removes a pin the reader placed. Confirm first: a mosque they added is a
+/// place they go to, not a list entry to lose to a stray tap.
+Future<void> _removeMosque(
+  BuildContext context,
+  WidgetRef ref,
+  MosqueEntity mosque,
+  AppLocalizations l10n,
+) async {
+  final bool? confirmed = await showDialog<bool>(
+    context: context,
+    builder: (BuildContext dialogContext) => AlertDialog(
+      title: Text(l10n.mosqueDelete),
+      content: Text(mosque.name),
+      actions: <Widget>[
+        TextButton(
+          onPressed: () => Navigator.of(dialogContext).pop(false),
+          child: Text(l10n.cancel),
+        ),
+        FilledButton(
+          onPressed: () => Navigator.of(dialogContext).pop(true),
+          child: Text(l10n.delete),
+        ),
+      ],
+    ),
+  );
+  if (confirmed != true) return;
+  await ref.read(userMosqueActionsProvider).remove(mosque.id);
+  if (!context.mounted) return;
+  ScaffoldMessenger.of(context)
+      .showSnackBar(SnackBar(content: Text(l10n.mosqueDeleted)));
+}
+
+/// What the radar shows before a real fix exists — and the one button that
+/// fixes it, instead of a list of a city the reader may not be in.
+class _LocationUnknown extends StatelessWidget {
+  const _LocationUnknown({required this.library, required this.onDetect});
+
+  final AppLocalizations library;
+  final VoidCallback onDetect;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 28.w),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Icon(Icons.location_off_outlined,
+                size: 48.sp, color: AppColors.radar),
+            SizedBox(height: 12.h),
+            Text(
+              library.locationNotDetected,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+            SizedBox(height: 16.h),
+            FilledButton.icon(
+              onPressed: onDetect,
+              icon: const Icon(Icons.my_location),
+              label: Text(library.locationDetectNow),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+

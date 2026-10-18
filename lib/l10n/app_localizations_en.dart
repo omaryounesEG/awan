@@ -1754,4 +1754,61 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get updatePatchedLocally => 'Ready — rebuilt on the device and verified against the published checksum.';
+
+  @override
+  String get silentNowTitle => 'The phone is silent now';
+
+  @override
+  String silentNowBody(String time) {
+    return 'It was silenced for prayer time and will restore itself at $time.';
+  }
+
+  @override
+  String get silentNowRestore => 'Restore sound now';
+
+  @override
+  String get silentNowRestored => 'The ringer is back to how it was.';
+
+  @override
+  String get locationNotDetected => 'Your location is not known yet, so nearby mosques cannot be searched.';
+
+  @override
+  String get locationDetectNow => 'Locate me';
+
+  @override
+  String radarUsingManualCity(String city) {
+    return 'Mosques around $city — the location was chosen by hand.';
+  }
+
+  @override
+  String get mosqueAddHere => 'Add the mosque here';
+
+  @override
+  String get mosqueAddHint => 'The mosque is saved at your current position, accurate to 10 metres.';
+
+  @override
+  String get mosqueNameOptional => 'Mosque name (optional)';
+
+  @override
+  String get mosqueAdded => 'The mosque was added to your list.';
+
+  @override
+  String get mosqueDelete => 'Delete the mosque';
+
+  @override
+  String get mosqueDeleted => 'The mosque was removed from your list.';
+
+  @override
+  String get mosqueUserTag => 'Added by you';
+
+  @override
+  String get bookNeedsRepair => 'This book was downloaded before but its text is missing. Download it again.';
+
+  @override
+  String get bookReinstall => 'Download again';
+
+  @override
+  String recitationResuming(String size) {
+    return 'Resuming from $size already downloaded.';
+  }
 }

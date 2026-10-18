@@ -15,6 +15,7 @@ import 'package:awan/features/prayer_engine/presentation/screens/elderly_dashboa
 import 'package:awan/features/prayer_engine/presentation/widgets/hijri_header.dart';
 import 'package:awan/features/prayer_engine/presentation/widgets/next_prayer_card.dart';
 import 'package:awan/features/prayer_engine/presentation/widgets/prayer_card.dart';
+import 'package:awan/features/prayer_engine/presentation/widgets/silent_now_banner.dart';
 import 'package:awan/features/prayer_engine/presentation/widgets/quick_actions.dart';
 import 'package:awan/features/quran_tafseer/presentation/widgets/quran_shortcut_card.dart';
 import 'package:awan/features/knowledge_graph/presentation/widgets/mutashabihat_shortcut_card.dart';
@@ -62,7 +63,14 @@ class DashboardScreen extends ConsumerWidget {
         title: Text(l10n.appName),
         actions: const <Widget>[QuickSettingsActions()],
       ),
-      body: body,
+      // The banner sits above everything because it reports something the
+      // system did while the app was closed — it must not be scrolled past.
+      body: Column(
+        children: <Widget>[
+          const SilentNowBanner(),
+          Expanded(child: body),
+        ],
+      ),
     );
   }
 }

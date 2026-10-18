@@ -325,7 +325,23 @@ class LibraryRepositoryImpl implements LibraryRepository {
         },
       );
 
-      await _local.markDownloaded(bookId, downloaded: true, chapters: chunks);
+      // A "successful" install that produced no text is a failure the reader
+      // will discover later, on a spinner that never resolves. Verify here, and
+      // record the book as *not* downloaded so the shelf offers it again.
+      final int stored = await _local.chunkCount(bookId);
+      if (stored <= 0) {
+        await _local.markDownloaded(bookId, downloaded: false, chapters: 0);
+        out.add(
+          const BookInstallProgress(
+            phase: BookInstallPhase.failed,
+            ratio: 0,
+            error: 'empty-book',
+          ),
+        );
+        return;
+      }
+
+      await _local.markDownloaded(bookId, downloaded: true, chapters: stored);
       out.add(
         BookInstallProgress(
           phase: BookInstallPhase.done,

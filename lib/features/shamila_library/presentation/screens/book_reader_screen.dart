@@ -238,9 +238,14 @@ class _BookReaderScreenState extends ConsumerState<BookReaderScreen> {
         onPopInvokedWithResult: (bool didPop, Object? _) {
           if (didPop) ref.read(libraryRevisionProvider.notifier).state++;
         },
-        child: total == 0
+        // Three states, not two. A book that was marked downloaded but whose
+        // text never arrived used to sit on a spinner forever — indistinguishable
+        // from a slow disk and impossible to fix from the screen that broke.
+        child: totalValue.isLoading && total == 0
             ? const Center(child: CircularProgressIndicator())
-            : ListView.builder(
+            : total == 0
+                ? _BookNeedsRepair(bookId: widget.bookId)
+                : ListView.builder(
               controller: _scroll,
               padding: const EdgeInsets.fromLTRB(16, 12, 16, 32),
               itemCount: windows,
@@ -697,6 +702,53 @@ class _ReaderFooter extends StatelessWidget {
                 icon: const Icon(Icons.vertical_align_top, size: 16),
                 label: Text(l10n.readerBackToTop),
               ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// The book exists in the catalogue — marked downloaded — but carries no text.
+///
+/// This is the one failure the reader could not fix itself: the screen showed a
+/// spinner that never resolved. Naming the state and offering the one repair
+/// (install again) turns a dead end into a two-tap fix.
+class _BookNeedsRepair extends ConsumerWidget {
+  const _BookNeedsRepair({required this.bookId});
+
+  final String bookId;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final AppLocalizations l10n = AppLocalizations.of(context);
+    final bool busy = ref.watch(libraryActionsProvider)[bookId] != null;
+
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 28),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Icon(Icons.menu_book_outlined,
+                size: 44, color: Theme.of(context).colorScheme.error),
+            const SizedBox(height: 12),
+            Text(
+              l10n.bookNeedsRepair,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+            const SizedBox(height: 16),
+            FilledButton.icon(
+              onPressed: busy
+                  ? null
+                  : () {
+                      ref.read(libraryActionsProvider.notifier).start(bookId);
+                      ref.invalidate(bookChunkCountProvider(bookId));
+                    },
+              icon: const Icon(Icons.refresh),
+              label: Text(l10n.bookReinstall),
+            ),
           ],
         ),
       ),

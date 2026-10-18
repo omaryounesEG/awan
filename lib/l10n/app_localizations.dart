@@ -3340,6 +3340,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Ready — rebuilt on the device and verified against the published checksum.'**
   String get updatePatchedLocally;
+
+  /// No description provided for @silentNowTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The phone is silent now'**
+  String get silentNowTitle;
+
+  /// No description provided for @silentNowBody.
+  ///
+  /// In en, this message translates to:
+  /// **'It was silenced for prayer time and will restore itself at {time}.'**
+  String silentNowBody(String time);
+
+  /// No description provided for @silentNowRestore.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore sound now'**
+  String get silentNowRestore;
+
+  /// No description provided for @silentNowRestored.
+  ///
+  /// In en, this message translates to:
+  /// **'The ringer is back to how it was.'**
+  String get silentNowRestored;
+
+  /// No description provided for @locationNotDetected.
+  ///
+  /// In en, this message translates to:
+  /// **'Your location is not known yet, so nearby mosques cannot be searched.'**
+  String get locationNotDetected;
+
+  /// No description provided for @locationDetectNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Locate me'**
+  String get locationDetectNow;
+
+  /// No description provided for @radarUsingManualCity.
+  ///
+  /// In en, this message translates to:
+  /// **'Mosques around {city} — the location was chosen by hand.'**
+  String radarUsingManualCity(String city);
+
+  /// No description provided for @mosqueAddHere.
+  ///
+  /// In en, this message translates to:
+  /// **'Add the mosque here'**
+  String get mosqueAddHere;
+
+  /// No description provided for @mosqueAddHint.
+  ///
+  /// In en, this message translates to:
+  /// **'The mosque is saved at your current position, accurate to 10 metres.'**
+  String get mosqueAddHint;
+
+  /// No description provided for @mosqueNameOptional.
+  ///
+  /// In en, this message translates to:
+  /// **'Mosque name (optional)'**
+  String get mosqueNameOptional;
+
+  /// No description provided for @mosqueAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'The mosque was added to your list.'**
+  String get mosqueAdded;
+
+  /// No description provided for @mosqueDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete the mosque'**
+  String get mosqueDelete;
+
+  /// No description provided for @mosqueDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'The mosque was removed from your list.'**
+  String get mosqueDeleted;
+
+  /// No description provided for @mosqueUserTag.
+  ///
+  /// In en, this message translates to:
+  /// **'Added by you'**
+  String get mosqueUserTag;
+
+  /// No description provided for @bookNeedsRepair.
+  ///
+  /// In en, this message translates to:
+  /// **'This book was downloaded before but its text is missing. Download it again.'**
+  String get bookNeedsRepair;
+
+  /// No description provided for @bookReinstall.
+  ///
+  /// In en, this message translates to:
+  /// **'Download again'**
+  String get bookReinstall;
+
+  /// No description provided for @recitationResuming.
+  ///
+  /// In en, this message translates to:
+  /// **'Resuming from {size} already downloaded.'**
+  String recitationResuming(String size);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

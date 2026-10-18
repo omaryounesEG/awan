@@ -1754,4 +1754,61 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get updatePatchedLocally => 'جاهز للتثبيت — أُعيد بناؤه على الجهاز وتُحقّق من بصمته.';
+
+  @override
+  String get silentNowTitle => 'الجهاز صامت الآن';
+
+  @override
+  String silentNowBody(String time) {
+    return 'أُسكِت الهاتف تلقائياً لأن وقت الصلاة، ويعود صوته تلقائياً في $time.';
+  }
+
+  @override
+  String get silentNowRestore => 'أعِد الصوت الآن';
+
+  @override
+  String get silentNowRestored => 'أعيد صوت الجهاز كما كان.';
+
+  @override
+  String get locationNotDetected => 'لم نتمكن من تحديد موقعك بعد، فلا يمكن البحث عن مساجد قريبة.';
+
+  @override
+  String get locationDetectNow => 'حدّد موقعي';
+
+  @override
+  String radarUsingManualCity(String city) {
+    return 'المساجد حول $city — لأن الموقع مُختار يدوياً.';
+  }
+
+  @override
+  String get mosqueAddHere => 'أضف مسجداً هنا';
+
+  @override
+  String get mosqueAddHint => 'سيُحفظ موقع هذا المسجد من موقعك الحالي بدقة ١٠ أمتار.';
+
+  @override
+  String get mosqueNameOptional => 'اسم المسجد (اختياري)';
+
+  @override
+  String get mosqueAdded => 'أُضيف المسجد إلى قائمتك.';
+
+  @override
+  String get mosqueDelete => 'احذف المسجد';
+
+  @override
+  String get mosqueDeleted => 'حُذف المسجد من قائمتك.';
+
+  @override
+  String get mosqueUserTag => 'مضاف بواسطتك';
+
+  @override
+  String get bookNeedsRepair => 'هذا الكتاب نُزّل سابقاً لكن نصّه غير موجود. أعِد تنزيله ليعمل.';
+
+  @override
+  String get bookReinstall => 'أعِد التنزيل';
+
+  @override
+  String recitationResuming(String size) {
+    return 'يُستأنف من $size سبق تنزيله.';
+  }
 }

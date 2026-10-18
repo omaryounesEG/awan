@@ -1023,5 +1023,43 @@
         "type": "String"
       }
     }
+  },
+  "silentNowTitle": "The phone is silent now",
+  "silentNowBody": "It was silenced for prayer time and will restore itself at {time}.",
+  "silentNowRestore": "Restore sound now",
+  "silentNowRestored": "The ringer is back to how it was.",
+  "locationNotDetected": "Your location is not known yet, so nearby mosques cannot be searched.",
+  "locationDetectNow": "Locate me",
+  "radarUsingManualCity": "Mosques around {city} — the location was chosen by hand.",
+  "mosqueAddHere": "Add the mosque here",
+  "mosqueAddHint": "The mosque is saved at your current position, accurate to 10 metres.",
+  "mosqueNameOptional": "Mosque name (optional)",
+  "mosqueAdded": "The mosque was added to your list.",
+  "mosqueDelete": "Delete the mosque",
+  "mosqueDeleted": "The mosque was removed from your list.",
+  "mosqueUserTag": "Added by you",
+  "bookNeedsRepair": "This book was downloaded before but its text is missing. Download it again.",
+  "bookReinstall": "Download again",
+  "recitationResuming": "Resuming from {size} already downloaded.",
+  "@silentNowBody": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@radarUsingManualCity": {
+    "placeholders": {
+      "city": {
+        "type": "String"
+      }
+    }
+  },
+  "@recitationResuming": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
   }
 }

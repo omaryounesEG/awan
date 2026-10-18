@@ -1016,5 +1016,43 @@
         "type": "String"
       }
     }
+  },
+  "silentNowTitle": "الجهاز صامت الآن",
+  "silentNowBody": "أُسكِت الهاتف تلقائياً لأن وقت الصلاة، ويعود صوته تلقائياً في {time}.",
+  "silentNowRestore": "أعِد الصوت الآن",
+  "silentNowRestored": "أعيد صوت الجهاز كما كان.",
+  "locationNotDetected": "لم نتمكن من تحديد موقعك بعد، فلا يمكن البحث عن مساجد قريبة.",
+  "locationDetectNow": "حدّد موقعي",
+  "radarUsingManualCity": "المساجد حول {city} — لأن الموقع مُختار يدوياً.",
+  "mosqueAddHere": "أضف مسجداً هنا",
+  "mosqueAddHint": "سيُحفظ موقع هذا المسجد من موقعك الحالي بدقة ١٠ أمتار.",
+  "mosqueNameOptional": "اسم المسجد (اختياري)",
+  "mosqueAdded": "أُضيف المسجد إلى قائمتك.",
+  "mosqueDelete": "احذف المسجد",
+  "mosqueDeleted": "حُذف المسجد من قائمتك.",
+  "mosqueUserTag": "مضاف بواسطتك",
+  "bookNeedsRepair": "هذا الكتاب نُزّل سابقاً لكن نصّه غير موجود. أعِد تنزيله ليعمل.",
+  "bookReinstall": "أعِد التنزيل",
+  "recitationResuming": "يُستأنف من {size} سبق تنزيله.",
+  "@silentNowBody": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@radarUsingManualCity": {
+    "placeholders": {
+      "city": {
+        "type": "String"
+      }
+    }
+  },
+  "@recitationResuming": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
   }
 }

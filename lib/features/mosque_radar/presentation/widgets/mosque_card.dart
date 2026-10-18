@@ -21,11 +21,20 @@ class MosqueCard extends StatelessWidget {
     required this.mosque,
     this.compact = false,
     this.onTap,
+    this.onDelete,
+    this.badge,
   });
 
   final MosqueEntity mosque;
   final bool compact;
   final VoidCallback? onTap;
+
+  /// Only the reader's own pins have this: a pin they placed can be removed,
+  /// a pin that came from the map cannot.
+  final VoidCallback? onDelete;
+
+  /// A short label over the name — used for "added by you".
+  final String? badge;
 
   @override
   Widget build(BuildContext context) {
@@ -71,6 +80,16 @@ class MosqueCard extends StatelessWidget {
                       style: (compact ? text.titleMedium : text.titleSmall)
                           ?.copyWith(fontWeight: FontWeight.w600),
                     ),
+                    if (badge != null) ...<Widget>[
+                      SizedBox(height: 2.h),
+                      Text(
+                        badge!,
+                        style: text.bodySmall?.copyWith(
+                          color: AppColors.radar,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
                     SizedBox(height: 2.h),
                     Text(
                       '$distance • $walk',
@@ -103,6 +122,12 @@ class MosqueCard extends StatelessWidget {
                 icon: Icon(Icons.directions_walk, size: 18.sp),
                 label: Text(compact ? l10n.openInMaps : l10n.navigateShort),
               ),
+              if (onDelete != null)
+                IconButton(
+                  tooltip: l10n.mosqueDelete,
+                  icon: Icon(Icons.delete_outline, size: 20.sp),
+                  onPressed: onDelete,
+                ),
             ],
           ),
         ),
