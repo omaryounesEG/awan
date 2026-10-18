@@ -284,8 +284,19 @@ class NotificationService {
     int armed = 0;
     final DateTime now = DateTime.now();
 
-    for (final ScheduledAdhan item in items) {
-      if (!item.at.isAfter(now)) continue; // never schedule in the past
+    // A month of prayers is more than iOS will hold: it keeps at most 64
+    // pending notifications per app and silently drops the rest, which would
+    // arm the first days and lose the tail with no error anywhere. So iOS gets
+    // the nearest 60 and the app re-plans on every open. Android has no such
+    // cap and keeps the whole month.
+    final List<ScheduledAdhan> planned = items
+        .where((ScheduledAdhan item) => item.at.isAfter(now))
+        .toList()
+      ..sort((ScheduledAdhan a, ScheduledAdhan b) => a.at.compareTo(b.at));
+    final List<ScheduledAdhan> horizon =
+        Platform.isIOS ? planned.take(60).toList() : planned;
+
+    for (final ScheduledAdhan item in horizon) {
       // A reminder is audible only when the reader asked for it *and* this item
       // was planned with sound; the adhan keeps its own choice.
       final bool reminderAudible = item.playsSound && preAdhanSound.audible;
