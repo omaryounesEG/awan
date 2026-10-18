@@ -10,7 +10,7 @@ name: iOS build
 # issue, because Actions logs need authentication to download.
 
 permissions:
-  contents: read
+  contents: write
   issues: write
 
 on:
@@ -53,6 +53,21 @@ jobs:
           cd build/ipa
           zip -qry "Awan-unsigned.ipa" Payload
           ls -lh
+
+      # Actions artifacts need a login to download; a pre-release does not, and
+      # because it is marked pre-release it is invisible to /releases/latest,
+      # which is what the Android updater reads.
+      - name: Publish the .ipa to the iOS pre-release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION=$(grep '^version:' pubspec.yaml | sed 's/version: *//' | cut -d+ -f1)
+          TAG="ios-v${VERSION}"
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" \
+            --prerelease \
+            --title "iOS build ${VERSION} (unsigned)" \
+            --notes "Unsigned iOS build, for sideloading only (Sideloadly / AltStore). A free Apple ID re-signs it every 7 days. Android builds live in the v* releases."
+          gh release upload "$TAG" build/ipa/Awan-unsigned.ipa --clobber
 
       - uses: actions/upload-artifact@v4
         with:
