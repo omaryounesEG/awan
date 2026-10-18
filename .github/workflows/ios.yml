@@ -1,0 +1,57 @@
+name: iOS build
+
+# Builds an unsigned .ipa on a macOS runner. The repository is public, so the
+# macOS minutes are free. Unsigned output installs via sideloading tools only
+# (AltStore / Sideloadly); a signed App Store or TestFlight build needs an
+# Apple Developer account and signing secrets.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'lib/**'
+      - 'ios/**'
+      - 'pubspec.yaml'
+      - 'pubspec.lock'
+      - '.github/workflows/ios.yml'
+
+jobs:
+  build-ios:
+    runs-on: macos-14
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Flutter SDK (pinned to the version the project targets)
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.3'
+          channel: stable
+          cache: true
+
+      - name: Resolve packages
+        run: flutter pub get
+
+      - name: Install CocoaPods
+        run: |
+          cd ios
+          pod install --repo-update
+
+      - name: Build (no code signing)
+        run: flutter build ios --release --no-codesign
+
+      - name: Package unsigned .ipa
+        run: |
+          mkdir -p build/ipa/Payload
+          cp -R build/ios/iphoneos/Runner.app build/ipa/Payload/
+          cd build/ipa
+          zip -qry "Awan-unsigned.ipa" Payload
+          ls -la
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: awan-ios-unsigned
+          path: build/ipa/Awan-unsigned.ipa
+          if-no-files-found: error
+          retention-days: 30

@@ -45,5 +45,9 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>يُستخدم الميكروفون لتسجيل تلاوتك ومقارنتها بنص الآية على جهازك فقط، ولا يُرفع الصوت إلى أي مكان.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>يُستخدم موقعك لحساب مواقيت الصلاة واتجاه القبلة وأقرب المساجد، على جهازك فقط.</string>
 </dict>
 </plist>
