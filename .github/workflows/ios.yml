@@ -4,6 +4,10 @@ name: iOS build
 # macOS minutes are free. Unsigned output installs via sideloading tools only
 # (AltStore / Sideloadly); a signed App Store or TestFlight build needs an
 # Apple Developer account and signing secrets.
+#
+# Flutter runs `pod install` itself as part of `flutter build ios`, so there is
+# no separate CocoaPods step to keep in sync. On failure the log is posted as an
+# issue, because Actions logs need authentication to download.
 
 on:
   workflow_dispatch:
@@ -33,13 +37,10 @@ jobs:
       - name: Resolve packages
         run: flutter pub get
 
-      - name: Install CocoaPods
-        run: |
-          cd ios
-          pod install --repo-update
-
       - name: Build (no code signing)
-        run: flutter build ios --release --no-codesign
+        run: |
+          set -o pipefail
+          flutter build ios --release --no-codesign 2>&1 | tee ci-ios.log
 
       - name: Package unsigned .ipa
         run: |
@@ -47,7 +48,7 @@ jobs:
           cp -R build/ios/iphoneos/Runner.app build/ipa/Payload/
           cd build/ipa
           zip -qry "Awan-unsigned.ipa" Payload
-          ls -la
+          ls -lh
 
       - uses: actions/upload-artifact@v4
         with:
@@ -55,3 +56,14 @@ jobs:
           path: build/ipa/Awan-unsigned.ipa
           if-no-files-found: error
           retention-days: 30
+
+      - name: Publish failure log as an issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          tail -c 60000 ci-ios.log > ci-tail.log 2>/dev/null || echo "no log captured" > ci-tail.log
+          gh issue create \
+            --repo "${{ github.repository }}" \
+            --title "CI: iOS build failed (${GITHUB_SHA:0:7})" \
+            --body-file ci-tail.log || true
