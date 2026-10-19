@@ -85,8 +85,7 @@ class MainActivity : FlutterActivity() {
          */
         private const val SOUNDS_CHANNEL = "awan/sounds"
         /** The next-prayer card: one id, one channel, dismissed by a tap. */
-        private const val CARD_CHANNEL = "awan.lockscreen-v2"
-        const val CARD_ID = 1
+        const val CARD_ID = PrayerCard.ID
 
         /** Ids reserved for silence alarms, so they never collide with adhans. */
         /** Where the armed windows are kept for the post-reboot re-arm. */
@@ -163,14 +162,20 @@ class MainActivity : FlutterActivity() {
                         val at = call.argument<Number>("when")?.toLong()
                             ?: System.currentTimeMillis()
                         val countUp = call.argument<Boolean>("countUp") == true
-                        runOnUiThread { postPrayerCard(title, body, at, countUp) }
+                        val switchAt = call.argument<Number>("switchAt")?.toLong() ?: 0L
+                        val afterTitle = call.argument<String>("afterTitle")
+                        val afterBody = call.argument<String>("afterBody")
+                        val afterWhen = call.argument<Number>("afterWhen")?.toLong() ?: 0L
+                        runOnUiThread {
+                            PrayerCard.post(
+                                this, title, body, at, countUp,
+                                switchAt, afterTitle, afterBody, afterWhen
+                            )
+                        }
                         result.success(true)
                     }
                     "cancelCard" -> {
-                        runOnUiThread {
-                            (getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager)
-                                .cancel(CARD_ID)
-                        }
+                        runOnUiThread { PrayerCard.cancel(this) }
                         result.success(null)
                     }
                     else -> result.notImplemented()
@@ -297,55 +302,6 @@ class MainActivity : FlutterActivity() {
      * twenty minutes in which the reader still cares how long ago it was. Touching
      * the card dismisses it: nothing here starts an activity.
      */
-    private fun postPrayerCard(title: String, body: String, at: Long, countUp: Boolean) {
-        val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        ensureCardChannel(manager)
-        val dismiss = PendingIntent.getBroadcast(
-            this,
-            CARD_ID,
-            Intent(this, CardDismissReceiver::class.java).apply {
-                action = CardDismissReceiver.ACTION_DISMISS
-                putExtra(CardDismissReceiver.EXTRA_ID, CARD_ID)
-            },
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-        )
-        val builder = Notification.Builder(this, CARD_CHANNEL)
-            .setSmallIcon(R.mipmap.ic_launcher)
-            .setContentTitle(title)
-            .setContentText(body)
-            .setStyle(Notification.BigTextStyle().bigText(body))
-            .setWhen(at)
-            .setShowWhen(true)
-            .setUsesChronometer(true)
-            .setChronometerCountDown(!countUp)
-            .setOngoing(false)
-            .setAutoCancel(true)
-            // Silent by construction: the channel is IMPORTANCE_LOW with no sound.
-            .setOnlyAlertOnce(true)
-            .setVisibility(Notification.VISIBILITY_PUBLIC)
-            .setCategory(Notification.CATEGORY_REMINDER)
-            .setPriority(Notification.PRIORITY_LOW)
-            .setContentIntent(dismiss)
-        manager.notify(CARD_ID, builder.build())
-    }
-
-    private fun ensureCardChannel(manager: NotificationManager) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return
-        if (manager.getNotificationChannel(CARD_CHANNEL) != null) return
-        val channel = NotificationChannel(
-            CARD_CHANNEL,
-            getString(R.string.app_name),
-            NotificationManager.IMPORTANCE_LOW
-        ).apply {
-            description = "الصلاة القادمة والوقت المتبقي"
-            setShowBadge(false)
-            enableLights(false)
-            enableVibration(false)
-            setSound(null, null)
-        }
-        manager.createNotificationChannel(channel)
-    }
-
     // ------------------------------------------------------------------ heading
 
     private val sensorManager: SensorManager by lazy {

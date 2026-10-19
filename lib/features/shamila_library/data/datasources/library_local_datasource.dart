@@ -600,6 +600,8 @@ class IsarLibraryLocalDataSource implements LibraryLocalDataSource {
         chapters: row.chapters,
         chars: row.chars,
         sizeBytes: row.sizeKb * 1024,
+        // `chapters` is the catalogue's section count until an install
+        // overwrites it, so it can never stand in for "is it on the device".
         downloaded: row.downloaded,
         lastChapter: row.lastChapter,
         progress: row.progress,

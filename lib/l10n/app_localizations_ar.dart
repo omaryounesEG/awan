@@ -1343,13 +1343,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get soundSilent => 'بلا صوت';
 
   @override
-  String get soundTakbir => 'تكبير — الله أكبر';
+  String get soundTakbir => 'تنبيه 1';
 
   @override
-  String get soundCall => 'مقطع — aser_ela_khaleky';
+  String get soundCall => 'تنبيه 2';
 
   @override
-  String get soundAdhan => 'أذان الصلاة — azan_salah';
+  String get soundAdhan => 'تنبيه 3';
 
   @override
   String get soundPreview => 'تجربة';
@@ -1367,7 +1367,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get elapsedHint => 'الوقت منذ الأذان — حتى انتهاء الجماعة';
 
   @override
-  String get soundRing => 'نغمة — nokia_notification';
+  String get soundRing => 'تنبيه 4';
 
   @override
   String get jumuahSilentTitle => 'صامت تلقائي يوم الجمعة';
@@ -1811,4 +1811,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String recitationResuming(String size) {
     return 'يُستأنف من $size سبق تنزيله.';
   }
+
+  @override
+  String get bookRepairing => 'جارٍ إصلاح الكتاب…';
 }

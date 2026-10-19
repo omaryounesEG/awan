@@ -19,7 +19,6 @@ import 'package:awan/features/quran_tafseer/presentation/screens/quran_home_scre
 import 'package:awan/features/shamila_library/presentation/screens/library_home_screen.dart';
 import 'package:awan/features/prayer_engine/presentation/providers/prayer_providers.dart';
 import 'package:awan/features/settings/presentation/screens/about_screen.dart';
-import 'package:awan/features/prayer_clock/presentation/screens/prayer_clock_screen.dart';
 import 'package:awan/features/settings/presentation/screens/adhan_alerts_screen.dart';
 import 'package:awan/l10n/app_localizations.dart';
 
@@ -290,20 +289,6 @@ class SettingsScreen extends ConsumerWidget {
                 onTap: () => Navigator.of(context).push(
                   MaterialPageRoute<void>(
                     builder: (_) => const AdhanAlertsScreen(),
-                  ),
-                ),
-              ),
-              // The clock the reader actually reads — full screen, with the
-              // countdown, the prayer and the hijri date.
-              ListTile(
-                contentPadding: EdgeInsets.zero,
-                leading: const Icon(Icons.schedule_outlined),
-                title: Text(l10n.prayerClockTitle),
-                subtitle: Text(l10n.prayerClockHint),
-                trailing: const Icon(Icons.chevron_left),
-                onTap: () => Navigator.of(context).push(
-                  MaterialPageRoute<void>(
-                    builder: (_) => const PrayerClockScreen(),
                   ),
                 ),
               ),

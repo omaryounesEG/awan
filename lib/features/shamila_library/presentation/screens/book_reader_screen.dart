@@ -709,20 +709,56 @@ class _ReaderFooter extends StatelessWidget {
   }
 }
 
-/// The book exists in the catalogue — marked downloaded — but carries no text.
+/// The book exists in the catalogue but carries no text on this device.
 ///
-/// This is the one failure the reader could not fix itself: the screen showed a
-/// spinner that never resolved. Naming the state and offering the one repair
-/// (install again) turns a dead end into a two-tap fix.
-class _BookNeedsRepair extends ConsumerWidget {
+/// The reader used to sit on a spinner here forever. It now repairs itself:
+/// every book that ships with the app can be re-installed from the bundle with
+/// no network at all, so the honest first action is to *do* it rather than to
+/// ask. The button stays for when the automatic attempt fails.
+class _BookNeedsRepair extends ConsumerStatefulWidget {
   const _BookNeedsRepair({required this.bookId});
 
   final String bookId;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<_BookNeedsRepair> createState() => _BookNeedsRepairState();
+}
+
+class _BookNeedsRepairState extends ConsumerState<_BookNeedsRepair> {
+  @override
+  void initState() {
+    super.initState();
+    // After the first frame: starting an install during initState would touch
+    // providers while the tree is still building.
+    WidgetsBinding.instance.addPostFrameCallback((_) => _start());
+  }
+
+  void _start() {
+    final LibraryActionsController actions =
+        ref.read(libraryActionsProvider.notifier);
+    if (actions.isBusy(widget.bookId)) return;
+    actions.start(widget.bookId);
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final AppLocalizations l10n = AppLocalizations.of(context);
-    final bool busy = ref.watch(libraryActionsProvider)[bookId] != null;
+    final BookInstallProgress? progress =
+        ref.watch(bookInstallProvider(widget.bookId));
+    final bool busy = progress != null &&
+        (progress.phase == BookInstallPhase.downloading ||
+            progress.phase == BookInstallPhase.installing);
+
+    // A finished install changes the answer to "how many chunks?"; refresh it so
+    // the page that replaced this one is the book, not this card again.
+    ref.listen<BookInstallProgress?>(
+      bookInstallProvider(widget.bookId),
+      (BookInstallProgress? previous, BookInstallProgress? next) {
+        if (next?.phase == BookInstallPhase.done) {
+          ref.invalidate(bookChunkCountProvider(widget.bookId));
+        }
+      },
+    );
 
     return Center(
       child: Padding(
@@ -730,25 +766,29 @@ class _BookNeedsRepair extends ConsumerWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            Icon(Icons.menu_book_outlined,
-                size: 44, color: Theme.of(context).colorScheme.error),
-            const SizedBox(height: 12),
+            if (busy)
+              const SizedBox(
+                width: 34,
+                height: 34,
+                child: CircularProgressIndicator(strokeWidth: 3),
+              )
+            else
+              Icon(Icons.menu_book_outlined,
+                  size: 44, color: Theme.of(context).colorScheme.error),
+            const SizedBox(height: 14),
             Text(
-              l10n.bookNeedsRepair,
+              busy ? l10n.bookRepairing : l10n.bookNeedsRepair,
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.bodyLarge,
             ),
-            const SizedBox(height: 16),
-            FilledButton.icon(
-              onPressed: busy
-                  ? null
-                  : () {
-                      ref.read(libraryActionsProvider.notifier).start(bookId);
-                      ref.invalidate(bookChunkCountProvider(bookId));
-                    },
-              icon: const Icon(Icons.refresh),
-              label: Text(l10n.bookReinstall),
-            ),
+            if (!busy) ...<Widget>[
+              const SizedBox(height: 16),
+              FilledButton.icon(
+                onPressed: _start,
+                icon: const Icon(Icons.refresh),
+                label: Text(l10n.bookReinstall),
+              ),
+            ],
           ],
         ),
       ),

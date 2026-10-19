@@ -116,13 +116,13 @@ typedef AdhanTextBuilder = ({String title, String body}) Function(
 
 /// Builds the wording of the all-day lock-screen card.
 ///
-/// [rest] is the remainder of the same day after [next] — the card answers
-/// «المتبقي على كل صلاة» by listing the day's clocks while the system's
-/// chronometer counts down to [next].
+/// One prayer, one card: the title names [next] and the body carries its clock,
+/// while the system's chronometer counts down to it. Listing the rest of the
+/// day here read as «the app is announcing five prayers» rather than «this is
+/// the next one».
 typedef LockScreenCardTextBuilder = ({String title, String body}) Function(
   PrayerName next,
   DateTime at,
-  List<({PrayerName prayer, DateTime at})> rest,
 );
 
 /// Builds the wording of the pre-prayer hourglass: «باقي ٢٠ دقيقة على العصر».

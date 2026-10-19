@@ -424,6 +424,10 @@ class NotificationService {
     required DateTime? target,
     DateTime? since,
     bool countUp = false,
+    DateTime? switchAt,
+    String? afterTitle,
+    String? afterBody,
+    DateTime? afterWhen,
   }) async {
     await init();
     if (!Platform.isAndroid && !Platform.isIOS) return false;
@@ -441,6 +445,14 @@ class NotificationService {
           'body': body,
           'when': (since ?? target).millisecondsSinceEpoch,
           'countUp': countUp,
+          // A count-up is only meaningful for the twenty minutes after the
+          // adhan; the native side re-posts this text at [switchAt] by alarm.
+          if (switchAt != null)
+            'switchAt': switchAt.millisecondsSinceEpoch,
+          if (afterTitle != null) 'afterTitle': afterTitle,
+          if (afterBody != null) 'afterBody': afterBody,
+          if (afterWhen != null)
+            'afterWhen': afterWhen.millisecondsSinceEpoch,
         });
         return true;
       } catch (error) {

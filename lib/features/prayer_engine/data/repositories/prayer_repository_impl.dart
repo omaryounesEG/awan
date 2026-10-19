@@ -315,35 +315,10 @@ class PrayerRepositoryImpl implements PrayerRepository, AdhanSchedulerPort {
         await _notifications.cancelNextPrayerCard();
         return;
       }
-      // The rest of **the next prayer's own day**, so the card lists today's
-      // remaining prayers and stops there: the planner hands over a whole month
-      // (and the launch refresh two days), and listing them all is how one card
-      // ends up showing several days at once.
-      final DateTime cardDay = DateTime(
-        next.at.year,
-        next.at.month,
-        next.at.day,
-      );
-      final List<({PrayerName prayer, DateTime at})> rest =
-          <({PrayerName prayer, DateTime at})>[];
-      for (final DayPrayerTimes day in computed) {
-        if (day.date.year != cardDay.year ||
-            day.date.month != cardDay.month ||
-            day.date.day != cardDay.day) {
-          continue;
-        }
-        for (final PrayerName prayer in PrayerName.obligatory) {
-          if (!s.isPrayerEnabled(prayer.key)) continue;
-          final DateTime at =
-              day.timeOf(prayer).add(Duration(minutes: shift));
-          if (at.isAfter(next.at)) {
-            rest.add((prayer: prayer, at: at));
-          }
-        }
-      }
-      rest.sort(
-        (a, b) => a.at.compareTo(b.at),
-      );
+      // One card, one prayer: the next one. The elapsed state below replaces
+      // it for twenty minutes after an adhan and then hands back to this text.
+      final ({String title, String body}) card =
+          _cardText?.call(next.prayer, next.at) ?? _adhanText(next.prayer, next.at);
       // The twenty minutes after an adhan belong to the congregation, not to
       // the countdown: the card flips to «how long ago», so the reader can still
       // judge whether to run. After that it returns to the next prayer.
@@ -359,8 +334,7 @@ class PrayerRepositoryImpl implements PrayerRepository, AdhanSchedulerPort {
                 now.difference(called.at),
               ) ??
               _adhanText(called.prayer, called.at)
-          : _cardText?.call(next.prayer, next.at, rest) ??
-              _adhanText(next.prayer, next.at);
+          : card;
       await _notifications.showNextPrayerCard(
         target: next.at,
         since: elapsed ? called.at : null,
@@ -368,6 +342,13 @@ class PrayerRepositoryImpl implements PrayerRepository, AdhanSchedulerPort {
         enabled: s.lockScreenAllDay,
         title: text.title,
         body: text.body,
+        // The count-up has a lifetime: twenty minutes. Anything longer is a
+        // number with no use, so the card switches itself back to the next
+        // prayer at that instant — by alarm, because the app is not running.
+        switchAt: elapsed ? called.at.add(elapsedWindow) : null,
+        afterTitle: card.title,
+        afterBody: card.body,
+        afterWhen: next.at,
       );
     } catch (error) {
       // A lock-screen extra must never be the reason a schedule fails.

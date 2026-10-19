@@ -1343,13 +1343,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get soundSilent => 'No sound';
 
   @override
-  String get soundTakbir => 'Takbir — Allahu Akbar';
+  String get soundTakbir => 'Alert 1';
 
   @override
-  String get soundCall => 'Clip — aser_ela_khaleky';
+  String get soundCall => 'Alert 2';
 
   @override
-  String get soundAdhan => 'Adhan — azan_salah';
+  String get soundAdhan => 'Alert 3';
 
   @override
   String get soundPreview => 'Audition';
@@ -1367,7 +1367,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get elapsedHint => 'Time since the adhan';
 
   @override
-  String get soundRing => 'Ringtone — nokia_notification';
+  String get soundRing => 'Alert 4';
 
   @override
   String get jumuahSilentTitle => 'Auto-silent on Friday';
@@ -1811,4 +1811,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String recitationResuming(String size) {
     return 'Resuming from $size already downloaded.';
   }
+
+  @override
+  String get bookRepairing => 'Repairing the book…';
 }

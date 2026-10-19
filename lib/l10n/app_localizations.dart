@@ -2582,19 +2582,19 @@ abstract class AppLocalizations {
   /// No description provided for @soundTakbir.
   ///
   /// In en, this message translates to:
-  /// **'Takbir — Allahu Akbar'**
+  /// **'Alert 1'**
   String get soundTakbir;
 
   /// No description provided for @soundCall.
   ///
   /// In en, this message translates to:
-  /// **'Clip — aser_ela_khaleky'**
+  /// **'Alert 2'**
   String get soundCall;
 
   /// No description provided for @soundAdhan.
   ///
   /// In en, this message translates to:
-  /// **'Adhan — azan_salah'**
+  /// **'Alert 3'**
   String get soundAdhan;
 
   /// No description provided for @soundPreview.
@@ -2630,7 +2630,7 @@ abstract class AppLocalizations {
   /// No description provided for @soundRing.
   ///
   /// In en, this message translates to:
-  /// **'Ringtone — nokia_notification'**
+  /// **'Alert 4'**
   String get soundRing;
 
   /// No description provided for @jumuahSilentTitle.
@@ -3442,6 +3442,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Resuming from {size} already downloaded.'**
   String recitationResuming(String size);
+
+  /// No description provided for @bookRepairing.
+  ///
+  /// In en, this message translates to:
+  /// **'Repairing the book…'**
+  String get bookRepairing;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

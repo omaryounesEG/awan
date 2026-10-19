@@ -770,15 +770,15 @@
   "preAdhanSoundHint": "مقطع التنبيه الذي يسبق الأذان بعشرين دقيقة.",
   "soundSystem": "صوت النظام — نغمة المنبّه",
   "soundSilent": "بلا صوت",
-  "soundTakbir": "تكبير — الله أكبر",
-  "soundCall": "مقطع — aser_ela_khaleky",
-  "soundAdhan": "أذان الصلاة — azan_salah",
+  "soundTakbir": "تنبيه 1",
+  "soundCall": "تنبيه 2",
+  "soundAdhan": "تنبيه 3",
   "soundPreview": "تجربة",
   "soundStop": "إيقاف",
   "readerPages": "صفحات الكتاب",
   "adhanPassed": "مضى على الأذان",
   "elapsedHint": "الوقت منذ الأذان — حتى انتهاء الجماعة",
-  "soundRing": "نغمة — nokia_notification",
+  "soundRing": "تنبيه 4",
   "jumuahSilentTitle": "صامت تلقائي يوم الجمعة",
   "jumuahSilentHint": "من أذان الجمعة ولمدة تحددها بالدقائق.",
   "libraryInstallAll": "تثبيت الكتب المضمَّنة",
@@ -1054,5 +1054,6 @@
         "type": "String"
       }
     }
-  }
+  },
+  "bookRepairing": "جارٍ إصلاح الكتاب…"
 }

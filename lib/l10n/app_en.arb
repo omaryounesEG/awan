@@ -777,15 +777,15 @@
   "preAdhanSoundHint": "The clip for the reminder twenty minutes before the adhan.",
   "soundSystem": "System — the phone's alarm tone",
   "soundSilent": "No sound",
-  "soundTakbir": "Takbir — Allahu Akbar",
-  "soundCall": "Clip — aser_ela_khaleky",
-  "soundAdhan": "Adhan — azan_salah",
+  "soundTakbir": "Alert 1",
+  "soundCall": "Alert 2",
+  "soundAdhan": "Alert 3",
   "soundPreview": "Audition",
   "soundStop": "Stop",
   "readerPages": "The book's pages",
   "adhanPassed": "Since the adhan",
   "elapsedHint": "Time since the adhan",
-  "soundRing": "Ringtone — nokia_notification",
+  "soundRing": "Alert 4",
   "jumuahSilentTitle": "Auto-silent on Friday",
   "jumuahSilentHint": "From the Jumu'ah adhan, for the minutes you choose.",
   "libraryInstallAll": "Install bundled books",
@@ -1061,5 +1061,6 @@
         "type": "String"
       }
     }
-  }
+  },
+  "bookRepairing": "Repairing the book…"
 }

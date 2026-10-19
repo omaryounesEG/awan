@@ -35,6 +35,11 @@ class BookTile extends ConsumerWidget {
         onTap: book.downloaded
             ? () => _openReader(context)
             : (busy ? null : () => _install(ref)),
+        // Deleting an offline copy must be findable without knowing that the
+        // three-dot menu exists: a long press on the book offers it directly.
+        onLongPress: book.downloaded && !busy
+            ? () => _confirmRemove(context, ref)
+            : null,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(12, 12, 8, 12),
           child: Row(

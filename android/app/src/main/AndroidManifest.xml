@@ -80,6 +80,12 @@
             android:name=".CardDismissReceiver"
             android:exported="false" />
 
+        <!-- Ends the twenty-minute count-up and hands the card back to the next
+             prayer. Runs with the app closed, so it is an alarm target. -->
+        <receiver
+            android:name=".CardSwitchReceiver"
+            android:exported="false" />
+
         <!-- Hands a downloaded APK to Android's installer as a content:// URI,
              so the installer never gets raw filesystem access. Not exported. -->
         <provider

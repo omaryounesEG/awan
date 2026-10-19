@@ -84,30 +84,18 @@ final Provider<PrayerRepository> prayerRepositoryProvider =
     },
     // The lock-screen card: the same wording shape as the adhan, titled as
     // «الصلاة القادمة» so it cannot be mistaken for an announcement.
-    cardText: (
-      PrayerName prayer,
-      DateTime at,
-      List<({PrayerName prayer, DateTime at})> rest,
-    ) {
+    cardText: (PrayerName prayer, DateTime at) {
       final AppSettings s = ref.read(settingsProvider);
       final l10n = localizationsFor(s.localeCode);
       final String name = prayerLabel(l10n, prayer);
       final String clock = formatClock(at, s.localeCode);
       final String city = s.isArabic ? s.cityAr : s.cityEn;
-      // «٣:٤٢ م — القاهرة» then the day's remaining clocks, one line, so the
-      // card answers «المتبقي على كل صلاة» and not just the next one.
-      final String line = rest
-          .map(
-            (({PrayerName prayer, DateTime at}) item) =>
-                '${prayerLabel(l10n, item.prayer)} ${formatClock(item.at, s.localeCode)}',
-          )
-          .join(' · ');
+      // One prayer per card: «الصلاة القادمة · العصر» and its clock. The row of
+      // remaining prayers that used to live under it made a single card look
+      // like an announcement for the whole day.
       return (
         title: '${l10n.nextPrayer} · $name',
-        body: <String>[
-          '$clock${city.isEmpty ? '' : ' — $city'}',
-          if (line.isNotEmpty) line,
-        ].join('\n'),
+        body: '$clock${city.isEmpty ? '' : ' — $city'}',
       );
     },
     // The card in the twenty minutes after the adhan: elapsed, not remaining.
