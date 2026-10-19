@@ -36,6 +36,36 @@ class RingerAlarmReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
         val moment = intent.getStringExtra(MainActivity.EXTRA_MODE) ?: return
+
+        // The reader's own mosques, when they asked for them, are the gate on
+        // *starting* a silence. Unsilencing is never gated: a phone must always
+        // be able to come back to its owner's volume.
+        if (moment == MainActivity.MODE_SILENT && MosqueFence.isEnabled(context)) {
+            val pending = goAsync()
+            Thread {
+                try {
+                    val gate = MosqueFence.checkNow(context)
+                    if (gate.inside == false) {
+                        Log.i(
+                            TAG,
+                            "silence skipped: outside «${gate.name}» " +
+                                "(${"%.0f".format(gate.distance ?: 0.0)}m away)"
+                        )
+                        return@Thread
+                    }
+                    Log.i(TAG, "mosque gate ${if (gate.inside == true) "inside" else "unknown"} (${gate.reason})")
+                    apply(context, moment)
+                } finally {
+                    pending.finish()
+                }
+            }.start()
+            return
+        }
+
+        apply(context, moment)
+    }
+
+    private fun apply(context: Context, moment: String) {
         val audio = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
         val notifications =
             context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager

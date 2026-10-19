@@ -1947,4 +1947,96 @@ class AppLocalizationsEn extends AppLocalizations {
   String midadOfAyahCount(Object total) {
     return 'out of $total verses in this scope';
   }
+
+  @override
+  String get mosqueFenceTitle => 'My mosque';
+
+  @override
+  String get mosqueFenceSubtitle => 'Record it while you are inside — the silence works only inside this fence, and only at prayer times.';
+
+  @override
+  String get mosqueFenceSubtitleOn => 'Silence is now limited to your mosque\'s fence, and to prayer times.';
+
+  @override
+  String get mosqueFenceRegister => 'Record this mosque';
+
+  @override
+  String get mosqueFenceRegisterHint => 'Stand inside or at the door, then tap — ten metres is enough.';
+
+  @override
+  String get mosqueFenceNameHint => 'Mosque name (optional)';
+
+  @override
+  String get mosqueFenceRadius => 'Fence radius';
+
+  @override
+  String get mosqueFenceMeterUnit => 'm';
+
+  @override
+  String mosqueFenceRadiusLabel(Object n) {
+    return '$n m fence';
+  }
+
+  @override
+  String mosqueFenceDistanceMeters(Object n) {
+    return '$n m away';
+  }
+
+  @override
+  String mosqueFenceDistanceKm(Object n) {
+    return '$n km away';
+  }
+
+  @override
+  String get mosqueFenceCheck => 'Check now';
+
+  @override
+  String get mosqueFenceInsideNow => 'You are inside the fence — it will silence at prayer time.';
+
+  @override
+  String mosqueFenceOutsideNow(Object n) {
+    return 'You are outside the fence ($n m) — it will not silence.';
+  }
+
+  @override
+  String get mosqueFenceUnknown => 'Could not read your location now; the silence will follow the usual schedule.';
+
+  @override
+  String get mosqueFenceDelete => 'Delete mosque';
+
+  @override
+  String get mosqueFenceAddAnother => 'Add another';
+
+  @override
+  String get mosqueFenceUnnamed => 'My mosque';
+
+  @override
+  String get mosqueFenceSaved => 'Saved — the silence is now limited to its fence.';
+
+  @override
+  String get mosqueFenceNeedLocation => 'Fix your location first from the button above, then record the mosque.';
+
+  @override
+  String mosqueFenceAccuracy(Object n) {
+    return 'Your fix is ±$n m right now.';
+  }
+
+  @override
+  String get mosqueFenceNeedsBackground => 'To work with the app closed it needs the “allow all the time” location permission.';
+
+  @override
+  String mosqueAccuracyLine(Object n) {
+    return 'Location accuracy ±$n m — the smaller, the truer.';
+  }
+
+  @override
+  String mosqueAccuracyPoor(Object n) {
+    return 'Your location is coarse (±$n m). Tap the location button above while you are at the place itself.';
+  }
+
+  @override
+  String get mosqueFixNow => 'Refresh location';
+
+  @override
+  String get mosqueFenceFallbackNote => 'If the location cannot be read at the adhan, the silence follows the usual schedule rather than missing it.';
 }

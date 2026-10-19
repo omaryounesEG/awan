@@ -15,6 +15,7 @@ import 'package:awan/features/mosque_radar/domain/entities/mosque_entity.dart';
 import 'package:awan/features/mosque_radar/domain/entities/user_mosque.dart';
 import 'package:awan/features/mosque_radar/presentation/providers/mosque_providers.dart';
 import 'package:awan/features/mosque_radar/presentation/widgets/mosque_card.dart';
+import 'package:awan/features/mosque_radar/presentation/widgets/my_mosque_card.dart';
 import 'package:awan/features/mosque_radar/presentation/widgets/radar_map.dart';
 import 'package:awan/l10n/app_localizations.dart';
 
@@ -30,11 +31,29 @@ import 'package:awan/l10n/app_localizations.dart';
 ///
 /// The map is only *one* of the two presentations of the same data: if it fails
 /// to render (no key, no Play services, no tiles) the list is still complete.
-class RadarScreen extends ConsumerWidget {
+class RadarScreen extends ConsumerStatefulWidget {
   const RadarScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<RadarScreen> createState() => _RadarScreenState();
+}
+
+class _RadarScreenState extends ConsumerState<RadarScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // A stale fix is why "nearby" can list the famous mosques of a city centre
+    // the reader left hours ago — and why the distance to their own mosque reads
+    // zero after they walked away. One fresh fix per open, then leave the radio
+    // alone.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      ref.read(locationActionProvider.notifier).detect();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final AppLocalizations l10n = AppLocalizations.of(context);
     final AppUiSettings ui = ref.watch(appSettingsProvider);
     final AsyncValue<List<MosqueEntity>> mosques =
@@ -158,58 +177,73 @@ class _Body extends ConsumerWidget {
     final String? provider = ref.watch(mosqueRepositoryProvider).lastProvider;
     final bool hasKey = ref.watch(placesKeyConfiguredProvider);
 
-    return mosques.when(
-      loading: () => scrollable
-          ? const SizedBox.shrink()
-          : const Center(child: CircularProgressIndicator()),
-      error: (Object error, StackTrace _) => _Centered(
-        icon: Icons.wifi_off_outlined,
-        text: failureText(library, asFailure(error)),
-        action: library.retry,
-        onAction: () => ref.invalidate(nearbyMosquesProvider),
+    // The reader's own mosque is not a search result: it must be there before,
+    // during and after the network answers — especially when it never answers.
+    final List<Widget> children = <Widget>[const MyMosqueCard()];
+
+    mosques.when(
+      loading: () => children.add(
+        Padding(
+          padding: EdgeInsets.only(top: 24.h),
+          child: const Center(child: CircularProgressIndicator()),
+        ),
+      ),
+      error: (Object error, StackTrace _) => children.add(
+        _Centered(
+          icon: Icons.wifi_off_outlined,
+          text: failureText(library, asFailure(error)),
+          action: library.retry,
+          onAction: () => ref.invalidate(nearbyMosquesProvider),
+        ),
       ),
       data: (List<MosqueEntity> list) {
         if (list.isEmpty) {
-          return _Centered(
-            icon: Icons.mosque_outlined,
-            text: library.noMosquesFound,
-            action: library.retry,
-            onAction: () => ref.invalidate(nearbyMosquesProvider),
+          children.add(
+            _Centered(
+              icon: Icons.mosque_outlined,
+              text: library.noMosquesFound,
+              action: library.retry,
+              onAction: () => ref.invalidate(nearbyMosquesProvider),
+            ),
           );
+          return;
         }
-
-        final List<Widget> rows = <Widget>[
-          _SourceLine(
+        children
+          ..add(_SourceLine(
             provider: provider,
             hasKey: hasKey,
             location: location,
             library: library,
-          ),
-          for (final MosqueEntity mosque in list)
-            MosqueCard(
-              mosque: mosque,
-              badge: mosque.provider == 'user' ? library.mosqueUserTag : null,
-              onDelete: mosque.provider == 'user'
-                  ? () => _removeMosque(context, ref, mosque, library)
-                  : null,
-              onTap: () => MapsLauncher.navigate(
-                latitude: mosque.latitude,
-                longitude: mosque.longitude,
-                label: mosque.name,
+          ))
+          ..addAll(<Widget>[
+            for (final MosqueEntity mosque in list)
+              MosqueCard(
+                mosque: mosque,
+                badge: mosque.provider == 'user' ? library.mosqueUserTag : null,
+                onDelete: mosque.provider == 'user'
+                    ? () => _removeMosque(context, ref, mosque, library)
+                    : null,
+                onTap: () => MapsLauncher.navigate(
+                  latitude: mosque.latitude,
+                  longitude: mosque.longitude,
+                  label: mosque.name,
+                ),
               ),
-            ),
-        ];
-
-        return scrollable
-            ? ListView(
-                padding: EdgeInsets.fromLTRB(12.w, 8.h, 12.w, 16.h),
-                children: rows,
-              )
-            : Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: rows,
-              );
+          ]);
       },
+    );
+
+    if (!scrollable) {
+      return SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: children,
+        ),
+      );
+    }
+    return ListView(
+      padding: EdgeInsets.fromLTRB(12.w, 8.h, 12.w, 16.h),
+      children: children,
     );
   }
 }
@@ -255,6 +289,27 @@ class _SourceLine extends StatelessWidget {
               ),
             ],
           ),
+          if (location.accuracyMeters != null) ...<Widget>[
+            SizedBox(height: 2.h),
+            Row(
+              children: <Widget>[
+                Icon(Icons.gps_fixed, size: 14.sp, color: AppColors.radar),
+                SizedBox(width: 5.w),
+                Expanded(
+                  child: Text(
+                    (location.accuracyMeters! <= 40)
+                        ? library.mosqueAccuracyLine(location.accuracyMeters!.round())
+                        : library.mosqueAccuracyPoor(location.accuracyMeters!.round()),
+                    style: text.bodySmall?.copyWith(
+                      color: location.accuracyMeters! <= 40
+                          ? null
+                          : Theme.of(context).colorScheme.error,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
           SizedBox(height: 2.h),
           Text(
             source,

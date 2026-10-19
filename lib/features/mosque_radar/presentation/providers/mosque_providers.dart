@@ -7,6 +7,7 @@ import 'package:awan/core/providers/core_providers.dart';
 import 'package:awan/core/services/location/app_location.dart';
 import 'package:awan/core/utils/extensions.dart';
 import 'package:awan/core/utils/geo.dart';
+import 'package:awan/features/mosque_radar/data/mosque_fence_service.dart';
 import 'package:awan/features/mosque_radar/data/user_mosque_store.dart';
 import 'package:awan/features/mosque_radar/domain/entities/user_mosque.dart';
 import 'package:awan/features/mosque_radar/data/cache/mosque_cache_store.dart';
@@ -95,6 +96,26 @@ class UserMosqueActions {
 
 final Provider<UserMosqueActions> userMosqueActionsProvider =
     Provider<UserMosqueActions>(UserMosqueActions.new);
+
+/// The one-tap mosque fence: the native alarm reads this list, so it is pushed
+/// on every change instead of being asked for when the app is not running.
+final Provider<MosqueFenceService> mosqueFenceServiceProvider =
+    Provider<MosqueFenceService>((Ref ref) => MosqueFenceService());
+
+final FutureProvider<bool> mosqueFenceEnabledProvider = FutureProvider<bool>(
+  (Ref ref) => ref.watch(mosqueFenceServiceProvider).isEnabled(),
+);
+
+/// Watched by the card so the native copy is never stale.
+final FutureProvider<void> mosqueFenceSyncProvider = FutureProvider<void>(
+  (Ref ref) async {
+    final bool enabled = await ref.watch(mosqueFenceEnabledProvider.future);
+    final List<UserMosque> mosques = await ref.watch(userMosquesProvider.future);
+    await ref
+        .watch(mosqueFenceServiceProvider)
+        .sync(mosques, enabled: enabled);
+  },
+);
 
 /// The five nearest mosques (or none) for the app's current location.
 ///

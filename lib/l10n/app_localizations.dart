@@ -3694,6 +3694,162 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'out of {total} verses in this scope'**
   String midadOfAyahCount(Object total);
+
+  /// No description provided for @mosqueFenceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'My mosque'**
+  String get mosqueFenceTitle;
+
+  /// No description provided for @mosqueFenceSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Record it while you are inside — the silence works only inside this fence, and only at prayer times.'**
+  String get mosqueFenceSubtitle;
+
+  /// No description provided for @mosqueFenceSubtitleOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Silence is now limited to your mosque\'s fence, and to prayer times.'**
+  String get mosqueFenceSubtitleOn;
+
+  /// No description provided for @mosqueFenceRegister.
+  ///
+  /// In en, this message translates to:
+  /// **'Record this mosque'**
+  String get mosqueFenceRegister;
+
+  /// No description provided for @mosqueFenceRegisterHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Stand inside or at the door, then tap — ten metres is enough.'**
+  String get mosqueFenceRegisterHint;
+
+  /// No description provided for @mosqueFenceNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Mosque name (optional)'**
+  String get mosqueFenceNameHint;
+
+  /// No description provided for @mosqueFenceRadius.
+  ///
+  /// In en, this message translates to:
+  /// **'Fence radius'**
+  String get mosqueFenceRadius;
+
+  /// No description provided for @mosqueFenceMeterUnit.
+  ///
+  /// In en, this message translates to:
+  /// **'m'**
+  String get mosqueFenceMeterUnit;
+
+  /// No description provided for @mosqueFenceRadiusLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} m fence'**
+  String mosqueFenceRadiusLabel(Object n);
+
+  /// No description provided for @mosqueFenceDistanceMeters.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} m away'**
+  String mosqueFenceDistanceMeters(Object n);
+
+  /// No description provided for @mosqueFenceDistanceKm.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} km away'**
+  String mosqueFenceDistanceKm(Object n);
+
+  /// No description provided for @mosqueFenceCheck.
+  ///
+  /// In en, this message translates to:
+  /// **'Check now'**
+  String get mosqueFenceCheck;
+
+  /// No description provided for @mosqueFenceInsideNow.
+  ///
+  /// In en, this message translates to:
+  /// **'You are inside the fence — it will silence at prayer time.'**
+  String get mosqueFenceInsideNow;
+
+  /// No description provided for @mosqueFenceOutsideNow.
+  ///
+  /// In en, this message translates to:
+  /// **'You are outside the fence ({n} m) — it will not silence.'**
+  String mosqueFenceOutsideNow(Object n);
+
+  /// No description provided for @mosqueFenceUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not read your location now; the silence will follow the usual schedule.'**
+  String get mosqueFenceUnknown;
+
+  /// No description provided for @mosqueFenceDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete mosque'**
+  String get mosqueFenceDelete;
+
+  /// No description provided for @mosqueFenceAddAnother.
+  ///
+  /// In en, this message translates to:
+  /// **'Add another'**
+  String get mosqueFenceAddAnother;
+
+  /// No description provided for @mosqueFenceUnnamed.
+  ///
+  /// In en, this message translates to:
+  /// **'My mosque'**
+  String get mosqueFenceUnnamed;
+
+  /// No description provided for @mosqueFenceSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved — the silence is now limited to its fence.'**
+  String get mosqueFenceSaved;
+
+  /// No description provided for @mosqueFenceNeedLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Fix your location first from the button above, then record the mosque.'**
+  String get mosqueFenceNeedLocation;
+
+  /// No description provided for @mosqueFenceAccuracy.
+  ///
+  /// In en, this message translates to:
+  /// **'Your fix is ±{n} m right now.'**
+  String mosqueFenceAccuracy(Object n);
+
+  /// No description provided for @mosqueFenceNeedsBackground.
+  ///
+  /// In en, this message translates to:
+  /// **'To work with the app closed it needs the “allow all the time” location permission.'**
+  String get mosqueFenceNeedsBackground;
+
+  /// No description provided for @mosqueAccuracyLine.
+  ///
+  /// In en, this message translates to:
+  /// **'Location accuracy ±{n} m — the smaller, the truer.'**
+  String mosqueAccuracyLine(Object n);
+
+  /// No description provided for @mosqueAccuracyPoor.
+  ///
+  /// In en, this message translates to:
+  /// **'Your location is coarse (±{n} m). Tap the location button above while you are at the place itself.'**
+  String mosqueAccuracyPoor(Object n);
+
+  /// No description provided for @mosqueFixNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Refresh location'**
+  String get mosqueFixNow;
+
+  /// No description provided for @mosqueFenceFallbackNote.
+  ///
+  /// In en, this message translates to:
+  /// **'If the location cannot be read at the adhan, the silence follows the usual schedule rather than missing it.'**
+  String get mosqueFenceFallbackNote;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

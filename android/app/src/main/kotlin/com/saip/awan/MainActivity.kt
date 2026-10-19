@@ -32,6 +32,8 @@ import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.EventChannel
 import io.flutter.plugin.common.MethodChannel
+import org.json.JSONArray
+import org.json.JSONObject
 import java.util.TimeZone
 
 /**
@@ -59,7 +61,8 @@ class MainActivity : FlutterActivity() {
          * Auto-silent (ringer) channel. Named after the app, not the feature, so
          * the Dart side reads as `com.awan.app/audio`.
          */
-        private const val AUDIO_CHANNEL = "com.awan.app/audio"
+        private val AUDIO_CHANNEL = "com.awan.app/audio"
+        private val FENCE_CHANNEL = "com.awan.app/mosque_fence"
 
         /**
          * Compass stream. An `EventChannel` rather than a method channel because
@@ -232,6 +235,57 @@ class MainActivity : FlutterActivity() {
                         releaseIfOurs()
                         result.success(null)
                     }
+                    else -> result.notImplemented()
+                }
+            }
+
+        // The reader's own mosques, shared with [RingerAlarmReceiver] so the
+        // alarm can ask "is the phone inside one of them?" without an engine.
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, FENCE_CHANNEL)
+            .setMethodCallHandler { call, result ->
+                when (call.method) {
+                    "sync" -> {
+                        val fences = call.argument<List<*>>("fences") ?: emptyList<Any>()
+                        val array = JSONArray()
+                        fences.forEach { raw ->
+                            val entry = raw as? Map<*, *> ?: return@forEach
+                            array.put(
+                                JSONObject().apply {
+                                    put("name", entry["name"] ?: "")
+                                    put("lat", entry["lat"] ?: 0.0)
+                                    put("lng", entry["lng"] ?: 0.0)
+                                    put("radius", entry["radius"] ?: 10.0)
+                                }
+                            )
+                        }
+                        MosqueFence.write(
+                            this,
+                            array.toString(),
+                            call.argument<Boolean>("enabled") == true
+                        )
+                        result.success(array.length())
+                    }
+                    "check" -> {
+                        // A location fix can take seconds: never block the frame.
+                        Thread {
+                            val check = MosqueFence.checkNow(
+                                this,
+                                force = call.argument<Boolean>("force") == true
+                            )
+                            runOnUiThread {
+                                result.success(
+                                    mapOf(
+                                        "inside" to check.inside,
+                                        "name" to check.name,
+                                        "distance" to check.distance,
+                                        "accuracy" to check.accuracy,
+                                        "reason" to check.reason
+                                    )
+                                )
+                            }
+                        }.start()
+                    }
+                    "enabled" -> result.success(MosqueFence.isEnabled(this))
                     else -> result.notImplemented()
                 }
             }

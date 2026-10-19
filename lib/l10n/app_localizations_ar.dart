@@ -1947,4 +1947,96 @@ class AppLocalizationsAr extends AppLocalizations {
   String midadOfAyahCount(Object total) {
     return 'من $total آية في هذا النطاق';
   }
+
+  @override
+  String get mosqueFenceTitle => 'مسجدي';
+
+  @override
+  String get mosqueFenceSubtitle => 'سجّل مكانك وأنت داخله — الصامت يعمل داخل هذا النطاق فقط، وأثناء أوقات الصلاة فقط.';
+
+  @override
+  String get mosqueFenceSubtitleOn => 'الصامت مقيّد بنطاق مسجدك: لا يعمل خارجه، ولا يعمل في غير أوقات الصلاة.';
+
+  @override
+  String get mosqueFenceRegister => 'سجّل هذا المسجد';
+
+  @override
+  String get mosqueFenceRegisterHint => 'قف داخل المسجد أو أمام بابه ثم اضغط — يكفي عشرة أمتار.';
+
+  @override
+  String get mosqueFenceNameHint => 'اسم المسجد (اختياري)';
+
+  @override
+  String get mosqueFenceRadius => 'نطاق التسجيل';
+
+  @override
+  String get mosqueFenceMeterUnit => 'م';
+
+  @override
+  String mosqueFenceRadiusLabel(Object n) {
+    return 'نطاق $n م';
+  }
+
+  @override
+  String mosqueFenceDistanceMeters(Object n) {
+    return 'يبعد $n م';
+  }
+
+  @override
+  String mosqueFenceDistanceKm(Object n) {
+    return 'يبعد $n كم';
+  }
+
+  @override
+  String get mosqueFenceCheck => 'تحقّق الآن';
+
+  @override
+  String get mosqueFenceInsideNow => 'أنت داخل النطاق الآن — سيصمت في وقت الصلاة.';
+
+  @override
+  String mosqueFenceOutsideNow(Object n) {
+    return 'أنت خارج النطاق ($n م) — لن يصمت.';
+  }
+
+  @override
+  String get mosqueFenceUnknown => 'لم أستطع تحديد موقعك الآن؛ سيبقى الصامت كالمعتاد.';
+
+  @override
+  String get mosqueFenceDelete => 'حذف المسجد';
+
+  @override
+  String get mosqueFenceAddAnother => 'إضافة مسجد آخر';
+
+  @override
+  String get mosqueFenceUnnamed => 'مسجدي';
+
+  @override
+  String get mosqueFenceSaved => 'سُجّل المسجد، والصامت الآن داخل نطاقه فقط.';
+
+  @override
+  String get mosqueFenceNeedLocation => 'ثبّت موقعك أولًا من زر الموقع أعلى الشاشة، ثم سجّل المسجد.';
+
+  @override
+  String mosqueFenceAccuracy(Object n) {
+    return 'دقة موقعك الآن ±$n م.';
+  }
+
+  @override
+  String get mosqueFenceNeedsBackground => 'ليعمل والتطبيق مغلق يحتاج إذن الموقع «السماح دائمًا».';
+
+  @override
+  String mosqueAccuracyLine(Object n) {
+    return 'دقة الموقع ±$n م — كلما صغر الرقم كان أقرب للصواب.';
+  }
+
+  @override
+  String mosqueAccuracyPoor(Object n) {
+    return 'دقة الموقع ضعيفة (±$n م). اضغط زر الموقع أعلاه وأنت في المكان المطلوب.';
+  }
+
+  @override
+  String get mosqueFixNow => 'تحديث الموقع';
+
+  @override
+  String get mosqueFenceFallbackNote => 'إذا تعذّر قراءة موقعك لحظة الأذان، يبقى الصامت كالمعتاد بدل أن يضيع الأذان.';
 }

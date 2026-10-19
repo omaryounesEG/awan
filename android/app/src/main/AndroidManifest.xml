@@ -21,6 +21,9 @@
          Never requested in the background. -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- The mosque-only silence is checked by an alarm while the app is closed;
+         without this the check can never see where the phone is. -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <!-- Adhan alarms. SCHEDULE_EXACT_ALARM is user-revocable (Android 12+); the
          app degrades to an inexact alarm instead of failing outright. -->
