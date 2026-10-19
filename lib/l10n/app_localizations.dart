@@ -2624,7 +2624,7 @@ abstract class AppLocalizations {
   /// No description provided for @elapsedHint.
   ///
   /// In en, this message translates to:
-  /// **'Time since the adhan'**
+  /// **'Time since the adhan — clears after twenty minutes'**
   String get elapsedHint;
 
   /// No description provided for @soundRing.

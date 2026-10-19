@@ -1364,7 +1364,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get adhanPassed => 'مضى على الأذان';
 
   @override
-  String get elapsedHint => 'الوقت منذ الأذان — حتى انتهاء الجماعة';
+  String get elapsedHint => 'الوقت منذ الأذان — يختفي بعد عشرين دقيقة';
 
   @override
   String get soundRing => 'تنبيه 4';

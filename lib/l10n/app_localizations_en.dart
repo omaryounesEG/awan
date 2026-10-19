@@ -1364,7 +1364,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get adhanPassed => 'Since the adhan';
 
   @override
-  String get elapsedHint => 'Time since the adhan';
+  String get elapsedHint => 'Time since the adhan — clears after twenty minutes';
 
   @override
   String get soundRing => 'Alert 4';

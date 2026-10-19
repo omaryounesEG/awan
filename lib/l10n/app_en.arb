@@ -784,7 +784,7 @@
   "soundStop": "Stop",
   "readerPages": "The book's pages",
   "adhanPassed": "Since the adhan",
-  "elapsedHint": "Time since the adhan",
+  "elapsedHint": "Time since the adhan — clears after twenty minutes",
   "soundRing": "Alert 4",
   "jumuahSilentTitle": "Auto-silent on Friday",
   "jumuahSilentHint": "From the Jumu'ah adhan, for the minutes you choose.",

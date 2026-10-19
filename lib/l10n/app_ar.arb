@@ -777,7 +777,7 @@
   "soundStop": "إيقاف",
   "readerPages": "صفحات الكتاب",
   "adhanPassed": "مضى على الأذان",
-  "elapsedHint": "الوقت منذ الأذان — حتى انتهاء الجماعة",
+  "elapsedHint": "الوقت منذ الأذان — يختفي بعد عشرين دقيقة",
   "soundRing": "تنبيه 4",
   "jumuahSilentTitle": "صامت تلقائي يوم الجمعة",
   "jumuahSilentHint": "من أذان الجمعة ولمدة تحددها بالدقائق.",
