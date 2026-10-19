@@ -1814,4 +1814,137 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get bookRepairing => 'جارٍ إصلاح الكتاب…';
+
+  @override
+  String get midadTitle => 'المِعداد';
+
+  @override
+  String get midadSubtitle => 'معمل النص القرآني';
+
+  @override
+  String get midadScopeMushaf => 'المصحف';
+
+  @override
+  String get midadScopeSurah => 'سورة';
+
+  @override
+  String get midadScopeJuz => 'جزء';
+
+  @override
+  String get midadScopePage => 'صفحة';
+
+  @override
+  String get midadScopeHizb => 'حزب';
+
+  @override
+  String get midadScopeMeccan => 'مكية';
+
+  @override
+  String get midadScopeMedinan => 'مدنية';
+
+  @override
+  String get midadUnitLetter => 'حرف';
+
+  @override
+  String get midadUnitWord => 'كلمة';
+
+  @override
+  String get midadUnitAyah => 'طول الآية';
+
+  @override
+  String get midadUnitFasila => 'الفاصلة';
+
+  @override
+  String get midadProbeLetterHint => 'اكتب حرفًا واحدًا…';
+
+  @override
+  String get midadProbeWordHint => 'اكتب كلمة…';
+
+  @override
+  String get midadBasmala => 'عدّ البسملة';
+
+  @override
+  String get midadSimpleScript => 'رسم مبسّط';
+
+  @override
+  String get midadResult => 'النتيجة';
+
+  @override
+  String get midadCounted => 'مرة';
+
+  @override
+  String midadOfLetters(Object total) {
+    return 'من $total حرفًا في هذا النطاق';
+  }
+
+  @override
+  String midadOfWords(Object total) {
+    return 'من $total كلمة في هذا النطاق';
+  }
+
+  @override
+  String midadOfAyahs(Object total) {
+    return 'آية تحمل هذا الحرف في آخرها، من $total آية';
+  }
+
+  @override
+  String midadAvgLength(Object n) {
+    return 'متوسط طول الآية: $n حرفًا';
+  }
+
+  @override
+  String get midadHeatmap => 'خريطة التوزيع';
+
+  @override
+  String get midadHeatmapHint => 'كل مربع سورة — اضغطها لتحصر العدّ فيها';
+
+  @override
+  String get midadTopVerses => 'أكثر الآيات تكرارًا';
+
+  @override
+  String get midadInsights => 'مفارقات';
+
+  @override
+  String get midadInsightTopLetter => 'أكثر الحروف';
+
+  @override
+  String get midadInsightHapax => 'كلمات لا ترد إلا مرة';
+
+  @override
+  String get midadInsightLongest => 'أطول آية';
+
+  @override
+  String get midadInsightRarest => 'أندر الحروف انتشارًا';
+
+  @override
+  String get midadHowWeCount => 'كيف نعدّ؟';
+
+  @override
+  String get midadHowBody => 'نعدّ من نص المصحف المضمَّن (رسم عثماني):\n\n• الحروف: نحذف التشكيل وعلامات الوقف، ويبقى الحرف كما كُتب. «رسم مبسّط» يجعل ٱ أ إ آ حرفًا واحدًا (ا).\n• الكلمات: تُعدّ الكلمة كاملة، لا جزءًا منها؛ «الله» ليست داخل «بالله». و«داخل الكلمات» يسمح بذلك صراحةً.\n• لفظ الجلالة: «الله» وحدها ٢١٥٣، ولو أضفت «لله» بلغت ٢٧٠٣؛ والرقم الشائع ٢٦٩٩ يجمع بينهما — لهذا يختلف عن عدّ الكلمة وحدها.\n• البسملة: لا تُعدّ آيةً في أوائل السور، فإن شغّلت الخيار أُضيفت حروفها وكلماتها دون زيادة عدد الآيات.\n• الفاصلة: آخر حرف مكتوب في الآية.\n\nكل بطاقة تحمل نطاقها ومحدداتها، فكل رقم قابل للتكرار.';
+
+  @override
+  String get midadPickPlace => 'اختر النطاق';
+
+  @override
+  String get midadNothing => 'لا شيء في هذا النطاق';
+
+  @override
+  String get midadOpenVerse => 'افتح الآية';
+
+  @override
+  String get midadLettersTotal => 'حروف المصحف';
+
+  @override
+  String get midadWordsTotal => 'كلماته';
+
+  @override
+  String get midadVerse => 'آية';
+
+  @override
+  String get midadWordInside => 'داخل الكلمات';
+
+  @override
+  String midadOfAyahCount(Object total) {
+    return 'من $total آية في هذا النطاق';
+  }
 }

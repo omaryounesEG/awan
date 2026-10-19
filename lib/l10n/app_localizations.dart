@@ -3448,6 +3448,252 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Repairing the book…'**
   String get bookRepairing;
+
+  /// No description provided for @midadTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Al-Mi\'dad'**
+  String get midadTitle;
+
+  /// No description provided for @midadSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The Qur\'an text lab'**
+  String get midadSubtitle;
+
+  /// No description provided for @midadScopeMushaf.
+  ///
+  /// In en, this message translates to:
+  /// **'Mushaf'**
+  String get midadScopeMushaf;
+
+  /// No description provided for @midadScopeSurah.
+  ///
+  /// In en, this message translates to:
+  /// **'Surah'**
+  String get midadScopeSurah;
+
+  /// No description provided for @midadScopeJuz.
+  ///
+  /// In en, this message translates to:
+  /// **'Juz'**
+  String get midadScopeJuz;
+
+  /// No description provided for @midadScopePage.
+  ///
+  /// In en, this message translates to:
+  /// **'Page'**
+  String get midadScopePage;
+
+  /// No description provided for @midadScopeHizb.
+  ///
+  /// In en, this message translates to:
+  /// **'Hizb'**
+  String get midadScopeHizb;
+
+  /// No description provided for @midadScopeMeccan.
+  ///
+  /// In en, this message translates to:
+  /// **'Meccan'**
+  String get midadScopeMeccan;
+
+  /// No description provided for @midadScopeMedinan.
+  ///
+  /// In en, this message translates to:
+  /// **'Medinan'**
+  String get midadScopeMedinan;
+
+  /// No description provided for @midadUnitLetter.
+  ///
+  /// In en, this message translates to:
+  /// **'Letter'**
+  String get midadUnitLetter;
+
+  /// No description provided for @midadUnitWord.
+  ///
+  /// In en, this message translates to:
+  /// **'Word'**
+  String get midadUnitWord;
+
+  /// No description provided for @midadUnitAyah.
+  ///
+  /// In en, this message translates to:
+  /// **'Verse length'**
+  String get midadUnitAyah;
+
+  /// No description provided for @midadUnitFasila.
+  ///
+  /// In en, this message translates to:
+  /// **'Rhyme letter'**
+  String get midadUnitFasila;
+
+  /// No description provided for @midadProbeLetterHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Type one letter…'**
+  String get midadProbeLetterHint;
+
+  /// No description provided for @midadProbeWordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Type a word…'**
+  String get midadProbeWordHint;
+
+  /// No description provided for @midadBasmala.
+  ///
+  /// In en, this message translates to:
+  /// **'Count the basmala'**
+  String get midadBasmala;
+
+  /// No description provided for @midadSimpleScript.
+  ///
+  /// In en, this message translates to:
+  /// **'Simple script'**
+  String get midadSimpleScript;
+
+  /// No description provided for @midadResult.
+  ///
+  /// In en, this message translates to:
+  /// **'Result'**
+  String get midadResult;
+
+  /// No description provided for @midadCounted.
+  ///
+  /// In en, this message translates to:
+  /// **'times'**
+  String get midadCounted;
+
+  /// No description provided for @midadOfLetters.
+  ///
+  /// In en, this message translates to:
+  /// **'out of {total} letters in this scope'**
+  String midadOfLetters(Object total);
+
+  /// No description provided for @midadOfWords.
+  ///
+  /// In en, this message translates to:
+  /// **'out of {total} words in this scope'**
+  String midadOfWords(Object total);
+
+  /// No description provided for @midadOfAyahs.
+  ///
+  /// In en, this message translates to:
+  /// **'verses end with it, out of {total} verses'**
+  String midadOfAyahs(Object total);
+
+  /// No description provided for @midadAvgLength.
+  ///
+  /// In en, this message translates to:
+  /// **'Average verse length: {n} letters'**
+  String midadAvgLength(Object n);
+
+  /// No description provided for @midadHeatmap.
+  ///
+  /// In en, this message translates to:
+  /// **'Where it concentrates'**
+  String get midadHeatmap;
+
+  /// No description provided for @midadHeatmapHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Each square is a surah — tap one to narrow the count to it'**
+  String get midadHeatmapHint;
+
+  /// No description provided for @midadTopVerses.
+  ///
+  /// In en, this message translates to:
+  /// **'Verses where it concentrates'**
+  String get midadTopVerses;
+
+  /// No description provided for @midadInsights.
+  ///
+  /// In en, this message translates to:
+  /// **'Curiosities'**
+  String get midadInsights;
+
+  /// No description provided for @midadInsightTopLetter.
+  ///
+  /// In en, this message translates to:
+  /// **'Most frequent letter'**
+  String get midadInsightTopLetter;
+
+  /// No description provided for @midadInsightHapax.
+  ///
+  /// In en, this message translates to:
+  /// **'Words that occur only once'**
+  String get midadInsightHapax;
+
+  /// No description provided for @midadInsightLongest.
+  ///
+  /// In en, this message translates to:
+  /// **'Longest verse'**
+  String get midadInsightLongest;
+
+  /// No description provided for @midadInsightRarest.
+  ///
+  /// In en, this message translates to:
+  /// **'Rarest letter by spread'**
+  String get midadInsightRarest;
+
+  /// No description provided for @midadHowWeCount.
+  ///
+  /// In en, this message translates to:
+  /// **'How we count'**
+  String get midadHowWeCount;
+
+  /// No description provided for @midadHowBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Counted from the bundled Uthmani text:\n\n• Letters: diacritics and pause marks are removed; the letter stays as written. “Simple script” folds ٱ أ إ آ into one alef (ا).\n• Words: whole tokens — «الله» is not counted inside «بالله». “Inside words” allows exactly that, explicitly.\n• The divine name: «الله» alone is 2,153, plus «لله» it is 2,703; the familiar 2,699 figure combines them — which is why it differs from the whole-word count.\n• Basmala: not a verse outside Al-Fatihah. The option adds its letters and words, never a verse.\n• Rhyme letter: the last written letter of the verse.\n\nEvery card carries its scope and switches, so every number is reproducible.'**
+  String get midadHowBody;
+
+  /// No description provided for @midadPickPlace.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a scope'**
+  String get midadPickPlace;
+
+  /// No description provided for @midadNothing.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing in this scope'**
+  String get midadNothing;
+
+  /// No description provided for @midadOpenVerse.
+  ///
+  /// In en, this message translates to:
+  /// **'Open the verse'**
+  String get midadOpenVerse;
+
+  /// No description provided for @midadLettersTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'Letters of the mushaf'**
+  String get midadLettersTotal;
+
+  /// No description provided for @midadWordsTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'Its words'**
+  String get midadWordsTotal;
+
+  /// No description provided for @midadVerse.
+  ///
+  /// In en, this message translates to:
+  /// **'verse'**
+  String get midadVerse;
+
+  /// No description provided for @midadWordInside.
+  ///
+  /// In en, this message translates to:
+  /// **'Inside words'**
+  String get midadWordInside;
+
+  /// No description provided for @midadOfAyahCount.
+  ///
+  /// In en, this message translates to:
+  /// **'out of {total} verses in this scope'**
+  String midadOfAyahCount(Object total);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

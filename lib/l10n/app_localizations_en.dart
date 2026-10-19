@@ -1814,4 +1814,137 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get bookRepairing => 'Repairing the book…';
+
+  @override
+  String get midadTitle => 'Al-Mi\'dad';
+
+  @override
+  String get midadSubtitle => 'The Qur\'an text lab';
+
+  @override
+  String get midadScopeMushaf => 'Mushaf';
+
+  @override
+  String get midadScopeSurah => 'Surah';
+
+  @override
+  String get midadScopeJuz => 'Juz';
+
+  @override
+  String get midadScopePage => 'Page';
+
+  @override
+  String get midadScopeHizb => 'Hizb';
+
+  @override
+  String get midadScopeMeccan => 'Meccan';
+
+  @override
+  String get midadScopeMedinan => 'Medinan';
+
+  @override
+  String get midadUnitLetter => 'Letter';
+
+  @override
+  String get midadUnitWord => 'Word';
+
+  @override
+  String get midadUnitAyah => 'Verse length';
+
+  @override
+  String get midadUnitFasila => 'Rhyme letter';
+
+  @override
+  String get midadProbeLetterHint => 'Type one letter…';
+
+  @override
+  String get midadProbeWordHint => 'Type a word…';
+
+  @override
+  String get midadBasmala => 'Count the basmala';
+
+  @override
+  String get midadSimpleScript => 'Simple script';
+
+  @override
+  String get midadResult => 'Result';
+
+  @override
+  String get midadCounted => 'times';
+
+  @override
+  String midadOfLetters(Object total) {
+    return 'out of $total letters in this scope';
+  }
+
+  @override
+  String midadOfWords(Object total) {
+    return 'out of $total words in this scope';
+  }
+
+  @override
+  String midadOfAyahs(Object total) {
+    return 'verses end with it, out of $total verses';
+  }
+
+  @override
+  String midadAvgLength(Object n) {
+    return 'Average verse length: $n letters';
+  }
+
+  @override
+  String get midadHeatmap => 'Where it concentrates';
+
+  @override
+  String get midadHeatmapHint => 'Each square is a surah — tap one to narrow the count to it';
+
+  @override
+  String get midadTopVerses => 'Verses where it concentrates';
+
+  @override
+  String get midadInsights => 'Curiosities';
+
+  @override
+  String get midadInsightTopLetter => 'Most frequent letter';
+
+  @override
+  String get midadInsightHapax => 'Words that occur only once';
+
+  @override
+  String get midadInsightLongest => 'Longest verse';
+
+  @override
+  String get midadInsightRarest => 'Rarest letter by spread';
+
+  @override
+  String get midadHowWeCount => 'How we count';
+
+  @override
+  String get midadHowBody => 'Counted from the bundled Uthmani text:\n\n• Letters: diacritics and pause marks are removed; the letter stays as written. “Simple script” folds ٱ أ إ آ into one alef (ا).\n• Words: whole tokens — «الله» is not counted inside «بالله». “Inside words” allows exactly that, explicitly.\n• The divine name: «الله» alone is 2,153, plus «لله» it is 2,703; the familiar 2,699 figure combines them — which is why it differs from the whole-word count.\n• Basmala: not a verse outside Al-Fatihah. The option adds its letters and words, never a verse.\n• Rhyme letter: the last written letter of the verse.\n\nEvery card carries its scope and switches, so every number is reproducible.';
+
+  @override
+  String get midadPickPlace => 'Choose a scope';
+
+  @override
+  String get midadNothing => 'Nothing in this scope';
+
+  @override
+  String get midadOpenVerse => 'Open the verse';
+
+  @override
+  String get midadLettersTotal => 'Letters of the mushaf';
+
+  @override
+  String get midadWordsTotal => 'Its words';
+
+  @override
+  String get midadVerse => 'verse';
+
+  @override
+  String get midadWordInside => 'Inside words';
+
+  @override
+  String midadOfAyahCount(Object total) {
+    return 'out of $total verses in this scope';
+  }
 }
