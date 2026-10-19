@@ -99,10 +99,31 @@ class NextPrayerCard extends ConsumerWidget {
             ),
             if (next.previous != null) ...<Widget>[
               SizedBox(height: elderly ? 14 : 10),
-              Text(
-                '${prayerLabel(l10n, next.previous!)} → '
-                '${prayerLabel(l10n, next.name)}',
-                style: Theme.of(context).textTheme.bodySmall,
+              // An icon, not the «→» character: inside an Arabic paragraph the
+              // shaper mirrors the arrow, so «الفجر → الظهر» was drawn pointing
+              // backwards. Icons never mirror, and the Row follows the text
+              // direction on its own — right-to-left reads الفجر، ثم السهم، ثم
+              // الظهر; left-to-right keeps «Fajr → Dhuhr» as it was.
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Text(
+                    prayerLabel(l10n, next.previous!),
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: elderly ? 8 : 6),
+                    child: Icon(
+                      Icons.arrow_forward,
+                      size: elderly ? 18 : 13,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+                  Text(
+                    prayerLabel(l10n, next.name),
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ],
               ),
             ],
           ],
