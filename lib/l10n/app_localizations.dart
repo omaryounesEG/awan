@@ -3850,6 +3850,276 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'If the location cannot be read at the adhan, the silence follows the usual schedule rather than missing it.'**
   String get mosqueFenceFallbackNote;
+
+  /// No description provided for @adhkarTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Adhkar'**
+  String get adhkarTitle;
+
+  /// No description provided for @adhkarReport.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly report'**
+  String get adhkarReport;
+
+  /// No description provided for @adhkarReminders.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminder times'**
+  String get adhkarReminders;
+
+  /// No description provided for @adhkarMorning.
+  ///
+  /// In en, this message translates to:
+  /// **'Morning'**
+  String get adhkarMorning;
+
+  /// No description provided for @adhkarEvening.
+  ///
+  /// In en, this message translates to:
+  /// **'Evening'**
+  String get adhkarEvening;
+
+  /// No description provided for @adhkarMorningDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Morning adhkar done — evening is next'**
+  String get adhkarMorningDone;
+
+  /// No description provided for @adhkarEveningDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Evening adhkar done — see you at dawn'**
+  String get adhkarEveningDone;
+
+  /// No description provided for @adhkarProgressOf.
+  ///
+  /// In en, this message translates to:
+  /// **'{done} of {total}'**
+  String adhkarProgressOf(int done, int total);
+
+  /// No description provided for @adhkarListen.
+  ///
+  /// In en, this message translates to:
+  /// **'Listen'**
+  String get adhkarListen;
+
+  /// No description provided for @adhkarReset.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset'**
+  String get adhkarReset;
+
+  /// No description provided for @adhkarTapToExpand.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to read it in full'**
+  String get adhkarTapToExpand;
+
+  /// No description provided for @adhkarPlay.
+  ///
+  /// In en, this message translates to:
+  /// **'Play'**
+  String get adhkarPlay;
+
+  /// No description provided for @adhkarDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get adhkarDone;
+
+  /// No description provided for @adhkarCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Count'**
+  String get adhkarCount;
+
+  /// No description provided for @adhkarRemindersBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Two daily nudges for morning and evening, working with the app closed.'**
+  String get adhkarRemindersBody;
+
+  /// No description provided for @adhkarRemindersEnable.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable reminders'**
+  String get adhkarRemindersEnable;
+
+  /// No description provided for @adhkarMorningReminderTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Morning adhkar'**
+  String get adhkarMorningReminderTitle;
+
+  /// No description provided for @adhkarMorningReminderBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Time for the morning adhkar — twenty-four remembrances.'**
+  String get adhkarMorningReminderBody;
+
+  /// No description provided for @adhkarEveningReminderTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Evening adhkar'**
+  String get adhkarEveningReminderTitle;
+
+  /// No description provided for @adhkarEveningReminderBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Time for the evening adhkar — twenty-four remembrances.'**
+  String get adhkarEveningReminderBody;
+
+  /// No description provided for @adhkarReminderSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders saved.'**
+  String get adhkarReminderSaved;
+
+  /// No description provided for @adhkarReminderOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders stopped.'**
+  String get adhkarReminderOff;
+
+  /// No description provided for @adhkarPlayerFinished.
+  ///
+  /// In en, this message translates to:
+  /// **'All done — may Allah accept it.'**
+  String get adhkarPlayerFinished;
+
+  /// No description provided for @adhkarCarMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Car mode'**
+  String get adhkarCarMode;
+
+  /// No description provided for @adhkarAutoNextOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto-advance is on'**
+  String get adhkarAutoNextOn;
+
+  /// No description provided for @adhkarAutoNextOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Manual advance'**
+  String get adhkarAutoNextOff;
+
+  /// No description provided for @adhkarMorningDays.
+  ///
+  /// In en, this message translates to:
+  /// **'Days with morning done'**
+  String get adhkarMorningDays;
+
+  /// No description provided for @adhkarEveningDays.
+  ///
+  /// In en, this message translates to:
+  /// **'Days with evening done'**
+  String get adhkarEveningDays;
+
+  /// No description provided for @adhkarBothDays.
+  ///
+  /// In en, this message translates to:
+  /// **'Days with both'**
+  String get adhkarBothDays;
+
+  /// No description provided for @adhkarAverage.
+  ///
+  /// In en, this message translates to:
+  /// **'Average completion'**
+  String get adhkarAverage;
+
+  /// No description provided for @adhkarLegendNone.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing'**
+  String get adhkarLegendNone;
+
+  /// No description provided for @adhkarLegendHalf.
+  ///
+  /// In en, this message translates to:
+  /// **'Half'**
+  String get adhkarLegendHalf;
+
+  /// No description provided for @adhkarLegendFull.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete'**
+  String get adhkarLegendFull;
+
+  /// No description provided for @weekdaySun.
+  ///
+  /// In en, this message translates to:
+  /// **'S'**
+  String get weekdaySun;
+
+  /// No description provided for @weekdayMon.
+  ///
+  /// In en, this message translates to:
+  /// **'M'**
+  String get weekdayMon;
+
+  /// No description provided for @weekdayTue.
+  ///
+  /// In en, this message translates to:
+  /// **'T'**
+  String get weekdayTue;
+
+  /// No description provided for @weekdayWed.
+  ///
+  /// In en, this message translates to:
+  /// **'W'**
+  String get weekdayWed;
+
+  /// No description provided for @weekdayThu.
+  ///
+  /// In en, this message translates to:
+  /// **'T'**
+  String get weekdayThu;
+
+  /// No description provided for @weekdayFri.
+  ///
+  /// In en, this message translates to:
+  /// **'F'**
+  String get weekdayFri;
+
+  /// No description provided for @weekdaySat.
+  ///
+  /// In en, this message translates to:
+  /// **'S'**
+  String get weekdaySat;
+
+  /// No description provided for @adhkarAudioTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Listen offline'**
+  String get adhkarAudioTitle;
+
+  /// No description provided for @adhkarAudioBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The audio downloads on request: twenty-four files, about thirty megabytes. Without it, listening streams from the internet.'**
+  String get adhkarAudioBody;
+
+  /// No description provided for @adhkarAudioCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{done} of {total} clips on the device'**
+  String adhkarAudioCount(int done, int total);
+
+  /// No description provided for @adhkarAudioDownload.
+  ///
+  /// In en, this message translates to:
+  /// **'Download the audio'**
+  String get adhkarAudioDownload;
+
+  /// No description provided for @adhkarAudioDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get adhkarAudioDelete;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -8,6 +8,7 @@ import 'package:awan/core/services/audio_manager_service.dart';
 import 'package:awan/core/services/notification_service.dart';
 import 'package:awan/core/settings/app_settings.dart';
 import 'package:awan/core/utils/clock_shift.dart';
+import 'package:awan/features/adhkar/data/adhkar_reminders.dart';
 import 'package:awan/features/prayer_engine/data/datasources/aladhan_remote_datasource.dart';
 import 'package:awan/features/prayer_engine/data/datasources/prayer_local_datasource.dart';
 import 'package:awan/features/prayer_engine/domain/entities/adhan_sound.dart';
@@ -367,14 +368,19 @@ class PrayerRepositoryImpl implements PrayerRepository, AdhanSchedulerPort {
     required AdhanSound preAdhanSound,
     required bool vibrate,
     required String channelName,
-  }) =>
-      _notifications.replaceSchedule(
-        items,
-        adhanSound: adhanSound,
-        preAdhanSound: preAdhanSound,
-        vibrate: vibrate,
-        channelName: channelName,
-      );
+  }) async {
+    final int scheduled = await _notifications.replaceSchedule(
+      items,
+      adhanSound: adhanSound,
+      preAdhanSound: preAdhanSound,
+      vibrate: vibrate,
+      channelName: channelName,
+    );
+    // `replaceSchedule` cancels every pending notification, adhkar included;
+    // put the two nudges back so a monthly rebuild never silences them.
+    await AdhkarReminders().rearmDefaults();
+    return scheduled;
+  }
 
   @override
   Future<void> cancelAll() => _notifications.cancelAdhan();

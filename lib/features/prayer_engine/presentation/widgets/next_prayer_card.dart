@@ -116,6 +116,11 @@ class NextPrayerCard extends ConsumerWidget {
                     child: Icon(
                       Icons.arrow_forward,
                       size: elderly ? 18 : 13,
+                      // arrow_forward is a mirroring icon, so in an RTL tree
+                      // Flutter draws it as ←. Pinning it to LTR keeps the
+                      // arrow the reader asked for: الفجر → الظهر, and leaves
+                      // the English line untouched.
+                      textDirection: TextDirection.ltr,
                       color: Theme.of(context).colorScheme.onSurfaceVariant,
                     ),
                   ),

@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:awan/core/l10n/l10n.dart';
 import 'package:awan/features/mosque_radar/presentation/screens/radar_screen.dart';
 import 'package:awan/features/recitation/presentation/screens/recitation_screen.dart';
+import 'package:awan/features/adhkar/presentation/screens/adhkar_screen.dart';
 import 'package:awan/features/prayer_engine/presentation/screens/monthly_timetable_screen.dart';
 import 'package:awan/features/prayer_engine/presentation/screens/qibla_screen.dart';
 import 'package:awan/features/tasbih/presentation/screens/tasbih_screen.dart';
@@ -48,6 +49,11 @@ class QuickActions extends StatelessWidget {
         icon: Icons.graphic_eq_rounded,
         label: l10n.recitationTitle,
         builder: () => const RecitationScreen(),
+      ),
+      _Action(
+        icon: Icons.wb_twilight_rounded,
+        label: l10n.adhkarTitle,
+        builder: () => const AdhkarScreen(),
       ),
     ];
 

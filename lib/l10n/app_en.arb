@@ -1129,5 +1129,70 @@
   "mosqueAccuracyLine": "Location accuracy ±{n} m — the smaller, the truer.",
   "mosqueAccuracyPoor": "Your location is coarse (±{n} m). Tap the location button above while you are at the place itself.",
   "mosqueFixNow": "Refresh location",
-  "mosqueFenceFallbackNote": "If the location cannot be read at the adhan, the silence follows the usual schedule rather than missing it."
+  "mosqueFenceFallbackNote": "If the location cannot be read at the adhan, the silence follows the usual schedule rather than missing it.",
+  "adhkarTitle": "Adhkar",
+  "adhkarReport": "Monthly report",
+  "adhkarReminders": "Reminder times",
+  "adhkarMorning": "Morning",
+  "adhkarEvening": "Evening",
+  "adhkarMorningDone": "Morning adhkar done — evening is next",
+  "adhkarEveningDone": "Evening adhkar done — see you at dawn",
+  "adhkarProgressOf": "{done} of {total}",
+  "adhkarListen": "Listen",
+  "adhkarReset": "Reset",
+  "adhkarTapToExpand": "Tap to read it in full",
+  "adhkarPlay": "Play",
+  "adhkarDone": "Done",
+  "adhkarCount": "Count",
+  "adhkarRemindersBody": "Two daily nudges for morning and evening, working with the app closed.",
+  "adhkarRemindersEnable": "Enable reminders",
+  "adhkarMorningReminderTitle": "Morning adhkar",
+  "adhkarMorningReminderBody": "Time for the morning adhkar — twenty-four remembrances.",
+  "adhkarEveningReminderTitle": "Evening adhkar",
+  "adhkarEveningReminderBody": "Time for the evening adhkar — twenty-four remembrances.",
+  "adhkarReminderSaved": "Reminders saved.",
+  "adhkarReminderOff": "Reminders stopped.",
+  "adhkarPlayerFinished": "All done — may Allah accept it.",
+  "adhkarCarMode": "Car mode",
+  "adhkarAutoNextOn": "Auto-advance is on",
+  "adhkarAutoNextOff": "Manual advance",
+  "adhkarMorningDays": "Days with morning done",
+  "adhkarEveningDays": "Days with evening done",
+  "adhkarBothDays": "Days with both",
+  "adhkarAverage": "Average completion",
+  "adhkarLegendNone": "Nothing",
+  "adhkarLegendHalf": "Half",
+  "adhkarLegendFull": "Complete",
+  "weekdaySun": "S",
+  "weekdayMon": "M",
+  "weekdayTue": "T",
+  "weekdayWed": "W",
+  "weekdayThu": "T",
+  "weekdayFri": "F",
+  "weekdaySat": "S",
+  "@adhkarProgressOf": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "adhkarAudioTitle": "Listen offline",
+  "adhkarAudioBody": "The audio downloads on request: twenty-four files, about thirteen megabytes. Without it, listening streams from the internet.",
+  "adhkarAudioCount": "{done} of {total} clips on the device",
+  "adhkarAudioDownload": "Download the audio",
+  "adhkarAudioDelete": "Delete",
+  "@adhkarAudioCount": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  }
 }

@@ -63,6 +63,8 @@ class MainActivity : FlutterActivity() {
          */
         private val AUDIO_CHANNEL = "com.awan.app/audio"
         private val FENCE_CHANNEL = "com.awan.app/mosque_fence"
+    private val ADHKAR_AUDIO_CHANNEL = "com.awan.app/adhkar_audio"
+    private var adhkarAudio: AdhkarAudio? = null
 
         /**
          * Compass stream. An `EventChannel` rather than a method channel because
@@ -238,6 +240,39 @@ class MainActivity : FlutterActivity() {
                     else -> result.notImplemented()
                 }
             }
+
+        // Adhkar recitation: one MediaPlayer, driven by the screen that owns it.
+        val adhkarChannel =
+            MethodChannel(flutterEngine.dartExecutor.binaryMessenger, ADHKAR_AUDIO_CHANNEL)
+        adhkarAudio = AdhkarAudio(adhkarChannel)
+        adhkarChannel.setMethodCallHandler { call, result ->
+            when (call.method) {
+                "play" -> {
+                    adhkarAudio?.play(
+                        call.argument<String>("source") ?: "",
+                        call.argument<String>("title")
+                    )
+                    result.success(null)
+                }
+                "pause" -> {
+                    adhkarAudio?.pause()
+                    result.success(null)
+                }
+                "resume" -> {
+                    adhkarAudio?.resume()
+                    result.success(null)
+                }
+                "stop" -> {
+                    adhkarAudio?.stop()
+                    result.success(null)
+                }
+                "seek" -> {
+                    adhkarAudio?.seek(call.argument<Int>("position") ?: 0)
+                    result.success(null)
+                }
+                else -> result.notImplemented()
+            }
+        }
 
         // The reader's own mosques, shared with [RingerAlarmReceiver] so the
         // alarm can ask "is the phone inside one of them?" without an engine.
@@ -605,6 +640,14 @@ class MainActivity : FlutterActivity() {
     }
 
     /** Silent needs Do-Not-Disturb access on API 23+; restoring does not. */
+    override fun onDestroy() {
+        // The recitation belongs to the screen that started it; leaving the
+        // activity must not leave a voice playing in an empty room.
+        adhkarAudio?.stop()
+        adhkarAudio = null
+        super.onDestroy()
+    }
+
     private fun setRingerMode(silent: Boolean): Boolean {
         if (silent && !hasPolicyAccess()) return false
         val audio = getSystemService(Context.AUDIO_SERVICE) as AudioManager

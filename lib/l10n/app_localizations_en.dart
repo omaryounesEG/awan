@@ -2039,4 +2039,143 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get mosqueFenceFallbackNote => 'If the location cannot be read at the adhan, the silence follows the usual schedule rather than missing it.';
+
+  @override
+  String get adhkarTitle => 'Adhkar';
+
+  @override
+  String get adhkarReport => 'Monthly report';
+
+  @override
+  String get adhkarReminders => 'Reminder times';
+
+  @override
+  String get adhkarMorning => 'Morning';
+
+  @override
+  String get adhkarEvening => 'Evening';
+
+  @override
+  String get adhkarMorningDone => 'Morning adhkar done — evening is next';
+
+  @override
+  String get adhkarEveningDone => 'Evening adhkar done — see you at dawn';
+
+  @override
+  String adhkarProgressOf(int done, int total) {
+    return '$done of $total';
+  }
+
+  @override
+  String get adhkarListen => 'Listen';
+
+  @override
+  String get adhkarReset => 'Reset';
+
+  @override
+  String get adhkarTapToExpand => 'Tap to read it in full';
+
+  @override
+  String get adhkarPlay => 'Play';
+
+  @override
+  String get adhkarDone => 'Done';
+
+  @override
+  String get adhkarCount => 'Count';
+
+  @override
+  String get adhkarRemindersBody => 'Two daily nudges for morning and evening, working with the app closed.';
+
+  @override
+  String get adhkarRemindersEnable => 'Enable reminders';
+
+  @override
+  String get adhkarMorningReminderTitle => 'Morning adhkar';
+
+  @override
+  String get adhkarMorningReminderBody => 'Time for the morning adhkar — twenty-four remembrances.';
+
+  @override
+  String get adhkarEveningReminderTitle => 'Evening adhkar';
+
+  @override
+  String get adhkarEveningReminderBody => 'Time for the evening adhkar — twenty-four remembrances.';
+
+  @override
+  String get adhkarReminderSaved => 'Reminders saved.';
+
+  @override
+  String get adhkarReminderOff => 'Reminders stopped.';
+
+  @override
+  String get adhkarPlayerFinished => 'All done — may Allah accept it.';
+
+  @override
+  String get adhkarCarMode => 'Car mode';
+
+  @override
+  String get adhkarAutoNextOn => 'Auto-advance is on';
+
+  @override
+  String get adhkarAutoNextOff => 'Manual advance';
+
+  @override
+  String get adhkarMorningDays => 'Days with morning done';
+
+  @override
+  String get adhkarEveningDays => 'Days with evening done';
+
+  @override
+  String get adhkarBothDays => 'Days with both';
+
+  @override
+  String get adhkarAverage => 'Average completion';
+
+  @override
+  String get adhkarLegendNone => 'Nothing';
+
+  @override
+  String get adhkarLegendHalf => 'Half';
+
+  @override
+  String get adhkarLegendFull => 'Complete';
+
+  @override
+  String get weekdaySun => 'S';
+
+  @override
+  String get weekdayMon => 'M';
+
+  @override
+  String get weekdayTue => 'T';
+
+  @override
+  String get weekdayWed => 'W';
+
+  @override
+  String get weekdayThu => 'T';
+
+  @override
+  String get weekdayFri => 'F';
+
+  @override
+  String get weekdaySat => 'S';
+
+  @override
+  String get adhkarAudioTitle => 'Listen offline';
+
+  @override
+  String get adhkarAudioBody => 'The audio downloads on request: twenty-four files, about thirty megabytes. Without it, listening streams from the internet.';
+
+  @override
+  String adhkarAudioCount(int done, int total) {
+    return '$done of $total clips on the device';
+  }
+
+  @override
+  String get adhkarAudioDownload => 'Download the audio';
+
+  @override
+  String get adhkarAudioDelete => 'Delete';
 }

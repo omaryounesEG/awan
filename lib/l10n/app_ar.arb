@@ -1122,5 +1122,70 @@
   "mosqueAccuracyLine": "دقة الموقع ±{n} م — كلما صغر الرقم كان أقرب للصواب.",
   "mosqueAccuracyPoor": "دقة الموقع ضعيفة (±{n} م). اضغط زر الموقع أعلاه وأنت في المكان المطلوب.",
   "mosqueFixNow": "تحديث الموقع",
-  "mosqueFenceFallbackNote": "إذا تعذّر قراءة موقعك لحظة الأذان، يبقى الصامت كالمعتاد بدل أن يضيع الأذان."
+  "mosqueFenceFallbackNote": "إذا تعذّر قراءة موقعك لحظة الأذان، يبقى الصامت كالمعتاد بدل أن يضيع الأذان.",
+  "adhkarTitle": "الأذكار",
+  "adhkarReport": "تقرير الشهر",
+  "adhkarReminders": "مواعيد التذكير",
+  "adhkarMorning": "الصباح",
+  "adhkarEvening": "المساء",
+  "adhkarMorningDone": "انتهت أذكار الصباح — أذكار المساء قادمة",
+  "adhkarEveningDone": "انتهت أذكار المساء — نلقاك في صباح جديد",
+  "adhkarProgressOf": "{done} من {total}",
+  "adhkarListen": "استماع",
+  "adhkarReset": "إعادة",
+  "adhkarTapToExpand": "اضغط لعرض الذكر كاملًا",
+  "adhkarPlay": "تشغيل",
+  "adhkarDone": "تم",
+  "adhkarCount": "عدّ",
+  "adhkarRemindersBody": "تنبيهان يوميان لموعدي الصباح والمساء، يعملان والتطبيق مغلق.",
+  "adhkarRemindersEnable": "تفعيل التذكير",
+  "adhkarMorningReminderTitle": "أذكار الصباح",
+  "adhkarMorningReminderBody": "حان وقت أذكار الصباح — أربعة وعشرون ذكرًا.",
+  "adhkarEveningReminderTitle": "أذكار المساء",
+  "adhkarEveningReminderBody": "حان وقت أذكار المساء — أربعة وعشرون ذكرًا.",
+  "adhkarReminderSaved": "تم ضبط التذكير.",
+  "adhkarReminderOff": "أُوقف التذكير.",
+  "adhkarPlayerFinished": "انتهت الأذكار — تقبّل الله.",
+  "adhkarCarMode": "وضع السيارة",
+  "adhkarAutoNextOn": "الانتقال التلقائي مفعّل",
+  "adhkarAutoNextOff": "الانتقال اليدوي",
+  "adhkarMorningDays": "أيام أُكمل فيها الصباح",
+  "adhkarEveningDays": "أيام أُكمل فيها المساء",
+  "adhkarBothDays": "أيام أُكملا معًا",
+  "adhkarAverage": "متوسط الإنجاز",
+  "adhkarLegendNone": "لا شيء",
+  "adhkarLegendHalf": "نصف",
+  "adhkarLegendFull": "اكتمل",
+  "weekdaySun": "ح",
+  "weekdayMon": "ن",
+  "weekdayTue": "ث",
+  "weekdayWed": "ر",
+  "weekdayThu": "خ",
+  "weekdayFri": "ج",
+  "weekdaySat": "س",
+  "@adhkarProgressOf": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "adhkarAudioTitle": "الاستماع دون إنترنت",
+  "adhkarAudioBody": "الصوت يُنزَّل عند الطلب: ٢٤ ملفًا بنحو ثلاثة عشر ميجابايت. بدون تنزيل يبقى الاستماع عبر الإنترنت.",
+  "adhkarAudioCount": "{done} من {total} صوتًا على الجهاز",
+  "adhkarAudioDownload": "تنزيل الأصوات",
+  "adhkarAudioDelete": "حذف",
+  "@adhkarAudioCount": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  }
 }

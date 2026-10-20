@@ -2039,4 +2039,143 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get mosqueFenceFallbackNote => 'إذا تعذّر قراءة موقعك لحظة الأذان، يبقى الصامت كالمعتاد بدل أن يضيع الأذان.';
+
+  @override
+  String get adhkarTitle => 'الأذكار';
+
+  @override
+  String get adhkarReport => 'تقرير الشهر';
+
+  @override
+  String get adhkarReminders => 'مواعيد التذكير';
+
+  @override
+  String get adhkarMorning => 'الصباح';
+
+  @override
+  String get adhkarEvening => 'المساء';
+
+  @override
+  String get adhkarMorningDone => 'انتهت أذكار الصباح — أذكار المساء قادمة';
+
+  @override
+  String get adhkarEveningDone => 'انتهت أذكار المساء — نلقاك في صباح جديد';
+
+  @override
+  String adhkarProgressOf(int done, int total) {
+    return '$done من $total';
+  }
+
+  @override
+  String get adhkarListen => 'استماع';
+
+  @override
+  String get adhkarReset => 'إعادة';
+
+  @override
+  String get adhkarTapToExpand => 'اضغط لعرض الذكر كاملًا';
+
+  @override
+  String get adhkarPlay => 'تشغيل';
+
+  @override
+  String get adhkarDone => 'تم';
+
+  @override
+  String get adhkarCount => 'عدّ';
+
+  @override
+  String get adhkarRemindersBody => 'تنبيهان يوميان لموعدي الصباح والمساء، يعملان والتطبيق مغلق.';
+
+  @override
+  String get adhkarRemindersEnable => 'تفعيل التذكير';
+
+  @override
+  String get adhkarMorningReminderTitle => 'أذكار الصباح';
+
+  @override
+  String get adhkarMorningReminderBody => 'حان وقت أذكار الصباح — أربعة وعشرون ذكرًا.';
+
+  @override
+  String get adhkarEveningReminderTitle => 'أذكار المساء';
+
+  @override
+  String get adhkarEveningReminderBody => 'حان وقت أذكار المساء — أربعة وعشرون ذكرًا.';
+
+  @override
+  String get adhkarReminderSaved => 'تم ضبط التذكير.';
+
+  @override
+  String get adhkarReminderOff => 'أُوقف التذكير.';
+
+  @override
+  String get adhkarPlayerFinished => 'انتهت الأذكار — تقبّل الله.';
+
+  @override
+  String get adhkarCarMode => 'وضع السيارة';
+
+  @override
+  String get adhkarAutoNextOn => 'الانتقال التلقائي مفعّل';
+
+  @override
+  String get adhkarAutoNextOff => 'الانتقال اليدوي';
+
+  @override
+  String get adhkarMorningDays => 'أيام أُكمل فيها الصباح';
+
+  @override
+  String get adhkarEveningDays => 'أيام أُكمل فيها المساء';
+
+  @override
+  String get adhkarBothDays => 'أيام أُكملا معًا';
+
+  @override
+  String get adhkarAverage => 'متوسط الإنجاز';
+
+  @override
+  String get adhkarLegendNone => 'لا شيء';
+
+  @override
+  String get adhkarLegendHalf => 'نصف';
+
+  @override
+  String get adhkarLegendFull => 'اكتمل';
+
+  @override
+  String get weekdaySun => 'ح';
+
+  @override
+  String get weekdayMon => 'ن';
+
+  @override
+  String get weekdayTue => 'ث';
+
+  @override
+  String get weekdayWed => 'ر';
+
+  @override
+  String get weekdayThu => 'خ';
+
+  @override
+  String get weekdayFri => 'ج';
+
+  @override
+  String get weekdaySat => 'س';
+
+  @override
+  String get adhkarAudioTitle => 'الاستماع دون إنترنت';
+
+  @override
+  String get adhkarAudioBody => 'الصوت يُنزَّل عند الطلب: ٢٤ ملفًا بنحو ثلاثين ميجابايت. بدون تنزيل يبقى الاستماع عبر الإنترنت.';
+
+  @override
+  String adhkarAudioCount(int done, int total) {
+    return '$done من $total صوتًا على الجهاز';
+  }
+
+  @override
+  String get adhkarAudioDownload => 'تنزيل الأصوات';
+
+  @override
+  String get adhkarAudioDelete => 'حذف';
 }

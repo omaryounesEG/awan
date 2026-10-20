@@ -2,7 +2,7 @@ name: awan
 description: "أَوَان | Awan — مواقيت الصلاة والقرآن: Islamic super app (offline-first, 60fps, battery friendly)."
 publish_to: 'none'
 
-version: 1.23.0+28
+version: 1.24.0+29
 
 environment:
   sdk: ^3.5.3
@@ -84,6 +84,7 @@ flutter:
 
   assets:
     - assets/data/
+    - assets/adhkar/
     # The library archives travel with the app (see `BundledLibraryIndex`), so
     # the books open with no network and nothing to configure.
     - assets/library/books/
