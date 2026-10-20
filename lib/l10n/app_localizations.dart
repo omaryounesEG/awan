@@ -4100,7 +4100,7 @@ abstract class AppLocalizations {
   /// No description provided for @adhkarAudioBody.
   ///
   /// In en, this message translates to:
-  /// **'The audio downloads on request: twenty-four files, about thirty megabytes. Without it, listening streams from the internet.'**
+  /// **'The audio downloads on request: twenty-four files, about thirteen megabytes. Without it, listening streams from the internet.'**
   String get adhkarAudioBody;
 
   /// No description provided for @adhkarAudioCount.

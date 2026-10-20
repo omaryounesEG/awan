@@ -2166,7 +2166,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get adhkarAudioTitle => 'الاستماع دون إنترنت';
 
   @override
-  String get adhkarAudioBody => 'الصوت يُنزَّل عند الطلب: ٢٤ ملفًا بنحو ثلاثين ميجابايت. بدون تنزيل يبقى الاستماع عبر الإنترنت.';
+  String get adhkarAudioBody => 'الصوت يُنزَّل عند الطلب: ٢٤ ملفًا بنحو ثلاثة عشر ميجابايت. بدون تنزيل يبقى الاستماع عبر الإنترنت.';
 
   @override
   String adhkarAudioCount(int done, int total) {

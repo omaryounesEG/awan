@@ -2166,7 +2166,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get adhkarAudioTitle => 'Listen offline';
 
   @override
-  String get adhkarAudioBody => 'The audio downloads on request: twenty-four files, about thirty megabytes. Without it, listening streams from the internet.';
+  String get adhkarAudioBody => 'The audio downloads on request: twenty-four files, about thirteen megabytes. Without it, listening streams from the internet.';
 
   @override
   String adhkarAudioCount(int done, int total) {
