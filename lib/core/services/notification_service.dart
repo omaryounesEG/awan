@@ -271,6 +271,12 @@ class NotificationService {
   }
 
   /// Replaces the whole pending set in one shot and returns how many were armed.
+  /// Adhan alarms are posted natively on Android so that every prayer shares a
+  /// single notification id — a new adhan replaces the previous one instead of
+  /// stacking for days in the shade. Reminders and iOS stay on the plugin.
+  static const MethodChannel _adhanAlarms =
+      MethodChannel('com.awan.app/adhan_alarms');
+
   Future<int> replaceSchedule(
     List<ScheduledAdhan> items, {
     bool playSound = true,
@@ -296,6 +302,8 @@ class NotificationService {
     final List<ScheduledAdhan> horizon =
         Platform.isIOS ? planned.take(60).toList() : planned;
 
+    final List<Map<String, Object?>> nativeAdhans = <Map<String, Object?>>[];
+
     for (final ScheduledAdhan item in horizon) {
       // A reminder is audible only when the reader asked for it *and* this item
       // was planned with sound; the adhan keeps its own choice.
@@ -313,6 +321,23 @@ class NotificationService {
           ? reminderAudible
           : (adhanSound.audible && item.alertMode == AdhanAlertMode.tone);
       final bool buzzes = item.alertMode != AdhanAlertMode.quiet;
+
+      // Android: hand the alarm to the native scheduler, which posts under one
+      // fixed id. Everything below is the plugin path, still used on iOS and
+      // for the pre-adhan reminder.
+      if (Platform.isAndroid && !item.isReminder) {
+        nativeAdhans.add(<String, Object?>{
+          'id': item.id,
+          'at': item.at.millisecondsSinceEpoch,
+          'title': item.title,
+          'body': item.body,
+          'channel': channel,
+          'countdown': item.countdownTo?.millisecondsSinceEpoch ?? 0,
+        });
+        armed++;
+        continue;
+      }
+
       try {
         await _plugin.zonedSchedule(
           item.id,
@@ -395,6 +420,16 @@ class NotificationService {
         }
       }
     }
+    if (Platform.isAndroid && nativeAdhans.isNotEmpty) {
+      try {
+        await _adhanAlarms.invokeMethod<int>(
+          'schedule',
+          <String, Object?>{'items': nativeAdhans},
+        );
+      } catch (error) {
+        _lastError = '$error';
+      }
+    }
     return armed;
   }
 
@@ -405,6 +440,13 @@ class NotificationService {
       // Silence windows belong to the audio manager, not to the adhan set.
       if (NotificationIds.isAdhanId(request.id)) {
         await _plugin.cancel(request.id);
+      }
+    }
+    if (Platform.isAndroid) {
+      try {
+        await _adhanAlarms.invokeMethod<void>('cancelAll');
+      } catch (_) {
+        // The native side is absent on a platform without it; nothing to undo.
       }
     }
   }

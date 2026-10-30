@@ -2178,4 +2178,70 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get adhkarAudioDelete => 'حذف';
+
+  @override
+  String get hadithTitle => 'الحديث';
+
+  @override
+  String get hadithSubtitle => 'البخاري ومسلم وأبو داود والترمذي — بحث وفلاتر';
+
+  @override
+  String hadithCardCount(int n, int books) {
+    return '$n حديثًا في $books كتب';
+  }
+
+  @override
+  String get hadithSearchHint => 'ابحث في متن الحديث…';
+
+  @override
+  String get hadithFilters => 'الفلاتر';
+
+  @override
+  String get hadithClearFilters => 'مسح';
+
+  @override
+  String get hadithBooks => 'الكتب';
+
+  @override
+  String get hadithGrades => 'الدرجة';
+
+  @override
+  String get hadithChapters => 'الأبواب';
+
+  @override
+  String hadithResultCount(int n) {
+    return '$n نتيجة';
+  }
+
+  @override
+  String hadithCapped(int n) {
+    return 'أول $n معروضة';
+  }
+
+  @override
+  String get hadithEmpty => 'لا حديث بهذه الكلمات في هذا النطاق.';
+
+  @override
+  String get hadithLoading => 'جاري فتح ٢٤٬٠٦٥ حديثًا…';
+
+  @override
+  String get hadithNumber => 'رقم';
+
+  @override
+  String get hadithCopy => 'نسخ';
+
+  @override
+  String get hadithCopied => 'نُسخ الحديث';
+
+  @override
+  String get hadithTakhrij => 'التخريج — نفس المتن في كتب أخرى';
+
+  @override
+  String get hadithTakhrijNote => 'المطابقة على المتن بعد حذف الإسناد، لا حكم على صحة الحديث.';
+
+  @override
+  String get hadithNoTakhrij => 'لم يُعثر على متن مطابق في هذه الكتب الأربعة.';
+
+  @override
+  String get monthlyTimetableSubtitle => 'مواقيت الصلوات للشهر كاملًا';
 }

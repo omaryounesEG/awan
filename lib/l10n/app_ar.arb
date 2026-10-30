@@ -1187,5 +1187,49 @@
         "type": "int"
       }
     }
+  },
+  "hadithTitle": "الحديث",
+  "hadithSubtitle": "البخاري ومسلم وأبو داود والترمذي — بحث وفلاتر",
+  "hadithCardCount": "{n} حديثًا في {books} كتب",
+  "hadithSearchHint": "ابحث في متن الحديث…",
+  "hadithFilters": "الفلاتر",
+  "hadithClearFilters": "مسح",
+  "hadithBooks": "الكتب",
+  "hadithGrades": "الدرجة",
+  "hadithChapters": "الأبواب",
+  "hadithResultCount": "{n} نتيجة",
+  "hadithCapped": "أول {n} معروضة",
+  "hadithEmpty": "لا حديث بهذه الكلمات في هذا النطاق.",
+  "hadithLoading": "جاري فتح ٢٤٬٠٦٥ حديثًا…",
+  "hadithNumber": "رقم",
+  "hadithCopy": "نسخ",
+  "hadithCopied": "نُسخ الحديث",
+  "hadithTakhrij": "التخريج — نفس المتن في كتب أخرى",
+  "hadithTakhrijNote": "المطابقة على المتن بعد حذف الإسناد، لا حكم على صحة الحديث.",
+  "hadithNoTakhrij": "لم يُعثر على متن مطابق في هذه الكتب الأربعة.",
+  "monthlyTimetableSubtitle": "مواقيت الصلوات للشهر كاملًا",
+  "@hadithCardCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "books": {
+        "type": "int"
+      }
+    }
+  },
+  "@hadithResultCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "@hadithCapped": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
   }
 }

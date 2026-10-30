@@ -4120,6 +4120,126 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Delete'**
   String get adhkarAudioDelete;
+
+  /// No description provided for @hadithTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Hadith'**
+  String get hadithTitle;
+
+  /// No description provided for @hadithSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Bukhari, Muslim, Abu Dawud, Tirmidhi — search and filters'**
+  String get hadithSubtitle;
+
+  /// No description provided for @hadithCardCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} hadiths across {books} books'**
+  String hadithCardCount(int n, int books);
+
+  /// No description provided for @hadithSearchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search the text of a hadith…'**
+  String get hadithSearchHint;
+
+  /// No description provided for @hadithFilters.
+  ///
+  /// In en, this message translates to:
+  /// **'Filters'**
+  String get hadithFilters;
+
+  /// No description provided for @hadithClearFilters.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get hadithClearFilters;
+
+  /// No description provided for @hadithBooks.
+  ///
+  /// In en, this message translates to:
+  /// **'Books'**
+  String get hadithBooks;
+
+  /// No description provided for @hadithGrades.
+  ///
+  /// In en, this message translates to:
+  /// **'Grade'**
+  String get hadithGrades;
+
+  /// No description provided for @hadithChapters.
+  ///
+  /// In en, this message translates to:
+  /// **'Chapters'**
+  String get hadithChapters;
+
+  /// No description provided for @hadithResultCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} results'**
+  String hadithResultCount(int n);
+
+  /// No description provided for @hadithCapped.
+  ///
+  /// In en, this message translates to:
+  /// **'showing the first {n}'**
+  String hadithCapped(int n);
+
+  /// No description provided for @hadithEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No hadith with these words in this scope.'**
+  String get hadithEmpty;
+
+  /// No description provided for @hadithLoading.
+  ///
+  /// In en, this message translates to:
+  /// **'Opening 24,065 hadiths…'**
+  String get hadithLoading;
+
+  /// No description provided for @hadithNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'No.'**
+  String get hadithNumber;
+
+  /// No description provided for @hadithCopy.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy'**
+  String get hadithCopy;
+
+  /// No description provided for @hadithCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Hadith copied'**
+  String get hadithCopied;
+
+  /// No description provided for @hadithTakhrij.
+  ///
+  /// In en, this message translates to:
+  /// **'Takhrij — the same matn in other books'**
+  String get hadithTakhrij;
+
+  /// No description provided for @hadithTakhrijNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Matched on the matn with the isnad removed; this is not a ruling on authenticity.'**
+  String get hadithTakhrijNote;
+
+  /// No description provided for @hadithNoTakhrij.
+  ///
+  /// In en, this message translates to:
+  /// **'No matching matn was found in these four books.'**
+  String get hadithNoTakhrij;
+
+  /// No description provided for @monthlyTimetableSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The month\'s prayer times'**
+  String get monthlyTimetableSubtitle;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

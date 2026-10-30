@@ -11,7 +11,7 @@ class AppConstants {
 
   /// The version the app reports, in one place: `pubspec.yaml`'s version line.
   /// `test/about_version_test.dart` keeps the two from drifting apart.
-  static const String appVersion = '1.24.0+29';
+  static const String appVersion = '1.25.0+31';
 
   /// `owner/repo` of the project the manual update button asks for a release.
   ///

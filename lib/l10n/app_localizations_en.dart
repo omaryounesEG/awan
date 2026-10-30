@@ -2178,4 +2178,70 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get adhkarAudioDelete => 'Delete';
+
+  @override
+  String get hadithTitle => 'Hadith';
+
+  @override
+  String get hadithSubtitle => 'Bukhari, Muslim, Abu Dawud, Tirmidhi — search and filters';
+
+  @override
+  String hadithCardCount(int n, int books) {
+    return '$n hadiths across $books books';
+  }
+
+  @override
+  String get hadithSearchHint => 'Search the text of a hadith…';
+
+  @override
+  String get hadithFilters => 'Filters';
+
+  @override
+  String get hadithClearFilters => 'Clear';
+
+  @override
+  String get hadithBooks => 'Books';
+
+  @override
+  String get hadithGrades => 'Grade';
+
+  @override
+  String get hadithChapters => 'Chapters';
+
+  @override
+  String hadithResultCount(int n) {
+    return '$n results';
+  }
+
+  @override
+  String hadithCapped(int n) {
+    return 'showing the first $n';
+  }
+
+  @override
+  String get hadithEmpty => 'No hadith with these words in this scope.';
+
+  @override
+  String get hadithLoading => 'Opening 24,065 hadiths…';
+
+  @override
+  String get hadithNumber => 'No.';
+
+  @override
+  String get hadithCopy => 'Copy';
+
+  @override
+  String get hadithCopied => 'Hadith copied';
+
+  @override
+  String get hadithTakhrij => 'Takhrij — the same matn in other books';
+
+  @override
+  String get hadithTakhrijNote => 'Matched on the matn with the isnad removed; this is not a ruling on authenticity.';
+
+  @override
+  String get hadithNoTakhrij => 'No matching matn was found in these four books.';
+
+  @override
+  String get monthlyTimetableSubtitle => 'The month\'s prayer times';
 }

@@ -5,7 +5,7 @@ import 'package:awan/core/l10n/l10n.dart';
 import 'package:awan/features/mosque_radar/presentation/screens/radar_screen.dart';
 import 'package:awan/features/recitation/presentation/screens/recitation_screen.dart';
 import 'package:awan/features/adhkar/presentation/screens/adhkar_screen.dart';
-import 'package:awan/features/prayer_engine/presentation/screens/monthly_timetable_screen.dart';
+import 'package:awan/features/midad/presentation/screens/midad_screen.dart';
 import 'package:awan/features/prayer_engine/presentation/screens/qibla_screen.dart';
 import 'package:awan/features/tasbih/presentation/screens/tasbih_screen.dart';
 import 'package:awan/l10n/app_localizations.dart';
@@ -26,9 +26,9 @@ class QuickActions extends StatelessWidget {
 
     final List<_Action> actions = <_Action>[
       _Action(
-        icon: Icons.calendar_month_outlined,
-        label: l10n.monthlyTimetable,
-        builder: () => const MonthlyTimetableScreen(),
+        icon: Icons.format_list_numbered_rtl,
+        label: l10n.midadTitle,
+        builder: () => const MidadScreen(),
       ),
       _Action(
         icon: Icons.explore_outlined,

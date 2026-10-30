@@ -1194,5 +1194,49 @@
         "type": "int"
       }
     }
+  },
+  "hadithTitle": "Hadith",
+  "hadithSubtitle": "Bukhari, Muslim, Abu Dawud, Tirmidhi — search and filters",
+  "hadithCardCount": "{n} hadiths across {books} books",
+  "hadithSearchHint": "Search the text of a hadith…",
+  "hadithFilters": "Filters",
+  "hadithClearFilters": "Clear",
+  "hadithBooks": "Books",
+  "hadithGrades": "Grade",
+  "hadithChapters": "Chapters",
+  "hadithResultCount": "{n} results",
+  "hadithCapped": "showing the first {n}",
+  "hadithEmpty": "No hadith with these words in this scope.",
+  "hadithLoading": "Opening 24,065 hadiths…",
+  "hadithNumber": "No.",
+  "hadithCopy": "Copy",
+  "hadithCopied": "Hadith copied",
+  "hadithTakhrij": "Takhrij — the same matn in other books",
+  "hadithTakhrijNote": "Matched on the matn with the isnad removed; this is not a ruling on authenticity.",
+  "hadithNoTakhrij": "No matching matn was found in these four books.",
+  "monthlyTimetableSubtitle": "The month's prayer times",
+  "@hadithCardCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "books": {
+        "type": "int"
+      }
+    }
+  },
+  "@hadithResultCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "@hadithCapped": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
   }
 }

@@ -16,6 +16,7 @@ import 'package:awan/features/prayer_engine/presentation/widgets/hijri_header.da
 import 'package:awan/features/prayer_engine/presentation/widgets/next_prayer_card.dart';
 import 'package:awan/features/prayer_engine/presentation/widgets/prayer_card.dart';
 import 'package:awan/features/prayer_engine/presentation/widgets/silent_now_banner.dart';
+import 'package:awan/features/hadith/presentation/widgets/hadith_shortcut_card.dart';
 import 'package:awan/features/prayer_engine/presentation/widgets/quick_actions.dart';
 import 'package:awan/features/quran_tafseer/presentation/widgets/quran_shortcut_card.dart';
 import 'package:awan/features/knowledge_graph/presentation/widgets/mutashabihat_shortcut_card.dart';
@@ -154,6 +155,8 @@ class _StandardDashboard extends ConsumerWidget {
         ),
         SizedBox(height: 18.h),
         const QuranShortcutCard(),
+        const SizedBox(height: 12),
+        const HadithShortcutCard(),
         const LibraryShortcutCard(),
         const SizedBox(height: 12),
         const MutashabihatShortcutCard(),
