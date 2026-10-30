@@ -64,6 +64,7 @@ class MainActivity : FlutterActivity() {
         private val AUDIO_CHANNEL = "com.awan.app/audio"
         private val FENCE_CHANNEL = "com.awan.app/mosque_fence"
     private val ADHKAR_AUDIO_CHANNEL = "com.awan.app/adhkar_audio"
+    private val ADHAN_ALARMS_CHANNEL = "com.awan.app/adhan_alarms"
     private var adhkarAudio: AdhkarAudio? = null
 
         /**
@@ -235,6 +236,25 @@ class MainActivity : FlutterActivity() {
                     // be left silent by an alarm that no longer exists.
                     "releaseRinger" -> {
                         releaseIfOurs()
+                        result.success(null)
+                    }
+                    else -> result.notImplemented()
+                }
+            }
+
+        // Adhan alarms: scheduled natively so every prayer posts under one
+        // notification id and the shade keeps only the latest adhan.
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, ADHAN_ALARMS_CHANNEL)
+            .setMethodCallHandler { call, result ->
+                when (call.method) {
+                    "schedule" -> {
+                        val items = call.argument<List<Map<String, Any?>>>("items")
+                            ?: emptyList()
+                        AdhanAlarm.schedule(this, items)
+                        result.success(items.size)
+                    }
+                    "cancelAll" -> {
+                        AdhanAlarm.cancelAll(this)
                         result.success(null)
                     }
                     else -> result.notImplemented()

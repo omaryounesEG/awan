@@ -77,3 +77,4 @@ key.properties
 
 # QA screenshot dump (390+ files, ~94 MB) — kept out of the repo.
 /docs/screens/
+.tmp_hadith/

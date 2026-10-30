@@ -64,6 +64,19 @@
             </intent-filter>
         </activity>
 
+        <!-- The adhan itself: one alarm per prayer, one notification id, so a
+             new adhan replaces the previous one instead of stacking. -->
+        <receiver
+            android:name=".AdhanAlarmReceiver"
+            android:exported="false" />
+        <receiver
+            android:name=".AdhanBootReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
         <!-- Silence windows: the OS wakes this receiver, not the Flutter engine. -->
         <receiver
             android:name=".RingerAlarmReceiver"
