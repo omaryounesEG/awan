@@ -101,9 +101,9 @@ class NextPrayerCard extends ConsumerWidget {
               SizedBox(height: elderly ? 14 : 10),
               // An icon, not the «→» character: inside an Arabic paragraph the
               // shaper mirrors the arrow, so «الفجر → الظهر» was drawn pointing
-              // backwards. Icons never mirror, and the Row follows the text
-              // direction on its own — right-to-left reads الفجر، ثم السهم، ثم
-              // الظهر; left-to-right keeps «Fajr → Dhuhr» as it was.
+              // backwards. The Row follows the text direction on its own, and the
+              // icon mirrors with it — in Arabic the previous prayer sits on the
+              // right and the arrow points left, the way the line is read.
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
@@ -116,11 +116,9 @@ class NextPrayerCard extends ConsumerWidget {
                     child: Icon(
                       Icons.arrow_forward,
                       size: elderly ? 18 : 13,
-                      // arrow_forward is a mirroring icon, so in an RTL tree
-                      // Flutter draws it as ←. Pinning it to LTR keeps the
-                      // arrow the reader asked for: الفجر → الظهر, and leaves
-                      // the English line untouched.
-                      textDirection: TextDirection.ltr,
+                      // No textDirection override: arrow_forward mirrors to ←
+                      // in an RTL tree, which is the direction the Arabic line
+                      // is read (right to left). English still gets →.
                       color: Theme.of(context).colorScheme.onSurfaceVariant,
                     ),
                   ),
