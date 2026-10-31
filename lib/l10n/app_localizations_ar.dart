@@ -2222,7 +2222,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get hadithEmpty => 'لا حديث بهذه الكلمات في هذا النطاق.';
 
   @override
-  String get hadithLoading => 'جاري فتح ٢٤٬٠٦٥ حديثًا…';
+  String get hadithLoading => 'جاري فتح الحديث…';
 
   @override
   String get hadithNumber => 'رقم';
@@ -2240,8 +2240,56 @@ class AppLocalizationsAr extends AppLocalizations {
   String get hadithTakhrijNote => 'المطابقة على المتن بعد حذف الإسناد، لا حكم على صحة الحديث.';
 
   @override
-  String get hadithNoTakhrij => 'لم يُعثر على متن مطابق في هذه الكتب الأربعة.';
+  String get monthlyTimetableSubtitle => 'مواقيت الصلوات للشهر كاملًا';
 
   @override
-  String get monthlyTimetableSubtitle => 'مواقيت الصلوات للشهر كاملًا';
+  String get hadithResearchTitle => 'أدوات الباحث';
+
+  @override
+  String get hadithResearchIntro => 'هذه أدوات لمن يعمل بالحديث: مفاتيح البحث في المتون، ومعرفة الكتب التي روت الحديث نفسه، وفهرس الرواة.';
+
+  @override
+  String get hadithResearchMatnTitle => 'المتون والعلاقات';
+
+  @override
+  String get hadithResearchMatnBody => 'ابحث بكلمات من المتن، واعرف الكتب التي روت المتن نفسه.';
+
+  @override
+  String get hadithResearchRijalTitle => 'رجال الحديث';
+
+  @override
+  String get hadithResearchRijalBody => 'فهرس ٢٣٬٦٥٥ راويًا مع الدرجة والوفاة، ببحث وفلاتر.';
+
+  @override
+  String get hadithResearchNote => 'المطابقة على النص بعد حذف الإسناد، والدرجات مأخوذة من مصدر البيانات — لا حكم من التطبيق على صحة حديث أو على رجل.';
+
+  @override
+  String get hadithMatnSearchHint => 'كلمات من المتن…';
+
+  @override
+  String get hadithMatnIntro => 'اكتب كلمتين أو ثلاثًا من متن الحديث، وسترى الكتب التي روت المتن نفسه بجواره.';
+
+  @override
+  String get hadithRijalSearchHint => 'اسم الراوي…';
+
+  @override
+  String hadithRijalCount(int n) {
+    return '$n راويًا';
+  }
+
+  @override
+  String hadithRijalCapped(int n) {
+    return 'أول $n راويًا';
+  }
+
+  @override
+  String hadithRijalDied(int year) {
+    return 'توفي $year هـ';
+  }
+
+  @override
+  String get hadithRijalSourceTitle => 'مصدر الفهرس';
+
+  @override
+  String get hadithRijalSourceBody => 'الفهرس مأخوذ من جدول رواة مشروع Hadith_RAG: الاسم العربي والدرجة والوفاة ومكان الإقامة. «غير محدد» تعني أن المصدر لم يصنّف الراوي، وليست حكمًا عليه.';
 }

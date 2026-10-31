@@ -4196,7 +4196,7 @@ abstract class AppLocalizations {
   /// No description provided for @hadithLoading.
   ///
   /// In en, this message translates to:
-  /// **'Opening 24,065 hadiths…'**
+  /// **'Opening the hadith…'**
   String get hadithLoading;
 
   /// No description provided for @hadithNumber.
@@ -4229,17 +4229,101 @@ abstract class AppLocalizations {
   /// **'Matched on the matn with the isnad removed; this is not a ruling on authenticity.'**
   String get hadithTakhrijNote;
 
-  /// No description provided for @hadithNoTakhrij.
-  ///
-  /// In en, this message translates to:
-  /// **'No matching matn was found in these four books.'**
-  String get hadithNoTakhrij;
-
   /// No description provided for @monthlyTimetableSubtitle.
   ///
   /// In en, this message translates to:
   /// **'The month\'s prayer times'**
   String get monthlyTimetableSubtitle;
+
+  /// No description provided for @hadithResearchTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Researcher tools'**
+  String get hadithResearchTitle;
+
+  /// No description provided for @hadithResearchIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Tools for people who work with hadith: search inside the matn, see which books narrate the same matn, and look up narrators.'**
+  String get hadithResearchIntro;
+
+  /// No description provided for @hadithResearchMatnTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Matns & relations'**
+  String get hadithResearchMatnTitle;
+
+  /// No description provided for @hadithResearchMatnBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Search words from a matn and see the books that narrate it.'**
+  String get hadithResearchMatnBody;
+
+  /// No description provided for @hadithResearchRijalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Narrators'**
+  String get hadithResearchRijalTitle;
+
+  /// No description provided for @hadithResearchRijalBody.
+  ///
+  /// In en, this message translates to:
+  /// **'An index of 23,655 narrators with grade and death year, searchable and filterable.'**
+  String get hadithResearchRijalBody;
+
+  /// No description provided for @hadithResearchNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Matching is textual, after removing the isnad. Grades come from the source dataset — the app rules on no hadith and on no narrator.'**
+  String get hadithResearchNote;
+
+  /// No description provided for @hadithMatnSearchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Words from the matn…'**
+  String get hadithMatnSearchHint;
+
+  /// No description provided for @hadithMatnIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Type two or three words from a hadith and see the other books that narrate the same matn beside it.'**
+  String get hadithMatnIntro;
+
+  /// No description provided for @hadithRijalSearchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Narrator name…'**
+  String get hadithRijalSearchHint;
+
+  /// No description provided for @hadithRijalCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} narrators'**
+  String hadithRijalCount(int n);
+
+  /// No description provided for @hadithRijalCapped.
+  ///
+  /// In en, this message translates to:
+  /// **'first {n} narrators'**
+  String hadithRijalCapped(int n);
+
+  /// No description provided for @hadithRijalDied.
+  ///
+  /// In en, this message translates to:
+  /// **'died {year} AH'**
+  String hadithRijalDied(int year);
+
+  /// No description provided for @hadithRijalSourceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Index source'**
+  String get hadithRijalSourceTitle;
+
+  /// No description provided for @hadithRijalSourceBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Taken from the narrator table of the Hadith_RAG project: Arabic name, grade, death year, place. «Unclassified» means the source did not grade that narrator — not a verdict.'**
+  String get hadithRijalSourceBody;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

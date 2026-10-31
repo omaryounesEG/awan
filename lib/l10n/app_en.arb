@@ -1207,13 +1207,12 @@
   "hadithResultCount": "{n} results",
   "hadithCapped": "showing the first {n}",
   "hadithEmpty": "No hadith with these words in this scope.",
-  "hadithLoading": "Opening 24,065 hadiths…",
+  "hadithLoading": "Opening the hadith…",
   "hadithNumber": "No.",
   "hadithCopy": "Copy",
   "hadithCopied": "Hadith copied",
   "hadithTakhrij": "Takhrij — the same matn in other books",
   "hadithTakhrijNote": "Matched on the matn with the isnad removed; this is not a ruling on authenticity.",
-  "hadithNoTakhrij": "No matching matn was found in these four books.",
   "monthlyTimetableSubtitle": "The month's prayer times",
   "@hadithCardCount": {
     "placeholders": {
@@ -1235,6 +1234,42 @@
   "@hadithCapped": {
     "placeholders": {
       "n": {
+        "type": "int"
+      }
+    }
+  },
+  "hadithResearchTitle": "Researcher tools",
+  "hadithResearchIntro": "Tools for people who work with hadith: search inside the matn, see which books narrate the same matn, and look up narrators.",
+  "hadithResearchMatnTitle": "Matns & relations",
+  "hadithResearchMatnBody": "Search words from a matn and see the books that narrate it.",
+  "hadithResearchRijalTitle": "Narrators",
+  "hadithResearchRijalBody": "An index of 23,655 narrators with grade and death year, searchable and filterable.",
+  "hadithResearchNote": "Matching is textual, after removing the isnad. Grades come from the source dataset — the app rules on no hadith and on no narrator.",
+  "hadithMatnSearchHint": "Words from the matn…",
+  "hadithMatnIntro": "Type two or three words from a hadith and see the other books that narrate the same matn beside it.",
+  "hadithRijalSearchHint": "Narrator name…",
+  "hadithRijalCount": "{n} narrators",
+  "hadithRijalCapped": "first {n} narrators",
+  "hadithRijalDied": "died {year} AH",
+  "hadithRijalSourceTitle": "Index source",
+  "hadithRijalSourceBody": "Taken from the narrator table of the Hadith_RAG project: Arabic name, grade, death year, place. «Unclassified» means the source did not grade that narrator — not a verdict.",
+  "@hadithRijalCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "@hadithRijalCapped": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "@hadithRijalDied": {
+    "placeholders": {
+      "year": {
         "type": "int"
       }
     }

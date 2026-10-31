@@ -11,14 +11,19 @@ class AppConstants {
 
   /// The version the app reports, in one place: `pubspec.yaml`'s version line.
   /// `test/about_version_test.dart` keeps the two from drifting apart.
-  static const String appVersion = '1.25.0+31';
+  static const String appVersion = '1.26.0+32';
 
   /// `owner/repo` of the project the manual update button asks for a release.
   ///
   /// Set at build time — `--dart-define=AWAN_UPDATE_REPO=owner/repo` — because a
   /// channel baked into the code is a channel nobody can move. Empty means this
   /// build has no update channel, and the button says so instead of guessing.
-  static const String updateRepo = String.fromEnvironment('AWAN_UPDATE_REPO');
+  /// Defaults to this project's own repository so a build from source still has
+  /// a working update channel; `--dart-define=AWAN_UPDATE_REPO=` overrides it.
+  static const String updateRepo = String.fromEnvironment(
+    'AWAN_UPDATE_REPO',
+    defaultValue: 'omaryounesEG/awan',
+  );
 
   /// Where releases are read from. GitHub by default; overridable so a build
   /// can be pointed at a mirror — or at a local server, which is how the delta

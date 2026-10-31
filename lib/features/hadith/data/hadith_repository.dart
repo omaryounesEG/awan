@@ -12,7 +12,7 @@ import 'package:awan/features/hadith/domain/entities/hadith.dart';
 /// and normalising that on the UI isolate would stall the first frame, so both
 /// happen in [compute] and the finished corpus is handed back.
 class HadithRepository {
-  static const String assetPath = 'assets/hadith/hadith_v1.json.gz';
+  static const String assetPath = 'assets/hadith/hadith_v2.json.gz';
 
   HadithCorpus? _corpus;
 

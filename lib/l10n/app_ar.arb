@@ -1200,13 +1200,12 @@
   "hadithResultCount": "{n} نتيجة",
   "hadithCapped": "أول {n} معروضة",
   "hadithEmpty": "لا حديث بهذه الكلمات في هذا النطاق.",
-  "hadithLoading": "جاري فتح ٢٤٬٠٦٥ حديثًا…",
+  "hadithLoading": "جاري فتح الحديث…",
   "hadithNumber": "رقم",
   "hadithCopy": "نسخ",
   "hadithCopied": "نُسخ الحديث",
   "hadithTakhrij": "التخريج — نفس المتن في كتب أخرى",
   "hadithTakhrijNote": "المطابقة على المتن بعد حذف الإسناد، لا حكم على صحة الحديث.",
-  "hadithNoTakhrij": "لم يُعثر على متن مطابق في هذه الكتب الأربعة.",
   "monthlyTimetableSubtitle": "مواقيت الصلوات للشهر كاملًا",
   "@hadithCardCount": {
     "placeholders": {
@@ -1228,6 +1227,42 @@
   "@hadithCapped": {
     "placeholders": {
       "n": {
+        "type": "int"
+      }
+    }
+  },
+  "hadithResearchTitle": "أدوات الباحث",
+  "hadithResearchIntro": "هذه أدوات لمن يعمل بالحديث: مفاتيح البحث في المتون، ومعرفة الكتب التي روت الحديث نفسه، وفهرس الرواة.",
+  "hadithResearchMatnTitle": "المتون والعلاقات",
+  "hadithResearchMatnBody": "ابحث بكلمات من المتن، واعرف الكتب التي روت المتن نفسه.",
+  "hadithResearchRijalTitle": "رجال الحديث",
+  "hadithResearchRijalBody": "فهرس ٢٣٬٦٥٥ راويًا مع الدرجة والوفاة، ببحث وفلاتر.",
+  "hadithResearchNote": "المطابقة على النص بعد حذف الإسناد، والدرجات مأخوذة من مصدر البيانات — لا حكم من التطبيق على صحة حديث أو على رجل.",
+  "hadithMatnSearchHint": "كلمات من المتن…",
+  "hadithMatnIntro": "اكتب كلمتين أو ثلاثًا من متن الحديث، وسترى الكتب التي روت المتن نفسه بجواره.",
+  "hadithRijalSearchHint": "اسم الراوي…",
+  "hadithRijalCount": "{n} راويًا",
+  "hadithRijalCapped": "أول {n} راويًا",
+  "hadithRijalDied": "توفي {year} هـ",
+  "hadithRijalSourceTitle": "مصدر الفهرس",
+  "hadithRijalSourceBody": "الفهرس مأخوذ من جدول رواة مشروع Hadith_RAG: الاسم العربي والدرجة والوفاة ومكان الإقامة. «غير محدد» تعني أن المصدر لم يصنّف الراوي، وليست حكمًا عليه.",
+  "@hadithRijalCount": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "@hadithRijalCapped": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "@hadithRijalDied": {
+    "placeholders": {
+      "year": {
         "type": "int"
       }
     }

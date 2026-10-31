@@ -6,6 +6,7 @@ import 'package:awan/core/utils/extensions.dart';
 import 'package:awan/features/hadith/domain/entities/hadith.dart';
 import 'package:awan/features/hadith/presentation/providers/hadith_providers.dart';
 import 'package:awan/features/hadith/presentation/screens/hadith_detail_screen.dart';
+import 'package:awan/features/hadith/presentation/screens/hadith_research_screen.dart';
 import 'package:awan/l10n/app_localizations.dart';
 
 /// «الحديث» — search first, browse second.
@@ -40,6 +41,15 @@ class _HadithScreenState extends ConsumerState<HadithScreen> {
       appBar: AppBar(
         title: Text(l10n.hadithTitle),
         actions: <Widget>[
+          IconButton(
+            tooltip: l10n.hadithResearchTitle,
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute<void>(
+                builder: (_) => const HadithResearchScreen(),
+              ),
+            ),
+            icon: const Icon(Icons.biotech_outlined),
+          ),
           IconButton(
             tooltip: l10n.hadithFilters,
             onPressed: () => _openFilters(corpus.valueOrNull),

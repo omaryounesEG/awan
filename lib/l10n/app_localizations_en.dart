@@ -2222,7 +2222,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get hadithEmpty => 'No hadith with these words in this scope.';
 
   @override
-  String get hadithLoading => 'Opening 24,065 hadiths…';
+  String get hadithLoading => 'Opening the hadith…';
 
   @override
   String get hadithNumber => 'No.';
@@ -2240,8 +2240,56 @@ class AppLocalizationsEn extends AppLocalizations {
   String get hadithTakhrijNote => 'Matched on the matn with the isnad removed; this is not a ruling on authenticity.';
 
   @override
-  String get hadithNoTakhrij => 'No matching matn was found in these four books.';
+  String get monthlyTimetableSubtitle => 'The month\'s prayer times';
 
   @override
-  String get monthlyTimetableSubtitle => 'The month\'s prayer times';
+  String get hadithResearchTitle => 'Researcher tools';
+
+  @override
+  String get hadithResearchIntro => 'Tools for people who work with hadith: search inside the matn, see which books narrate the same matn, and look up narrators.';
+
+  @override
+  String get hadithResearchMatnTitle => 'Matns & relations';
+
+  @override
+  String get hadithResearchMatnBody => 'Search words from a matn and see the books that narrate it.';
+
+  @override
+  String get hadithResearchRijalTitle => 'Narrators';
+
+  @override
+  String get hadithResearchRijalBody => 'An index of 23,655 narrators with grade and death year, searchable and filterable.';
+
+  @override
+  String get hadithResearchNote => 'Matching is textual, after removing the isnad. Grades come from the source dataset — the app rules on no hadith and on no narrator.';
+
+  @override
+  String get hadithMatnSearchHint => 'Words from the matn…';
+
+  @override
+  String get hadithMatnIntro => 'Type two or three words from a hadith and see the other books that narrate the same matn beside it.';
+
+  @override
+  String get hadithRijalSearchHint => 'Narrator name…';
+
+  @override
+  String hadithRijalCount(int n) {
+    return '$n narrators';
+  }
+
+  @override
+  String hadithRijalCapped(int n) {
+    return 'first $n narrators';
+  }
+
+  @override
+  String hadithRijalDied(int year) {
+    return 'died $year AH';
+  }
+
+  @override
+  String get hadithRijalSourceTitle => 'Index source';
+
+  @override
+  String get hadithRijalSourceBody => 'Taken from the narrator table of the Hadith_RAG project: Arabic name, grade, death year, place. «Unclassified» means the source did not grade that narrator — not a verdict.';
 }

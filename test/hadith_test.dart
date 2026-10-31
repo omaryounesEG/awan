@@ -131,17 +131,21 @@ void main() {
   });
 
   group('bundled corpus', () {
-    test('four books, 24,065 hadiths, every text non-empty', () {
-      final File file = File('assets/hadith/hadith_v1.json.gz');
+    test('seven books, 36,038 hadiths, every text non-empty', () {
+      final File file = File('assets/hadith/hadith_v2.json.gz');
       expect(file.existsSync(), isTrue);
       final Map<String, dynamic> doc = jsonDecode(
         utf8.decode(gzip.decode(file.readAsBytesSync())),
       ) as Map<String, dynamic>;
       final List<dynamic> books = doc['books'] as List<dynamic>;
       final List<dynamic> hadiths = doc['hadiths'] as List<dynamic>;
-      expect(books.length, 4);
-      expect(hadiths.length, 24065);
+      expect(books.length, 7);
+      expect(hadiths.length, 36038);
       expect((books.first as Map)['key'], 'bukhari');
+      expect(
+        (books as List<dynamic>).map((dynamic b) => (b as Map)['key']).toList(),
+        containsAll(<String>['nasai', 'ibnmajah', 'malik']),
+      );
 
       int empty = 0;
       int linked = 0;
@@ -151,7 +155,7 @@ void main() {
         if ((h['r'] as List<dynamic>?)?.isNotEmpty ?? false) linked++;
       }
       expect(empty, 0);
-      expect(linked, greaterThan(1000), reason: 'cross-book links exist');
+      expect(linked, greaterThan(2000), reason: 'cross-book links exist');
     });
   });
 }

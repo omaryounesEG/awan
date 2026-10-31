@@ -34,7 +34,7 @@
 لا خادم يرى صلاتك، ولا حساب يربط تلاوتك باسمك، ولا إعلان يقطع أذكارك. تفتح
 التطبيق في الطائرة، في المسجد، في مكان بلا شبكة — وكل شيء يعمل.
 
-> الإصدار الحالي **v1.25.0** صالح للاستخدام اليومي، والمزايا تُضاف وتُصقل باستمرار.
+> الإصدار الحالي **v1.26.0** صالح للاستخدام اليومي، والمزايا تُضاف وتُصقل باستمرار.
 
 ### المزايا
 
@@ -45,7 +45,8 @@
 | 🤫 | **الصامت الذكي** | يصمت الهاتف وقت الصلاة والجمعة فقط، ومقيَّد بنطاق المسجد المسجَّل — ولا يرفع الصامت اليدوي أبدًا |
 | 📿 | **الأذكار** | أذكار الصباح والمساء بالعربية والإنجليزية كواجب يومي: عدّاد لكل ذكر، نسبة إنجاز، تقرير شهري، تذكير، واستماع مع **وضع السيارة** |
 | 📖 | **المصحف والتفسير** | نص عثماني بخطوط QPC حفص، تفسير ميسّر، تنقّل بالسور والأجزاء، وحفظ موضع القراءة |
-| 📜 | **الحديث** | **٢٤٬٠٦٥ حديثًا** من البخاري ومسلم وأبي داود والترمذي: بحث يتجاهل التشكيل والهمزات، فلاتر للكتاب والدرجة والباب، و**تخريج** يربط نفس المتن في الكتب الأخرى |
+| 📜 | **الحديث** | **٣٦٬٠٣٨ حديثًا** من سبعة كتب: البخاري، مسلم، أبو داود، الترمذي، النسائي، ابن ماجه، وموطأ مالك — بحث يتجاهل التشكيل والهمزات، فلاتر للكتاب والدرجة والباب، و**تخريج** يربط نفس المتن في الكتب الأخرى (2,759 رابطًا) |
+| 🔬 | **أدوات الباحث** | قسم فرعي لمن يعمل بالحديث: بحث في المتون مع بيان الكتب التي روت المتن نفسه، وفهرس **٢٣٬٦٥٤ راويًا** بالدرجة وسنة الوفاة |
 | 🧩 | **المتشابهات اللفظية** | رسم معرفي لـ **٨٦٥ آية** و**٢٬٨٠٣ وصلة** تشابه، مع طبقات للتشابه التام والتقارب |
 | 🔎 | **البحث الدلالي** | بحث بالمعنى لا بالحرف، بمحرّك تضمين يعمل محليًا دون إنترنت |
 | 🎙️ | **تصحيح التلاوة** | يستمع لتلاوتك ويقارنها بنص الآية كلمةً بكلمة، **على الجهاز نفسه** — الصوت لا يغادر الهاتف |
@@ -59,10 +60,10 @@
 
 | الملف | الحجم | ملاحظة |
 |---|---|---|
-| [Awan_v1.25.0-arm64-v8a.apk](https://github.com/omaryounesEG/awan/releases/download/v1.25.0/Awan_v1.25.0-arm64-v8a.apk) | ١٠٢٫٦ م.ب | **الأكثر شيوعًا** — هواتف أندرويد الحديثة |
-| [Awan_v1.25.0-armeabi-v7a.apk](https://github.com/omaryounesEG/awan/releases/download/v1.25.0/Awan_v1.25.0-armeabi-v7a.apk) | ٩١٫٧ م.ب | أجهزة قديمة (٣٢-بت) |
-| [1.24.1__1.25.0.patch](https://github.com/omaryounesEG/awan/releases/download/v1.25.0/1.24.1__1.25.0.patch) | ٨٫٥ م.ب | ترقية مصغّرة لمن لديه 1.24.1 |
-| [SHA256SUMS](https://github.com/omaryounesEG/awan/releases/download/v1.25.0/SHA256SUMS) | ٢٩٠ ب | بصمات التحقّق |
+| [Awan_v1.26.0-arm64-v8a.apk](https://github.com/omaryounesEG/awan/releases/download/v1.26.0/Awan_v1.26.0-arm64-v8a.apk) | ٩٩٫٦ م.ب | **الأكثر شيوعًا** — هواتف أندرويد الحديثة |
+| [Awan_v1.26.0-armeabi-v7a.apk](https://github.com/omaryounesEG/awan/releases/download/v1.26.0/Awan_v1.26.0-armeabi-v7a.apk) | ٨٩٫٢ م.ب | أجهزة قديمة (٣٢-بت) |
+| [1.25.0__1.26.0.patch](https://github.com/omaryounesEG/awan/releases/download/v1.26.0/1.25.0__1.26.0.patch) | ٩٫٩ م.ب | ترقية مصغّرة لمن لديه 1.25.0 |
+| [SHA256SUMS](https://github.com/omaryounesEG/awan/releases/download/v1.26.0/SHA256SUMS) | ٢٩٠ ب | بصمات التحقّق |
 
 1. افتح [**أحدث إصدار**](https://github.com/omaryounesEG/awan/releases/latest).
 2. نزّل `arm64-v8a` لأغلب الأجهزة، أو `armeabi-v7a` للأجهزة الأقدم.
@@ -98,6 +99,7 @@
 - **نص المصحف:** رسم عثماني، وخطوط QPC حفص بترخيصها.
 - **الحديث:** [AhmedBaset/hadith-json](https://github.com/AhmedBaset/hadith-json) — البخاري، مسلم، أبو داود، الترمذي.
 - **الأذكار:** [hisnmuslim.com](https://hisnmuslim.com) — النصوص والأصوات.
+- **رجال الحديث:** جدول رواة مشروع Hadith_RAG (الاسم العربي والدرجة والوفاة).
 - **المتشابهات:** فهرسة داخل المشروع على نص المصحف.
 - الشكر لكل من أتاح هذه المواد للاستخدام العام.
 
@@ -111,9 +113,9 @@
 - [x] المصحف، التفسير، المكتبة، المتشابهات، البحث الدلالي
 - [x] تصحيح التلاوة على الجهاز، المِعداد
 - [x] الأذكار (نصوص + صوت + تقرير شهري + وضع السيارة)
-- [x] الحديث: ٢٤٬٠٦٥ حديثًا ببحث وفلاتر وتخريج
+- [x] الحديث: ٣٦٬٠٣٨ حديثًا في سبعة كتب، ببحث وفلاتر وتخريج، وأدوات الباحث (المتون + ٢٣٬٦٥٤ راويًا)
 - [x] تحديث ذاتي عبر GitHub Releases + تحديث مصغّر
-- [ ] كتب الحديث الـ١٧ كاملة (الأربعة الآن)
+- [ ] كتب الحديث الـ١٧ كاملة (السبعة الآن)
 - [ ] نسخة iOS
 - [ ] المزيد من التفاسير والترجمات
 
@@ -138,7 +140,7 @@ on your device**. No server watching your prayers, no account tying your recitat
 your name, no ad between you and your adhkar. Open it on a plane, in a mosque, in a place
 with no signal — and it works.
 
-> Current release **v1.25.0** is usable daily; features are added and polished constantly.
+> Current release **v1.26.0** is usable daily; features are added and polished constantly.
 
 ### Features
 
@@ -149,7 +151,8 @@ with no signal — and it works.
 | 🤫 | **Smart silence** | Silences the phone only at prayer and Friday prayer, only inside the registered mosque fence — never overrides a manual silent |
 | 📿 | **Adhkar** | Morning and evening remembrances in Arabic and English as a daily task: per-thikr counter, progress, monthly report, reminder, listening and a **car mode** |
 | 📖 | **Qur'an & tafsir** | Uthmani text in QPC Hafs fonts, a concise tafsir, surah/juz navigation, saved reading position |
-| 📜 | **Hadith** | **24,065 narrations** from Bukhari, Muslim, Abu Dawud and Tirmidhi: diacritics-insensitive search, filters by book/grade/chapter, and takhrij linking the same matn across books |
+| 📜 | **Hadith** | **36,038 narrations** from seven books: Bukhari, Muslim, Abu Dawud, Tirmidhi, an-Nasa'i, Ibn Majah and Muwatta Malik — diacritics-insensitive search, filters by book/grade/chapter, and takhrij linking the same matn across books (2,759 links) |
+| 🔬 | **Researcher tools** | A sub-section for people who work with hadith: matn search showing which books narrate the same matn, and an index of **23,654 narrators** with grade and death year |
 | 🧩 | **Mutashabihat** | A knowledge graph of **865 verses** and **2,803** textual-similarity links, layered by exact and near similarity |
 | 🔎 | **Semantic search** | Search the Qur'an by meaning with a local embedding model, offline |
 | 🎙️ | **Recitation check** | Listens to your recitation and aligns it to the ayah word by word, **entirely on-device** — audio never leaves the phone |
@@ -163,10 +166,10 @@ with no signal — and it works.
 
 | File | Size | Note |
 |---|---|---|
-| [Awan_v1.25.0-arm64-v8a.apk](https://github.com/omaryounesEG/awan/releases/download/v1.25.0/Awan_v1.25.0-arm64-v8a.apk) | 102.6 MB | **Most common** — modern Android phones |
-| [Awan_v1.25.0-armeabi-v7a.apk](https://github.com/omaryounesEG/awan/releases/download/v1.25.0/Awan_v1.25.0-armeabi-v7a.apk) | 91.7 MB | Older 32-bit devices |
-| [1.24.1__1.25.0.patch](https://github.com/omaryounesEG/awan/releases/download/v1.25.0/1.24.1__1.25.0.patch) | 8.5 MB | Delta patch from 1.24.1 |
-| [SHA256SUMS](https://github.com/omaryounesEG/awan/releases/download/v1.25.0/SHA256SUMS) | 290 B | Checksums |
+| [Awan_v1.26.0-arm64-v8a.apk](https://github.com/omaryounesEG/awan/releases/download/v1.26.0/Awan_v1.26.0-arm64-v8a.apk) | 99.6 MB | **Most common** — modern Android phones |
+| [Awan_v1.26.0-armeabi-v7a.apk](https://github.com/omaryounesEG/awan/releases/download/v1.26.0/Awan_v1.26.0-armeabi-v7a.apk) | 89.2 MB | Older 32-bit devices |
+| [1.25.0__1.26.0.patch](https://github.com/omaryounesEG/awan/releases/download/v1.26.0/1.25.0__1.26.0.patch) | 9.9 MB | Delta patch from 1.25.0 |
+| [SHA256SUMS](https://github.com/omaryounesEG/awan/releases/download/v1.26.0/SHA256SUMS) | 290 B | Checksums |
 
 Open the [latest release](https://github.com/omaryounesEG/awan/releases/latest), download
 the APK for your device, allow installs from this source, and install. If Play Protect
@@ -224,9 +227,9 @@ python tools/build_hadith_asset.py --source <hadith-json books dir> --out assets
 - [x] Qur'an, tafsir, library, mutashabihat, semantic search
 - [x] On-device recitation check, Al-Mi'dad
 - [x] Adhkar (text, audio, monthly report, car mode)
-- [x] Hadith: 24,065 narrations with search, filters and takhrij
+- [x] Hadith: 36,038 narrations in seven books, with search, filters, takhrij and researcher tools (matns + 23,654 narrators)
 - [x] Self-update via GitHub Releases + delta patches
-- [ ] All 17 hadith books (four today)
+- [ ] All 17 hadith books (seven today)
 - [ ] iOS build
 - [ ] More tafsirs and translations
 

@@ -88,39 +88,69 @@ class HadithDetailScreen extends ConsumerWidget {
             hadith.text,
             style: theme.textTheme.bodyLarge?.copyWith(height: 2.0),
           ),
-          SizedBox(height: 20.h),
-          Text(
-            l10n.hadithTakhrij,
-            style: theme.textTheme.titleSmall,
-          ),
-          SizedBox(height: 4.h),
-          Text(
-            related.isEmpty ? l10n.hadithNoTakhrij : l10n.hadithTakhrijNote,
-            style: theme.textTheme.bodySmall,
-          ),
-          SizedBox(height: 10.h),
-          for (final Hadith other in related)
-            Card(
-              margin: EdgeInsets.only(bottom: 8.h),
-              child: ListTile(
-                dense: true,
-                title: Text(
-                  '${corpus.bookOf(other).ar} · ${l10n.hadithNumber} ${other.number}',
-                  style: theme.textTheme.labelMedium,
+          // Takhrij is not part of the hadith: it is a different voice, so it
+          // keeps a different colour, a smaller size and its own tinted panel.
+          // When there is none, nothing is said at all.
+          if (related.isNotEmpty) ...<Widget>[
+            SizedBox(height: 24.h),
+            Row(
+              children: <Widget>[
+                Icon(Icons.account_tree_outlined,
+                    size: 16.sp, color: theme.colorScheme.tertiary),
+                SizedBox(width: 6.w),
+                Text(
+                  l10n.hadithTakhrij,
+                  style: theme.textTheme.labelLarge?.copyWith(
+                    color: theme.colorScheme.tertiary,
+                  ),
                 ),
-                subtitle: Text(
-                  other.text,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+              ],
+            ),
+            SizedBox(height: 8.h),
+            for (final Hadith other in related)
+              Container(
+                margin: EdgeInsets.only(bottom: 8.h),
+                padding: EdgeInsets.fromLTRB(12.w, 10.h, 12.w, 10.h),
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.tertiaryContainer.withOpacity(0.35),
+                  borderRadius: BorderRadius.circular(12.r),
+                  border: Border.all(
+                    color: theme.colorScheme.tertiary.withOpacity(0.25),
+                  ),
                 ),
-                trailing: const Icon(Icons.chevron_left, size: 18),
-                onTap: () => Navigator.of(context).push(
-                  MaterialPageRoute<void>(
-                    builder: (_) => HadithDetailScreen(index: other.index),
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(12.r),
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (_) => HadithDetailScreen(index: other.index),
+                    ),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        '${corpus.bookOf(other).ar} · ${l10n.hadithNumber} ${other.number}',
+                        style: theme.textTheme.labelSmall?.copyWith(
+                          color: theme.colorScheme.tertiary,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      SizedBox(height: 4.h),
+                      Text(
+                        other.text,
+                        maxLines: 3,
+                        overflow: TextOverflow.ellipsis,
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          height: 1.6,
+                          fontStyle: FontStyle.italic,
+                          color: theme.colorScheme.onSurfaceVariant,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
-            ),
+          ],
         ],
       ),
     );

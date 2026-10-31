@@ -14,7 +14,6 @@ import 'package:awan/core/theme/app_settings_provider.dart';
 import 'package:awan/core/utils/clock_shift.dart';
 import 'package:awan/core/utils/date_x.dart';
 import 'package:awan/features/prayer_engine/domain/repositories/prayer_repository.dart';
-import 'package:awan/features/midad/presentation/screens/midad_screen.dart';
 import 'package:awan/features/prayer_engine/presentation/screens/monthly_timetable_screen.dart';
 import 'package:awan/features/mosque_radar/presentation/screens/radar_screen.dart';
 import 'package:awan/features/quran_tafseer/presentation/screens/quran_home_screen.dart';
@@ -424,22 +423,6 @@ class SettingsScreen extends ConsumerWidget {
                 onTap: () => Navigator.of(context).push(
                   MaterialPageRoute<void>(
                     builder: (BuildContext _) => const MonthlyTimetableScreen(),
-                  ),
-                ),
-              ),
-              ListTile(
-                contentPadding: EdgeInsets.zero,
-                leading: const Icon(Icons.calculate_outlined),
-                title: Text(l10n.midadTitle),
-                subtitle: Text(l10n.midadSubtitle),
-                trailing: Icon(
-                  Directionality.of(context) == TextDirection.rtl
-                      ? Icons.chevron_left
-                      : Icons.chevron_right,
-                ),
-                onTap: () => Navigator.of(context).push(
-                  MaterialPageRoute<void>(
-                    builder: (BuildContext _) => const MidadScreen(),
                   ),
                 ),
               ),

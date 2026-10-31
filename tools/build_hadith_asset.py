@@ -35,6 +35,9 @@ BOOKS = [
     ("muslim", "صحيح مسلم", "Sahih Muslim"),
     ("abudawud", "سنن أبي داود", "Sunan Abu Dawud"),
     ("tirmidhi", "جامع الترمذي", "Jami' at-Tirmidhi"),
+    ("nasai", "سنن النسائي", "Sunan an-Nasa'i"),
+    ("ibnmajah", "سنن ابن ماجه", "Sunan Ibn Majah"),
+    ("malik", "موطأ مالك", "Muwatta Malik"),
 ]
 
 GRADES = ["sahih", "hasan", "hasan_sahih", "daif", "unspecified"]
@@ -90,13 +93,14 @@ def matn_of(arabic: str) -> str:
 def grade_of(book: str, arabic: str) -> str:
     if book in ("bukhari", "muslim"):
         return "sahih"
-    text = normalize(arabic)
+    # A verdict lives at the end of the entry («قَالَ أَبُو عِيسَى: هَذَا حَدِيثٌ
+    # حَسَنٌ صَحِيحٌ»), so only the tail is searched: words like «حسن» inside the
+    # matn itself are not a grade and must never be read as one.
+    text = normalize(arabic)[-500:]
     if "حسن صحيح" in text:
         return "hasan_sahih"
-    if "ضعيف" in text or "منكر" in text or "موضوع" in text:
-        # A weak verdict is only trusted when it is the scholar speaking about
-        # *this* hadith; Tirmidhi sentences usually read «حديث ضعيف».
-        return "daif" if re.search(r"حديث (ضعيف|منكر|موضوع)", text) else "unspecified"
+    if re.search(r"حديث (ضعيف|منكر|موضوع)", text):
+        return "daif"
     if re.search(r"حديث حسن", text):
         return "hasan"
     if re.search(r"حديث صحيح", text):
@@ -165,14 +169,14 @@ def main() -> None:
             linked += 1
 
     doc = {
-        "v": 1,
+        "v": 2,
         "gradeLabels": [GRADE_AR[g] for g in GRADES],
         "books": books,
         "hadiths": hadiths,
     }
     os.makedirs(args.out, exist_ok=True)
     raw = json.dumps(doc, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
-    path = os.path.join(args.out, "hadith_v1.json.gz")
+    path = os.path.join(args.out, "hadith_v2.json.gz")
     with gzip.open(path, "wb", compresslevel=9) as handle:
         handle.write(raw)
 

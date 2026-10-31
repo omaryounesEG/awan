@@ -2,7 +2,7 @@ name: awan
 description: "أَوَان | Awan — مواقيت الصلاة والقرآن: Islamic super app (offline-first, 60fps, battery friendly)."
 publish_to: 'none'
 
-version: 1.25.0+31
+version: 1.26.0+32
 
 environment:
   sdk: ^3.5.3
