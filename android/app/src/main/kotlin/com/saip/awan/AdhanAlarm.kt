@@ -38,6 +38,20 @@ object AdhanAlarm {
     private const val KEY_PLAN = "plan"
     private const val TAG = "AwanAdhanAlarm"
 
+    /** How many alarms are still ahead — the settings tile shows a real number. */
+    fun pending(context: Context): Int {
+        val stored = JSONArray(
+            context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+                .getString(KEY_PLAN, "[]") ?: "[]"
+        )
+        val now = System.currentTimeMillis()
+        var live = 0
+        for (i in 0 until stored.length()) {
+            if (stored.optJSONObject(i)?.optLong("at", 0L) ?: 0L > now) live++
+        }
+        return live
+    }
+
     fun schedule(context: Context, items: List<Map<String, Any?>>) {
         val manager =
             context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
@@ -268,7 +282,7 @@ object AdhanNotification {
             val sound = Uri.parse(
                 "android.resource://${context.packageName}/" +
                     context.resources.getIdentifier(
-                        "allah_akbar",
+                        "adhan_1",
                         "raw",
                         context.packageName
                     )

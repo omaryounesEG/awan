@@ -10,6 +10,7 @@ import 'package:awan/core/l10n/l10n.dart';
 import 'package:awan/core/network/network_info.dart';
 import 'package:awan/core/providers/core_providers.dart';
 import 'package:awan/core/settings/app_settings.dart';
+import 'package:awan/features/prayer_engine/domain/entities/scheduled_adhan.dart';
 import 'package:awan/features/prayer_engine/presentation/l10n/reminder_wording.dart';
 import 'package:awan/core/utils/clock_shift.dart';
 import 'package:awan/core/utils/labels.dart';
@@ -68,6 +69,20 @@ final Provider<PrayerRepository> prayerRepositoryProvider =
       return (
         title: '${l10n.adhan} · $name',
         body: '$clock${city.isEmpty ? '' : ' — $city'}',
+      );
+    },
+    // The Eid takbir: twice a year, twenty-five minutes before sunrise, and
+    // never a substitute for the adhan of that morning.
+    eidText: (EidKind kind, DateTime at) {
+      final AppSettings s = ref.read(settingsProvider);
+      final l10n = localizationsFor(s.localeCode);
+      final String name =
+          kind == EidKind.fitr ? l10n.eidFitr : l10n.eidAdha;
+      final String clock = formatClock(at, s.localeCode);
+      final String city = s.isArabic ? s.cityAr : s.cityEn;
+      return (
+        title: '${l10n.eidTakbirTitle} · $name',
+        body: '${l10n.eidTakbirBody} — $clock${city.isEmpty ? '' : ' · $city'}',
       );
     },
     // «باقي ٢٠ دقيقة على العصر» — a warning, not an announcement, so it is

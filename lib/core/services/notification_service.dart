@@ -240,6 +240,18 @@ class NotificationService {
     // it back later is the same channel with the same sound. The clips live in
     // `android/app/src/main/res/raw`, because the sound of a notification is
     // played by the system, which cannot read a Flutter asset.
+    await android.createNotificationChannel(
+      AndroidNotificationChannel(
+        kEidChannelId,
+        'تكبيرات العيد',
+        description: adhanDescription,
+        importance: Importance.max,
+        playSound: true,
+        sound: const RawResourceAndroidNotificationSound('takbirat'),
+        enableVibration: true,
+        audioAttributesUsage: AudioAttributesUsage.alarm,
+      ),
+    );
     for (final AdhanSound sound in AdhanSound.bundled) {
       final String? raw = sound.rawResource;
       if (raw == null) continue;
@@ -284,6 +296,7 @@ class NotificationService {
     AdhanSound adhanSound = AdhanSound.system,
     AdhanSound preAdhanSound = AdhanSound.silent,
     String? channelName,
+    List<EidMoment> eidMoments = const <EidMoment>[],
   }) async {
     await init();
     await _plugin.cancelAll();
@@ -420,6 +433,21 @@ class NotificationService {
         }
       }
     }
+    // The Eid takbir rides the same native plan (one notification id, one
+    // cancellation sweep) but its own channel, because its clip is not an adhan.
+    if (Platform.isAndroid) {
+      for (int i = 0; i < eidMoments.length; i++) {
+        final EidMoment moment = eidMoments[i];
+        if (!moment.at.isAfter(now)) continue;
+        nativeAdhans.add(<String, Object?>{
+          'id': 900001 + i,
+          'at': moment.at.millisecondsSinceEpoch,
+          'title': moment.title,
+          'body': moment.body,
+          'channel': kEidChannelId,
+        });
+      }
+    }
     if (Platform.isAndroid && nativeAdhans.isNotEmpty) {
       try {
         await _adhanAlarms.invokeMethod<int>(
@@ -541,6 +569,16 @@ class NotificationService {
   /// shows it, so "no adhan today" can never be a silent failure.
   Future<int> pendingCount() async {
     await init();
+    if (Platform.isAndroid) {
+      // The adhan plan lives in AlarmManager now, not in the plugin's store, so
+      // asking the plugin alone would always answer zero.
+      try {
+        final int? armed = await _adhanAlarms.invokeMethod<int>('count');
+        if (armed != null) return armed;
+      } catch (_) {
+        // Fall through to the plugin's own count.
+      }
+    }
     final List<PendingNotificationRequest> pending = await _pendingOrEmpty();
     return pending
         .where((PendingNotificationRequest r) => NotificationIds.isAdhanId(r.id))
@@ -567,6 +605,9 @@ class NotificationService {
   // sound at creation. A device that first created `awan.adhan` without a sound
   // keeps it silent for the life of the install, so fixing the sound means a new
   // channel id — the old one is simply abandoned.
+  /// The Eid takbir channel: `takbirat.mp3`, created once at init.
+  static const String kEidChannelId = 'awan.eid.takbirat';
+
   static const String kAdhanChannelId = AdhanSound.systemAdhanChannelId;
   static const String kAdhanVibrateChannelId = AdhanSound.vibrateChannelId;
   static const String kAdhanQuietChannelId = AdhanSound.quietChannelId;

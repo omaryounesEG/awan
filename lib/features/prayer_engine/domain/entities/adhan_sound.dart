@@ -16,18 +16,20 @@ enum AdhanSound {
   /// Nothing at all — the notification still shows.
   silent('silent', 'silent', null),
 
-  /// «الله أكبر» — the takbir opening.
-  takbir('allah_akbar', 'takbir', 'allah_akbar'),
+  /// «أذان ١» — a full call to prayer.
+  adhanOne('adhan_1', 'adhan1', 'adhan_1'),
 
-  /// «أسرع على خالقك» — a short call.
-  call('aser_ela_khaleky', 'call', 'aser_ela_khaleky'),
+  /// «أذان ٢» — a second full call, a different voice.
+  adhanTwo('adhan_2', 'adhan2', 'adhan_2'),
 
-  /// «أذان الصلاة» — the full adhan.
-  adhan('azan_salah', 'adhan', 'azan_salah'),
+  /// «تنبيه ١» — a short alert rather than a recitation.
+  tanbihOne('tanbih_1', 'tanbih1', 'tanbih_1'),
 
-  /// A plain ringtone, no voice: for a phone that should *tell* you it is
-  /// prayer time without reciting the adhan in a meeting.
-  ring('nokia_notification', 'ring', 'nokia_notification');
+  /// «تنبيه ٢» — a brief chime.
+  tanbihTwo('tanbih_2', 'tanbih2', 'tanbih_2'),
+
+  /// «تنبيه ٣» — the longest of the three alerts.
+  tanbihThree('tanbih_3', 'tanbih3', 'tanbih_3');
 
   const AdhanSound(this.wire, this.key, this.rawResource);
 
@@ -52,10 +54,11 @@ enum AdhanSound {
 
   /// The clips the reader can audition, in the order they are offered.
   static const List<AdhanSound> bundled = <AdhanSound>[
-    takbir,
-    call,
-    adhan,
-    ring,
+    adhanOne,
+    adhanTwo,
+    tanbihOne,
+    tanbihTwo,
+    tanbihThree,
   ];
 
   /// A stored value back to a choice. An unknown or missing value is the system

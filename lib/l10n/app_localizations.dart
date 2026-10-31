@@ -2579,24 +2579,6 @@ abstract class AppLocalizations {
   /// **'No sound'**
   String get soundSilent;
 
-  /// No description provided for @soundTakbir.
-  ///
-  /// In en, this message translates to:
-  /// **'Alert 1'**
-  String get soundTakbir;
-
-  /// No description provided for @soundCall.
-  ///
-  /// In en, this message translates to:
-  /// **'Alert 2'**
-  String get soundCall;
-
-  /// No description provided for @soundAdhan.
-  ///
-  /// In en, this message translates to:
-  /// **'Alert 3'**
-  String get soundAdhan;
-
   /// No description provided for @soundPreview.
   ///
   /// In en, this message translates to:
@@ -2626,12 +2608,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Time since the adhan — clears after twenty minutes'**
   String get elapsedHint;
-
-  /// No description provided for @soundRing.
-  ///
-  /// In en, this message translates to:
-  /// **'Alert 4'**
-  String get soundRing;
 
   /// No description provided for @jumuahSilentTitle.
   ///
@@ -4324,6 +4300,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Taken from the narrator table of the Hadith_RAG project: Arabic name, grade, death year, place. «Unclassified» means the source did not grade that narrator — not a verdict.'**
   String get hadithRijalSourceBody;
+
+  /// No description provided for @soundAdhan1.
+  ///
+  /// In en, this message translates to:
+  /// **'Adhan 1'**
+  String get soundAdhan1;
+
+  /// No description provided for @soundAdhan2.
+  ///
+  /// In en, this message translates to:
+  /// **'Adhan 2'**
+  String get soundAdhan2;
+
+  /// No description provided for @soundTanbih1.
+  ///
+  /// In en, this message translates to:
+  /// **'Alert 1'**
+  String get soundTanbih1;
+
+  /// No description provided for @soundTanbih2.
+  ///
+  /// In en, this message translates to:
+  /// **'Alert 2'**
+  String get soundTanbih2;
+
+  /// No description provided for @soundTanbih3.
+  ///
+  /// In en, this message translates to:
+  /// **'Alert 3'**
+  String get soundTanbih3;
+
+  /// No description provided for @eidTakbirTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Eid takbir'**
+  String get eidTakbirTitle;
+
+  /// No description provided for @eidFitr.
+  ///
+  /// In en, this message translates to:
+  /// **'Eid al-Fitr'**
+  String get eidFitr;
+
+  /// No description provided for @eidAdha.
+  ///
+  /// In en, this message translates to:
+  /// **'Eid al-Adha'**
+  String get eidAdha;
+
+  /// No description provided for @eidTakbirBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Twenty-five minutes before sunrise'**
+  String get eidTakbirBody;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

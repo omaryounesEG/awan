@@ -25,6 +25,7 @@ class _FakeScheduler implements AdhanSchedulerPort {
     required AdhanSound preAdhanSound,
     required bool vibrate,
     required String channelName,
+    List<EidMoment> eidMoments = const <EidMoment>[],
   }) async {
     this.items = items;
     this.preAdhanSound = preAdhanSound;

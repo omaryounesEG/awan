@@ -15,6 +15,7 @@ abstract interface class AdhanSchedulerPort {
     required AdhanSound preAdhanSound,
     required bool vibrate,
     required String channelName,
+    List<EidMoment> eidMoments = const <EidMoment>[],
   });
 
   /// Drops every pending adhan notification (silence alarms are a different id

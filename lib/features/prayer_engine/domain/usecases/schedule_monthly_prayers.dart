@@ -2,6 +2,7 @@ import 'package:awan/core/constants/app_constants.dart';
 import 'package:awan/core/settings/app_settings.dart';
 import 'package:awan/features/prayer_engine/domain/entities/prayer_entities.dart';
 import 'package:awan/features/prayer_engine/domain/entities/scheduled_adhan.dart';
+import 'package:awan/features/prayer_engine/domain/usecases/eid_planning.dart';
 import 'package:awan/features/prayer_engine/domain/repositories/adhan_scheduler_port.dart';
 import 'package:awan/features/prayer_engine/domain/usecases/calculate_prayer_times.dart';
 
@@ -25,6 +26,7 @@ class ScheduleMonthlyPrayers {
     required this.engine,
     required this.scheduler,
     this.reminderText,
+    this.eidText,
   });
 
   final CalculatePrayerTimes engine;
@@ -33,6 +35,10 @@ class ScheduleMonthlyPrayers {
   /// Wording for the hourglass. Null keeps the old behaviour (the reminder
   /// repeats the adhan's own wording) so an existing caller never breaks.
   final AdhanReminderTextBuilder? reminderText;
+
+  /// Wording of the Eid takbir. Null means the caller did not ask for Eid
+  /// takbirs, and none are planned.
+  final EidTextBuilder? eidText;
 
   /// [onDay] is a seam for the caller (data layer) to persist each computed day
   /// without the domain ever knowing about Isar.
@@ -147,6 +153,32 @@ class ScheduleMonthlyPrayers {
       preAdhanSound: settings.preAdhanSound,
       vibrate: settings.notificationVibration,
       channelName: channelName,
+      eidMoments: _eidMoments(
+        settings: settings,
+        spec: spec,
+        shiftMinutes: shiftMinutes,
+        build: eidText,
+      ),
+    );
+  }
+
+  /// The two Eids of the coming year, each at sunrise minus twenty-five minutes.
+  List<EidMoment> _eidMoments({
+    required AppSettings settings,
+    required PrayerCalcSpec spec,
+    required int shiftMinutes,
+    required EidTextBuilder? build,
+  }) {
+    if (build == null || !settings.notificationsEnabled) {
+      return const <EidMoment>[];
+    }
+    return planEidMoments(
+      now: DateTime.now(),
+      hijriOffsetDays: settings.hijriOffsetDays,
+      sunriseOf: (DateTime day) =>
+          engine.forDate(date: day, spec: spec).timeOf(PrayerName.sunrise),
+      shiftMinutes: shiftMinutes,
+      build: build,
     );
   }
 }

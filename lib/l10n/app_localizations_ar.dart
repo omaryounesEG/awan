@@ -1343,15 +1343,6 @@ class AppLocalizationsAr extends AppLocalizations {
   String get soundSilent => 'بلا صوت';
 
   @override
-  String get soundTakbir => 'تنبيه 1';
-
-  @override
-  String get soundCall => 'تنبيه 2';
-
-  @override
-  String get soundAdhan => 'تنبيه 3';
-
-  @override
   String get soundPreview => 'تجربة';
 
   @override
@@ -1365,9 +1356,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get elapsedHint => 'الوقت منذ الأذان — يختفي بعد عشرين دقيقة';
-
-  @override
-  String get soundRing => 'تنبيه 4';
 
   @override
   String get jumuahSilentTitle => 'صامت تلقائي يوم الجمعة';
@@ -2292,4 +2280,31 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get hadithRijalSourceBody => 'الفهرس مأخوذ من جدول رواة مشروع Hadith_RAG: الاسم العربي والدرجة والوفاة ومكان الإقامة. «غير محدد» تعني أن المصدر لم يصنّف الراوي، وليست حكمًا عليه.';
+
+  @override
+  String get soundAdhan1 => 'أذان ١';
+
+  @override
+  String get soundAdhan2 => 'أذان ٢';
+
+  @override
+  String get soundTanbih1 => 'تنبيه ١';
+
+  @override
+  String get soundTanbih2 => 'تنبيه ٢';
+
+  @override
+  String get soundTanbih3 => 'تنبيه ٣';
+
+  @override
+  String get eidTakbirTitle => 'تكبيرات العيد';
+
+  @override
+  String get eidFitr => 'عيد الفطر';
+
+  @override
+  String get eidAdha => 'عيد الأضحى';
+
+  @override
+  String get eidTakbirBody => 'قبل شروق الشمس بخمس وعشرين دقيقة';
 }

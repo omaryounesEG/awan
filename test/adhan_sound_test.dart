@@ -26,10 +26,11 @@ void main() {
     test('the wire values are stable text, not indices', () {
       expect(AdhanSound.system.wire, 'system');
       expect(AdhanSound.silent.wire, 'silent');
-      expect(AdhanSound.takbir.rawResource, 'allah_akbar');
-      expect(AdhanSound.call.rawResource, 'aser_ela_khaleky');
-      expect(AdhanSound.adhan.rawResource, 'azan_salah');
-      expect(AdhanSound.ring.rawResource, 'nokia_notification');
+      expect(AdhanSound.adhanOne.rawResource, 'adhan_1');
+      expect(AdhanSound.adhanTwo.rawResource, 'adhan_2');
+      expect(AdhanSound.tanbihOne.rawResource, 'tanbih_1');
+      expect(AdhanSound.tanbihTwo.rawResource, 'tanbih_2');
+      expect(AdhanSound.tanbihThree.rawResource, 'tanbih_3');
     });
   });
 
@@ -44,10 +45,11 @@ void main() {
 
     test('the bundled clips are exactly the ones shipped in res/raw', () {
       expect(AdhanSound.bundled, <AdhanSound>[
-        AdhanSound.takbir,
-        AdhanSound.call,
-        AdhanSound.adhan,
-        AdhanSound.ring,
+        AdhanSound.adhanOne,
+        AdhanSound.adhanTwo,
+        AdhanSound.tanbihOne,
+        AdhanSound.tanbihTwo,
+        AdhanSound.tanbihThree,
       ]);
       for (final AdhanSound sound in AdhanSound.bundled) {
         expect(sound.rawResource, isNotNull);
@@ -59,9 +61,10 @@ void main() {
 
   group('channel ids', () {
     test('a bundled clip gets its own channel, so changing it can take effect', () {
-      expect(AdhanSound.adhan.adhanChannelId(), 'awan.adhan.s-adhan');
-      expect(AdhanSound.takbir.adhanChannelId(), 'awan.adhan.s-takbir');
-      expect(AdhanSound.call.reminderChannelId(), 'awan.adhan.reminder.s-call');
+      expect(AdhanSound.adhanOne.adhanChannelId(), 'awan.adhan.s-adhan1');
+      expect(AdhanSound.tanbihTwo.adhanChannelId(), 'awan.adhan.s-tanbih2');
+      expect(AdhanSound.tanbihThree.reminderChannelId(),
+          'awan.adhan.reminder.s-tanbih3');
     });
 
     test('the two non-bundled choices keep the ids already in use', () {

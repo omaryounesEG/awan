@@ -114,6 +114,34 @@ typedef AdhanTextBuilder = ({String title, String body}) Function(
   DateTime at,
 );
 
+/// Which Eid a takbir belongs to.
+enum EidKind { fitr, adha }
+
+/// The takbirat of an Eid: one instant, twenty-five minutes before sunrise.
+///
+/// It is not a prayer and not an adhan, so it never enters the adhan plan: it has
+/// its own clip (`takbirat`), its own channel, and is planned a year ahead because
+/// the two Eids are the only days it exists.
+class EidMoment {
+  const EidMoment({
+    required this.kind,
+    required this.at,
+    required this.title,
+    required this.body,
+  });
+
+  final EidKind kind;
+  final DateTime at;
+  final String title;
+  final String body;
+}
+
+/// Builds the wording of a takbir notification.
+typedef EidTextBuilder = ({String title, String body}) Function(
+  EidKind kind,
+  DateTime at,
+);
+
 /// Builds the wording of the all-day lock-screen card.
 ///
 /// One prayer, one card: the title names [next] and the body carries its clock,

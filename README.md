@@ -34,14 +34,15 @@
 لا خادم يرى صلاتك، ولا حساب يربط تلاوتك باسمك، ولا إعلان يقطع أذكارك. تفتح
 التطبيق في الطائرة، في المسجد، في مكان بلا شبكة — وكل شيء يعمل.
 
-> الإصدار الحالي **v1.26.0** صالح للاستخدام اليومي، والمزايا تُضاف وتُصقل باستمرار.
+> الإصدار الحالي **v1.27.0** صالح للاستخدام اليومي، والمزايا تُضاف وتُصقل باستمرار.
 
 ### المزايا
 
 | | الميزة | التفصيل |
 |---|---|---|
 | 🕌 | **مواقيت الصلاة** | حساب فلكي على الجهاز من إحداثياتك، بلا إنترنت، مع عدّاد للصلاة القادمة وتقويم شهري |
-| 🔔 | **الأذان** | أربعة أصوات، وإشعار واحد فقط للصلاة القادمة يُستبدله كل أذان جديد ولا يتراكم |
+| 🔔 | **الأذان** | أذان ١ وأذان ٢ وتنبيه ١–٣، وإشعار واحد فقط للصلاة القادمة يُستبدله كل أذان جديد ولا يتراكم |
+| 🕌 | **تكبيرات العيد** | تلقائيًا قبل شروق يومَي الفطر والأضحى بخمس وعشرين دقيقة، بصوت التكبيرات — دون أي ضبط يدوي |
 | 🤫 | **الصامت الذكي** | يصمت الهاتف وقت الصلاة والجمعة فقط، ومقيَّد بنطاق المسجد المسجَّل — ولا يرفع الصامت اليدوي أبدًا |
 | 📿 | **الأذكار** | أذكار الصباح والمساء بالعربية والإنجليزية كواجب يومي: عدّاد لكل ذكر، نسبة إنجاز، تقرير شهري، تذكير، واستماع مع **وضع السيارة** |
 | 📖 | **المصحف والتفسير** | نص عثماني بخطوط QPC حفص، تفسير ميسّر، تنقّل بالسور والأجزاء، وحفظ موضع القراءة |
@@ -60,10 +61,10 @@
 
 | الملف | الحجم | ملاحظة |
 |---|---|---|
-| [Awan_v1.26.0-arm64-v8a.apk](https://github.com/omaryounesEG/awan/releases/download/v1.26.0/Awan_v1.26.0-arm64-v8a.apk) | ٩٩٫٦ م.ب | **الأكثر شيوعًا** — هواتف أندرويد الحديثة |
-| [Awan_v1.26.0-armeabi-v7a.apk](https://github.com/omaryounesEG/awan/releases/download/v1.26.0/Awan_v1.26.0-armeabi-v7a.apk) | ٨٩٫٢ م.ب | أجهزة قديمة (٣٢-بت) |
-| [1.25.0__1.26.0.patch](https://github.com/omaryounesEG/awan/releases/download/v1.26.0/1.25.0__1.26.0.patch) | ٩٫٩ م.ب | ترقية مصغّرة لمن لديه 1.25.0 |
-| [SHA256SUMS](https://github.com/omaryounesEG/awan/releases/download/v1.26.0/SHA256SUMS) | ٢٩٠ ب | بصمات التحقّق |
+| [Awan_v1.27.0-arm64-v8a.apk](https://github.com/omaryounesEG/awan/releases/download/v1.27.0/Awan_v1.27.0-arm64-v8a.apk) | ١٠٣٫٨ م.ب | **الأكثر شيوعًا** — هواتف أندرويد الحديثة |
+| [Awan_v1.27.0-armeabi-v7a.apk](https://github.com/omaryounesEG/awan/releases/download/v1.27.0/Awan_v1.27.0-armeabi-v7a.apk) | ٩٢٫٩ م.ب | أجهزة قديمة (٣٢-بت) |
+| [1.26.0__1.27.0.patch](https://github.com/omaryounesEG/awan/releases/download/v1.27.0/1.26.0__1.27.0.patch) | ٨٫٠ م.ب | ترقية مصغّرة لمن لديه 1.26.0 |
+| [SHA256SUMS](https://github.com/omaryounesEG/awan/releases/download/v1.27.0/SHA256SUMS) | ٢٩٠ ب | بصمات التحقّق |
 
 1. افتح [**أحدث إصدار**](https://github.com/omaryounesEG/awan/releases/latest).
 2. نزّل `arm64-v8a` لأغلب الأجهزة، أو `armeabi-v7a` للأجهزة الأقدم.
@@ -140,14 +141,15 @@ on your device**. No server watching your prayers, no account tying your recitat
 your name, no ad between you and your adhkar. Open it on a plane, in a mosque, in a place
 with no signal — and it works.
 
-> Current release **v1.26.0** is usable daily; features are added and polished constantly.
+> Current release **v1.27.0** is usable daily; features are added and polished constantly.
 
 ### Features
 
 | | Feature | Detail |
 |---|---|---|
 | 🕌 | **Prayer times** | On-device astronomical calculation from your coordinates, next-prayer countdown, monthly timetable |
-| 🔔 | **Adhan** | Four reciters; exactly one upcoming-prayer notification, replaced by the next adhan instead of stacking |
+| 🔔 | **Adhan** | Adhan 1, Adhan 2 and alerts 1–3; exactly one upcoming-prayer notification, replaced by the next adhan instead of stacking |
+| 🕌 | **Eid takbir** | Automatically twenty-five minutes before sunrise on both Eids, using the takbir clip — no setup |
 | 🤫 | **Smart silence** | Silences the phone only at prayer and Friday prayer, only inside the registered mosque fence — never overrides a manual silent |
 | 📿 | **Adhkar** | Morning and evening remembrances in Arabic and English as a daily task: per-thikr counter, progress, monthly report, reminder, listening and a **car mode** |
 | 📖 | **Qur'an & tafsir** | Uthmani text in QPC Hafs fonts, a concise tafsir, surah/juz navigation, saved reading position |
@@ -166,10 +168,10 @@ with no signal — and it works.
 
 | File | Size | Note |
 |---|---|---|
-| [Awan_v1.26.0-arm64-v8a.apk](https://github.com/omaryounesEG/awan/releases/download/v1.26.0/Awan_v1.26.0-arm64-v8a.apk) | 99.6 MB | **Most common** — modern Android phones |
-| [Awan_v1.26.0-armeabi-v7a.apk](https://github.com/omaryounesEG/awan/releases/download/v1.26.0/Awan_v1.26.0-armeabi-v7a.apk) | 89.2 MB | Older 32-bit devices |
-| [1.25.0__1.26.0.patch](https://github.com/omaryounesEG/awan/releases/download/v1.26.0/1.25.0__1.26.0.patch) | 9.9 MB | Delta patch from 1.25.0 |
-| [SHA256SUMS](https://github.com/omaryounesEG/awan/releases/download/v1.26.0/SHA256SUMS) | 290 B | Checksums |
+| [Awan_v1.27.0-arm64-v8a.apk](https://github.com/omaryounesEG/awan/releases/download/v1.27.0/Awan_v1.27.0-arm64-v8a.apk) | 103.8 MB | **Most common** — modern Android phones |
+| [Awan_v1.27.0-armeabi-v7a.apk](https://github.com/omaryounesEG/awan/releases/download/v1.27.0/Awan_v1.27.0-armeabi-v7a.apk) | 92.9 MB | Older 32-bit devices |
+| [1.26.0__1.27.0.patch](https://github.com/omaryounesEG/awan/releases/download/v1.27.0/1.26.0__1.27.0.patch) | 8.0 MB | Delta patch from 1.26.0 |
+| [SHA256SUMS](https://github.com/omaryounesEG/awan/releases/download/v1.27.0/SHA256SUMS) | 290 B | Checksums |
 
 Open the [latest release](https://github.com/omaryounesEG/awan/releases/latest), download
 the APK for your device, allow installs from this source, and install. If Play Protect

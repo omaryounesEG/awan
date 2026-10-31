@@ -53,6 +53,7 @@ class PrayerRepositoryImpl implements PrayerRepository, AdhanSchedulerPort {
     required AudioManagerService silentMode,
     required AppSettings Function() settings,
     required AdhanTextBuilder adhanText,
+    EidTextBuilder? eidText,
     required ChannelNameBuilder channelNames,
     AdhanReminderTextBuilder? reminderText,
     LockScreenCardTextBuilder? cardText,
@@ -65,6 +66,7 @@ class PrayerRepositoryImpl implements PrayerRepository, AdhanSchedulerPort {
         _silentMode = silentMode,
         _settings = settings,
         _adhanText = adhanText,
+    _eidText = eidText,
         _reminderText = reminderText,
         _cardText = cardText,
         _elapsedText = elapsedText,
@@ -78,6 +80,10 @@ class PrayerRepositoryImpl implements PrayerRepository, AdhanSchedulerPort {
   final AudioManagerService _silentMode;
   final AppSettings Function() _settings;
   final AdhanTextBuilder _adhanText;
+
+  /// Wording of the Eid takbir; owned by the presentation layer like every other
+  /// user-visible string, so the repository stays language-blind.
+  final EidTextBuilder? _eidText;
   final AdhanReminderTextBuilder? _reminderText;
 
   /// Wording of the all-day lock-screen card, built from the same prayer label
@@ -267,6 +273,7 @@ class PrayerRepositoryImpl implements PrayerRepository, AdhanSchedulerPort {
       engine: const CalculatePrayerTimes(),
       scheduler: this,
       reminderText: _reminderText,
+      eidText: _eidText,
     );
 
     final List<DayPrayerTimes> computed = <DayPrayerTimes>[];
@@ -368,6 +375,7 @@ class PrayerRepositoryImpl implements PrayerRepository, AdhanSchedulerPort {
     required AdhanSound preAdhanSound,
     required bool vibrate,
     required String channelName,
+    List<EidMoment> eidMoments = const <EidMoment>[],
   }) async {
     final int scheduled = await _notifications.replaceSchedule(
       items,
@@ -375,6 +383,7 @@ class PrayerRepositoryImpl implements PrayerRepository, AdhanSchedulerPort {
       preAdhanSound: preAdhanSound,
       vibrate: vibrate,
       channelName: channelName,
+      eidMoments: eidMoments,
     );
     // `replaceSchedule` cancels every pending notification, adhkar included;
     // put the two nudges back so a monthly rebuild never silences them.

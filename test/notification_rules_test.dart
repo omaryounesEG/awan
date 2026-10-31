@@ -17,23 +17,21 @@ void main() {
           File('lib/l10n/app_$lang.arb').readAsStringSync(),
         ) as Map<String, dynamic>;
 
-    test('the bundled clips are numbered, not named after their files', () {
-      for (final String lang in <String>['ar', 'en']) {
-        final Map<String, dynamic> strings = arb(lang);
-        final String prefix = lang == 'ar' ? 'تنبيه ' : 'Alert ';
-        for (final (String key, int n) in <(String, int)>[
-          ('soundTakbir', 1),
-          ('soundCall', 2),
-          ('soundAdhan', 3),
-          ('soundRing', 4),
-        ]) {
-          expect(
-            strings[key],
-            '$prefix$n',
-            reason: '$lang/$key must not mention the raw asset name',
-          );
-        }
-      }
+    test('the clips keep the names printed on the files: adhan 1–2, alert 1–3',
+        () {
+      const Map<String, (String, String)> expected = <String, (String, String)>{
+        'soundAdhan1': ('أذان ١', 'Adhan 1'),
+        'soundAdhan2': ('أذان ٢', 'Adhan 2'),
+        'soundTanbih1': ('تنبيه ١', 'Alert 1'),
+        'soundTanbih2': ('تنبيه ٢', 'Alert 2'),
+        'soundTanbih3': ('تنبيه ٣', 'Alert 3'),
+      };
+      final Map<String, dynamic> ar = arb('ar');
+      final Map<String, dynamic> en = arb('en');
+      expected.forEach((String key, (String, String) names) {
+        expect(ar[key], names.$1, reason: 'ar/$key');
+        expect(en[key], names.$2, reason: 'en/$key');
+      });
     });
 
     test('no label leaks an asset file name', () {
@@ -42,7 +40,7 @@ void main() {
           if (!entry.key.startsWith('sound')) continue;
           expect(
             '${entry.value}',
-            isNot(matches(RegExp(r'azan_salah|nokia_notification|aser_ela|allah_akbar'))),
+            isNot(matches(RegExp(r'azan_salah|nokia_notification|aser_ela|allah_akbar|adhan_1|tanbih_'))),
             reason: '${entry.key} in $lang',
           );
         }

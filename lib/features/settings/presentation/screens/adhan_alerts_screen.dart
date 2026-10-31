@@ -424,10 +424,11 @@ class _SoundPickerState extends ConsumerState<_SoundPicker> {
   String _label(AppLocalizations l10n, AdhanSound sound) => switch (sound) {
         AdhanSound.system => l10n.soundSystem,
         AdhanSound.silent => l10n.soundSilent,
-        AdhanSound.takbir => l10n.soundTakbir,
-        AdhanSound.call => l10n.soundCall,
-        AdhanSound.adhan => l10n.soundAdhan,
-        AdhanSound.ring => l10n.soundRing,
+        AdhanSound.adhanOne => l10n.soundAdhan1,
+        AdhanSound.adhanTwo => l10n.soundAdhan2,
+        AdhanSound.tanbihOne => l10n.soundTanbih1,
+        AdhanSound.tanbihTwo => l10n.soundTanbih2,
+        AdhanSound.tanbihThree => l10n.soundTanbih3,
       };
 
   @override

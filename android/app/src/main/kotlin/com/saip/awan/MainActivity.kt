@@ -257,6 +257,7 @@ class MainActivity : FlutterActivity() {
                         AdhanAlarm.cancelAll(this)
                         result.success(null)
                     }
+                    "count" -> result.success(AdhanAlarm.pending(this))
                     else -> result.notImplemented()
                 }
             }

@@ -770,15 +770,11 @@
   "preAdhanSoundHint": "مقطع التنبيه الذي يسبق الأذان بعشرين دقيقة.",
   "soundSystem": "صوت النظام — نغمة المنبّه",
   "soundSilent": "بلا صوت",
-  "soundTakbir": "تنبيه 1",
-  "soundCall": "تنبيه 2",
-  "soundAdhan": "تنبيه 3",
   "soundPreview": "تجربة",
   "soundStop": "إيقاف",
   "readerPages": "صفحات الكتاب",
   "adhanPassed": "مضى على الأذان",
   "elapsedHint": "الوقت منذ الأذان — يختفي بعد عشرين دقيقة",
-  "soundRing": "تنبيه 4",
   "jumuahSilentTitle": "صامت تلقائي يوم الجمعة",
   "jumuahSilentHint": "من أذان الجمعة ولمدة تحددها بالدقائق.",
   "libraryInstallAll": "تثبيت الكتب المضمَّنة",
@@ -1266,5 +1262,14 @@
         "type": "int"
       }
     }
-  }
+  },
+  "soundAdhan1": "أذان ١",
+  "soundAdhan2": "أذان ٢",
+  "soundTanbih1": "تنبيه ١",
+  "soundTanbih2": "تنبيه ٢",
+  "soundTanbih3": "تنبيه ٣",
+  "eidTakbirTitle": "تكبيرات العيد",
+  "eidFitr": "عيد الفطر",
+  "eidAdha": "عيد الأضحى",
+  "eidTakbirBody": "قبل شروق الشمس بخمس وعشرين دقيقة"
 }

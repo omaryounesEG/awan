@@ -777,15 +777,11 @@
   "preAdhanSoundHint": "The clip for the reminder twenty minutes before the adhan.",
   "soundSystem": "System — the phone's alarm tone",
   "soundSilent": "No sound",
-  "soundTakbir": "Alert 1",
-  "soundCall": "Alert 2",
-  "soundAdhan": "Alert 3",
   "soundPreview": "Audition",
   "soundStop": "Stop",
   "readerPages": "The book's pages",
   "adhanPassed": "Since the adhan",
   "elapsedHint": "Time since the adhan — clears after twenty minutes",
-  "soundRing": "Alert 4",
   "jumuahSilentTitle": "Auto-silent on Friday",
   "jumuahSilentHint": "From the Jumu'ah adhan, for the minutes you choose.",
   "libraryInstallAll": "Install bundled books",
@@ -1273,5 +1269,14 @@
         "type": "int"
       }
     }
-  }
+  },
+  "soundAdhan1": "Adhan 1",
+  "soundAdhan2": "Adhan 2",
+  "soundTanbih1": "Alert 1",
+  "soundTanbih2": "Alert 2",
+  "soundTanbih3": "Alert 3",
+  "eidTakbirTitle": "Eid takbir",
+  "eidFitr": "Eid al-Fitr",
+  "eidAdha": "Eid al-Adha",
+  "eidTakbirBody": "Twenty-five minutes before sunrise"
 }

@@ -1343,15 +1343,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get soundSilent => 'No sound';
 
   @override
-  String get soundTakbir => 'Alert 1';
-
-  @override
-  String get soundCall => 'Alert 2';
-
-  @override
-  String get soundAdhan => 'Alert 3';
-
-  @override
   String get soundPreview => 'Audition';
 
   @override
@@ -1365,9 +1356,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get elapsedHint => 'Time since the adhan — clears after twenty minutes';
-
-  @override
-  String get soundRing => 'Alert 4';
 
   @override
   String get jumuahSilentTitle => 'Auto-silent on Friday';
@@ -2292,4 +2280,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get hadithRijalSourceBody => 'Taken from the narrator table of the Hadith_RAG project: Arabic name, grade, death year, place. «Unclassified» means the source did not grade that narrator — not a verdict.';
+
+  @override
+  String get soundAdhan1 => 'Adhan 1';
+
+  @override
+  String get soundAdhan2 => 'Adhan 2';
+
+  @override
+  String get soundTanbih1 => 'Alert 1';
+
+  @override
+  String get soundTanbih2 => 'Alert 2';
+
+  @override
+  String get soundTanbih3 => 'Alert 3';
+
+  @override
+  String get eidTakbirTitle => 'Eid takbir';
+
+  @override
+  String get eidFitr => 'Eid al-Fitr';
+
+  @override
+  String get eidAdha => 'Eid al-Adha';
+
+  @override
+  String get eidTakbirBody => 'Twenty-five minutes before sunrise';
 }
